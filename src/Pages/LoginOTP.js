@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
-import Logo from '../Photos/Logo.png'
-import CAN from '../Photos/CAN.png'
+import LogoCAn from '../Photos/LogoCAn.png'
+import CANa from '../Photos/CANa.png'
 import WelcomeScreen from '../Photos/WelcomeScreen.png'
 import Video from '../Photos/Video.png'
 import { Link } from 'react-router-dom'
@@ -25,16 +25,16 @@ const LoginOTP = () => {
     return (
         <>
 
-            <div className='ml-[80px] mt-2 absolute flex items-center '>
-                <img src={Logo} alt='not found' className='w-[80px] h-[80px]' />
-                <img src={CAN} alt='not found' className='w-[42.88px] h-[16.19px]  ' />
+            <div className='lg:ml-[80px] mt-2 lg:absolute flex items-center justify-center  '>
+                <img src={LogoCAn} alt='not found' className='w-[80px] h-[80px]' />
+                <img src={CANa} alt='not found' className='w-[42.88px] h-[16.19px]  ' />
             </div>
             <div>
 
 
-                <div className='flex'>
+                <div className='flex lg:flex-row lg:p-0 p-2 items-center justify-center'>
 
-                    <div className=' w-[55%] mt-20  flex flex-col items-center justify-center '>
+                    <div className=' hidden lg:block w-[55%] mt-20  flex flex-col items-center justify-center '>
                         <div className=' flex flex-col items-center justify-center gap-4'>
                             {/* <img src={WelcomeScreen} className='' /> */}
                             <div className='ml-[10%]'>
@@ -48,7 +48,7 @@ const LoginOTP = () => {
                                 <p className='text-center text-[18px] font-semibold'> all in one place.</p>
                             </div>
 
-                            <div className='flex flex-row items-center gap-4 mt-2 '>
+                            <div className='flex flex-row items-center gap-4 mt-14 '>
                                 <div className='h-[12px] w-[12px] rounded-full bg-[#E7E7E7]'></div>
                                 <div className='h-[12px] w-[12px] rounded-full bg-[#EFC319]'></div>
                                 <div className='h-[12px] w-[12px] rounded-full bg-[#E7E7E7]'></div>
@@ -63,14 +63,14 @@ const LoginOTP = () => {
 
 
                     {/* right side */}
-                    <div className='h-[100vh] flex items-center'>
-                        <div className='h-[90%] w-[60vh] shadow-xl mx-24 bg-[#D0F5D3] bg-opacity-10 z-10 backdrop-blur-md rounded-[20px]' style={{
+                    <div className='h-full  flex items-center mt-4  lg:mt-10 lg:bottom-10'>
+                        <div className='lg:h-[600px] lg:w-[420px] w-[330px] lg:mx-24 bg-[#D0F5D3] bg-opacity-10 z-10 backdrop-blur-md rounded-[20px]' style={{
                             boxShadow: '0px 0px 50px rgba(0, 0, 0, 0.1)'
                         }}>
                             <div>
-                                <img src={vibird1} alt='none' />
+                                <img className='object-contain' src={vibird1} alt='none' />
                             </div>
-                            <div className='text-center text-3xl font-semibold p-1 text-[#EFC319]'>
+                            <div className='text-center lg:text-3xl text-[24px] font-semibold p-1 text-[#EFC319]'>
                                 <h1>OTP Verification</h1>
                             </div>
                             <div className='text-center py-4'>Enter the OTP sent to you</div>
