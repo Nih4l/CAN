@@ -6,6 +6,8 @@ import { IoCloseCircleSharp } from 'react-icons/io5'
 import { BsFileEarmarkPdf } from 'react-icons/bs'
 import { MdOutlineCloudUpload } from 'react-icons/md'
 import { RxCross1 } from 'react-icons/rx'
+import SideMenu from '../Components/SideMenu'
+import { BiCalendarAlt } from 'react-icons/bi'
 
 const HealthCard = () => {
 
@@ -43,41 +45,44 @@ const HealthCard = () => {
 
     return (
         <>
-            <div className=' h-[100%]'>
 
-                <div>
+            <div className='flex flex-row min-h-screen h-[100%] bg-[#FEF8FD] '>
+            
+            <div className='sticky flex flex-row'><SideMenu/></div>
+            <div className=' flex flex-col items-center w-screen'>
+                <div className='bg-white w-full '>
                     <HomeNav />
                 </div>
-
-                <div className='flex'>
+                <div className='bg-[#FEF8FD] w-full flex flex-col items-center '>
+                
+                
                     {/* background */}
-                    <div className='bg-[#FEF8FD] h-[100vh] w-full flex flex-row'>
-
-
-                        <div className='flex flex-col w-[90%] mx-[5%]'>
-                            <h1 className='ml-[8%] mt-6 text-lg font-semibold'>Appointment</h1>
-                            <div className='bg-white h-[80vh] ml-[8%] mt-2 rounded-2xl shadow-xl flex flex-col items-center justify-center' >
+                   
+                        <div className='flex flex-col w-[90%] mx-[5%] justify-center'>
+                            <h1 className=' my-6 text-lg font-semibold self-start'>Appointments</h1>
+                            <div className='bg-white  rounded-[16px] flex flex-col items-center gap-8 justify-center py-[100px]' >
                                 <div>
                                     <img src={Appoint} alt='Health_Record.jpg' />
                                 </div>
-                                <div className='w-[50%] text-lg text-center mt-3'>
-                                    Add your Appointment and there timing here
-                                    so we can help you talking them on time.
+                                <div className='w-[30%]  text-center'>
+                                   <p className=' text-[16px] text-[#696969]'>Add your Appointment and there timing here
+                                    so we can help you talking them on time.</p> 
                                 </div>
                                 <Link to=''>
-                                    <div className='mt-3 bg-[#F2CF47] text-white px-3 py-1 rounded-3xl' onClick={PopUp}>
+                                    <div className=' bg-[#F2CF47] text-white px-4 py-2 rounded-[20px]' onClick={PopUp}>
                                         Add Appointments
                                     </div>
                                 </Link>
                             </div>
 
                         </div>
-
-
-
                     </div>
-                </div>
-            </div>
+                    </div>
+                    </div>
+               
+                
+                
+                
 
 
             {/* pop up */}
@@ -86,11 +91,11 @@ const HealthCard = () => {
                     className='fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50'
                     style={{ backdropFilter: 'blur(2px)' }}>
 
-                    <div className='w-[40%] h-[80%] bg-white rounded-3xl flex flex-col justify-center px-5 relative'>
+                    <div className='w-[40%] h-[83%] bg-white rounded-[24px] flex flex-col justify-center px-5 relative'>
 
                         <div className='flex items-center justify-center font-semibold'>
                             <h1 className='text-lg'>Add Appointment</h1>
-                            <div className='absolute right-[8%]' onClick={PopUp} >
+                            <div className='absolute right-[8%] cursor-pointer' onClick={PopUp}  >
                                 <RxCross1 />
                             </div>
                         </div>
@@ -98,9 +103,9 @@ const HealthCard = () => {
                         <div className='h-[80%] w-[100%] flex flex-col items-center'>
                             <div className='w-[90%] h-[50%] mt-[3%] border-dotted rounded-lg border-2 border-gray-300 flex flex-col justify-center items-center'>
                                 {!PDF && (<>
-                                    <div className='text-sm text-[#7E7E7E] p-2 w-full'>
+                                    <div className='text-[12px] text-[#7E7E7E] pr-10 py-2 w-full'>
 
-                                        <p className='w-full text-right'>Max File Size: 3 MB</p>
+                                        <p className='w-full text-right italic'>Max File Size: 3 MB</p>
                                     </div>
                                     <div className='flex flex-col items-center mb-4'>
                                         <MdOutlineCloudUpload size={50} color='#7E7E7E' />
@@ -135,29 +140,38 @@ const HealthCard = () => {
                             </div>
 
                             <form className='flex flex-wrap justify-between mx-[4%] mt-4'>
-                                <div className='w-[46%] border-2 m-2 p-2 rounded-xl'><input placeholder='Appointment name' className='w-full px-2' /></div>
-                                <div className='w-[46%] border-2 m-2 p-2 rounded-xl'><input placeholder="Doctor's name" className='w-full px-2' /></div>
-                                <div className='w-[46%] border-2 m-2 p-2 rounded-xl'><input placeholder="Hospital's name" className='w-full px-2' /></div>
-                                <div className='w-[46%] border-2 m-2 p-2 rounded-xl'><input placeholder="Hospital's address" className='w-full px-2' /></div>
-                                <div className='w-[46%] border-2 m-2 p-2 rounded-xl'><input placeholder='DD/MM/YYYY' className='w-full px-2' /></div>
-                                <div className='w-[46%] border-2 m-2 p-2 rounded-xl'><input placeholder='Time' className='w-full px-2' /></div>
-                                <div className='w-[100%] border-2 m-2 p-2 rounded-xl'><input placeholder='Add note' className='w-full px-2' /></div>
+                            <div className='flex py-3 gap-6 w-full'>
+                                <input type='text' placeholder='Appointment name' className='border-2  p-2 rounded-[12px] w-1/2' />
+                                 <input type='text' placeholder="Doctor's name" className='border-2  p-2 rounded-[12px] w-1/2' />
+                            </div>
+                            <div className='flex py-3 gap-6 w-full'>
+                                 <input type='text' placeholder="Hospital's name" className='border-2  p-2 rounded-[12px] w-1/2'/>
+                                 <input type='text' placeholder="Hospital's address" className='border-2  p-2 rounded-[12px] w-1/2' />
+                            </div>
+                            <div className='flex py-3 gap-6 w-full'>
+                             <input placeholder='DD/MM/YYYY' className='border-2 p-2 w-1/2 rounded-[12px] ' onFocus={(e) => { e.target.type = 'date'; }}/>
+  
+                             <input placeholder='Time' type='text' onFocus={(e) => {e.target.type = 'time';}}className='border-2 p-2 rounded-[12px] w-1/2' />
+                            </div>
+                            
+                                 <input type='text' placeholder='Add note' className='border-2 my-3 p-2 rounded-[12px] w-full' />
+
                             </form>
 
-                            <div className='flex gap-4 my-4 w-full justify-end px-8'>
-                                <div className='border-2  py-1 w-[15%] border-[#7E7E7E] text-center rounded-xl' onClick={PopUp}>
+                            <div className='flex gap-4 mb-3 mt-3 w-full justify-end px-8'>
+                                <button className='border-2  py-1 w-[15%] border-[#7E7E7E] text-center rounded-[12px]' onClick={PopUp}>
                                     Cancel
-                                </div>
-                                <div className='bg-[#F2CF47]  py-1 w-[15%] text-white text-center rounded-xl'>
+                                </button>
+                                <button className='bg-[#F2CF47]  py-1 w-[15%] text-white text-center rounded-[12px]'><Link to='/Appointment1'>
                                     Save
-                                </div>
+                                    </Link></button>
                             </div>
 
                         </div>
 
 
                     </div>
-                </div>
+             </div>
             )}
 
         </>
