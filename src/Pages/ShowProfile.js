@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
-import Logo from '../Photos/Logo.png'
-import CAN from '../Photos/CAN.png'
+import LogoCAn from '../Photos/LogoCAn.png'
+import CANa from '../Photos/CANa.png'
 import account from '../Photos/account.jpg'
 import CarouselMain from '../Components/CarouselMain'
 import { IoAddCircleOutline } from 'react-icons/io5'
@@ -64,7 +64,7 @@ const ShowProfile = () => {
                             </div>
                             <div className=' text-2xl py-1 flex flex-row items-center justify-center w-full  '>
 
-                                <p className='text-xs  font-semibold flex justify-center w-[14%] '>Re Enter</p>
+                                <p className='text-xs  font-semibold flex justify-center w-[14%]'>Re Enter</p>
 
                                 <input
                                     type="text"
@@ -95,17 +95,17 @@ const ShowProfile = () => {
             )}
 
 
-            <div className='ml-[80px] mt-2 absolute flex items-center '>
-                <img src={Logo} alt='not found' className='w-[80px] h-[80px]' />
-                <img src={CAN} alt='not found' className='w-[42.88px] h-[16.19px]  ' />
+            <div className='lg:ml-[80px] mt-2 lg:absolute flex items-center justify-center '>
+                <img src={LogoCAn} alt='not found' className='w-[80px] h-[80px]' />
+                <img src={CANa} alt='not found' className='w-[42.88px] h-[16.19px]  ' />
             </div>
             <div>
 
 
 
-                <div className='flex'>
+                <div className='flex lg:flex-row lg:p-0 p-2 items-center justify-center'>
 
-                    <div className='w-[55%] mt-16  flex flex-col items-center justify-center  '>
+                    <div className='hidden lg:block w-[55%] mt-20  flex flex-col items-center justify-center '>
                         <div className='flex flex-col items-center justify-center'>
                             {/* <img src={WelcomeScreen} className='' /> */}
                             <div className=''>
@@ -124,8 +124,8 @@ const ShowProfile = () => {
 
 
                     {/* right side */}
-                    <div className='flex items-center h-[100vh]'>
-                        <div className='h-[90%] w-[60vh] shadow-xl mx-24 bg-[#D0F5D3] bg-opacity-10 z-10 backdrop-blur-lg rounded-[20px]' style={{
+                    <div className='h-full  flex items-center mt-4  lg:mt-10 lg:bottom-10'>
+                        <div className='lg:h-[600px] lg:w-[420px] w-[330px] h-[550px] lg:mx-24 bg-[#D0F5D3] bg-opacity-10 z-10 backdrop-blur-md rounded-[20px]' style={{
                             boxShadow: '0px 0px 50px rgba(0, 0, 0, 0.1)'
                         }}>
 
@@ -133,7 +133,7 @@ const ShowProfile = () => {
                                 <img src={b4} />
                             </div>
 
-                            <div className='p-4 mx-4 text-lg font-semibold text-center'>
+                            <div className='p-4 mx-4 lg:text-[14px] font-poppins text-[14px] font-semibold text-center'>
                                 <h1>You can add the profile of your Caregiver by clicking on the Add profile button.</h1>
                             </div>
 
@@ -151,7 +151,7 @@ const ShowProfile = () => {
                                     <div onClick={creatPin} className='w-[45%] h-[100%]'>
                                         <div className='h-full  rounded-3xl flex flex-col justify-center items-center ' >
                                             <h1 className='font-semibold text-lg'><IoAddCircleOutline /></h1>
-                                            <p className='text-sm'>Add Profile</p>
+                                            <p className='text-sm text-center'>Add Profile</p>
                                         </div>
                                     </div>
                                 </div>
