@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
-import Logo from '../Photos/Logo.png'
-import CAN from '../Photos/CAN.png'
+import LogoCAn from '../Photos/LogoCAn.png'
+import CANa from '../Photos/CANa.png'
 import Video from '../Photos/Video.png'
 import { Link } from 'react-router-dom'
 import CarouselMain from '../Components/CarouselMain'
@@ -40,16 +40,16 @@ const LoginOTP = () => {
 
     return (
         <>
-        <div className='ml-[80px] mt-2 absolute flex items-center  '>
-                    <img src={Logo} alt='not found' className='w-[80px] h-[80px]'  />
-                    <img src={CAN} alt='not found' className='w-[42.88px] h-[16.19px] ' />
+        <div className='lg:ml-[80px] mt-2 lg:absolute flex items-center justify-center  '>
+                    <img src={LogoCAn} alt='not found' className='w-[80px] h-[80px]'  />
+                    <img src={CANa} alt='not found' className='w-[42.88px] h-[16.19px] ' />
                 </div>
             <div>
                 
 
-                <div className='flex'>
+                <div className='flex lg:flex-row lg:p-0 p-2 items-center justify-center'>
 
-                    <div className='p-[4%] w-[55%] relative '>
+                    <div className='hidden lg:block w-[55%] mt-20  flex flex-col items-center justify-center  '>
                         <div className='flex flex-col items-center justify-center '>
                             {/* <img src={WelcomeScreen} className='' /> */}
                             <div className='mt-12'>
@@ -76,19 +76,19 @@ const LoginOTP = () => {
 
 
                     {/* right side */}
-                    <div className='h-[100vh] flex items-center'>
-                        <div className='h-[90%] w-[60vh] shadow-xl mx-24 bg-[#D0F5D3] bg-opacity-10 z-10 backdrop-blur-lg rounded-[20px]' style={{
+                    <div className='h-full  flex items-center mt-4  lg:mt-10 lg:bottom-10'>
+                        <div className='lg:h-[600px] lg:w-[420px] w-[330px] h-[550px] lg:mx-24 bg-[#D0F5D3] bg-opacity-10 z-10 backdrop-blur-md rounded-[20px]' style={{
                             boxShadow: '0px 0px 50px rgba(0, 0, 0, 0.1)'
                         }}>
                             <div>
                                 <img src={vibird1} alt='none' />
                             </div>
-                            <div className='text-center text-3xl font-semibold p-1 text-[#EFC319]'>
+                            <div className='text-center lg:text-3xl text-[24px] font-semibold p-1 text-[#EFC319]'>
                                 <h1>Create your password</h1>
                             </div>
                             
-                            <div className='mt-6 flex flex-col gap-4'>
-                                <div className='flex items-center gap-4 mx-8 px-3 p-2 border-2 rounded-[20px]'>
+                            <div className='mt-6 flex flex-col gap-3'>
+                                <div className='border-2 lg:h-14 h-12 mx-4 mt-3 lg:mx-8 lg:m-2 px-2 rounded-[20px] flex items-center justify-center gap-4'>
                                     <IoKeyOutline />
                                     <div className='font-bold bg-[#000] h-[35px] w-[1px] inline-block text-[20px]'></div>
                                     <input placeholder='Enter password' 
@@ -102,7 +102,7 @@ const LoginOTP = () => {
                                         {eye ?<AiOutlineEye/> : <AiOutlineEyeInvisible />}
                                     </div>
                                 </div>
-                                <div className='flex items-center gap-4 mx-8 px-3 p-2 border-2 rounded-[20px]'>
+                                <div className='border-2 lg:h-14 h-12 mx-4  lg:mx-8 lg:m-2 px-2 rounded-[20px] flex items-center justify-center gap-4'>
                                     <IoKeyOutline />
                                     <div className='font-bold bg-[#000] h-[35px] w-[1px] inline-block text-[20px]'></div>
                                     <input placeholder='Re-enter password' 
