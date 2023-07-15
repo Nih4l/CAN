@@ -9,40 +9,49 @@ import vibird1 from '../Photos/vibird1.gif'
 import PinInput from 'react-pin-input'
 
 const MultiPIN = () => {
-    const [image, setImage] = useState(null);
-    const hiddenChooseImage = useRef(null);
 
-    const hideImage = () => {
-        setImage(false);
+    const [pin, setPin] = useState('');
+    const [repin, setRepin] = useState('');
+    const [error, setError] = useState('');
+
+
+
+
+    const handlePinChange = (value) => {
+        setPin(value);
+        console.log('Pin value:', value);
     };
 
-    const uploadImage = () => {
-        hiddenChooseImage.current.click();
-    };
 
-    const handleImageUpload = (event) => {
-        const file = event.target.files[0];
-        setImage(URL.createObjectURL(file));
+    const handleRepinChange = (value) => {
+        setRepin(value);
+        console.log('Repin value:', value);
+
+        if (pin === value) {
+            setError('Pins are equal');
+        } else {
+            setError('Pins do not match, Please re-enter the pin correctly!');
+        }
     };
 
     //OTP range
-    const [value, setValue] = useState('');
+    // const [value, setValue] = useState('');
 
-    const handleInputChange = (event) => {
-        const inputValue = event.target.value;
-        if (/^\d*$/.test(inputValue)) {
-            setValue(inputValue);
-        }
-    };
-    //Re Enter OTP range
-    const [value1, setValue1] = useState('');
+    // const handleInputChange = (event) => {
+    //     const inputValue = event.target.value;
+    //     if (/^\d*$/.test(inputValue)) {
+    //         setValue(inputValue);
+    //     }
+    // };
+    // //Re Enter OTP range
+    // const [value1, setValue1] = useState('');
 
-    const handleInputChange1 = (event) => {
-        const inputValue1 = event.target.value;
-        if (/^\d*$/.test(inputValue1)) {
-            setValue1(inputValue1);
-        }
-    };
+    // const handleInputChange1 = (event) => {
+    //     const inputValue1 = event.target.value;
+    //     if (/^\d*$/.test(inputValue1)) {
+    //         setValue1(inputValue1);
+    //     }
+    // };
 
     return (
         <>
@@ -98,11 +107,11 @@ const MultiPIN = () => {
                                 <p className='lg:text-[18px] text-[14px] font-poppins font-semibold'>your account information with you</p>
                             </div>
 
-                            <div className=' text-4xl py-4 flex flex-row items-center justify-center w-full gap-12 ml-7'>
+                            <div className=' text-xl py-6 flex flex-row items-center justify-center w-full '>
 
-                                <p className='text-sm  font-semibold flex justify-center w-[14%] '>PIN</p>
+                                {/* <p className='text-sm  font-semibold flex justify-center w-[14%] '>PIN</p> */}
 
-                                <input
+                                {/* <input
                                     type="text"
                                     value={value}
                                     onChange={handleInputChange}
@@ -110,36 +119,50 @@ const MultiPIN = () => {
                                     placeholder='__  __  __  __'
                                     className='w-[64%] placeholder:text-4xl placeholder:tracking-[0em] bg-transparent tracking-[.50em]  mb-4 outline-none  '
                                     
-                                />
+                                /> */}
 
-                                {/* <PinInput length={4} type='numeric' value={value} onChange={handleInputChange}  inputStyle={{
-                                    border: 'none',
-                                    borderBottom: '1px solid black',
-                                    width: '50px',
-                                    textAlign: 'center',
-                                    marginRight: '30px',
-                                }}></PinInput> */}
+                                <label className='font-poppins text-[18px] align-bottom mr-20 '> PIN </label>
+                                <PinInput
+                                    length={4}
+                                    id='pin'
+                                    value={pin}
+                                    onComplete={handlePinChange}
+                                    inputStyle={{
+                                        border: 'none',
+                                        borderBottom: '1px solid black',
+                                        width: '30px',
+                                        textAlign: 'center',
+                                        marginRight: '30px',
+                                    }}
+                                ></PinInput>
                             </div>
 
-                            <div className=' text-4xl py-4 flex items-center justify-center  w-full gap-12 ml-7'>
+                            <div className=' text-xl py-3 flex items-center justify-center  w-full  '>
 
-                                <p className='text-sm  font-semibold flex justify-center w-[14%] '>Re Enter</p>
+                                {/* <p className='text-sm  font-semibold flex justify-center w-[14%] '>Re Enter</p> */}
 
-                                <input
+                                {/* <input
                                     type="text"
                                     value={value1}
                                     onChange={handleInputChange1}
                                     maxlength="4"
                                     placeholder='__  __  __  __'
                                     className='w-[64%] placeholder:text-4xl placeholder:tracking-[0em] bg-transparent tracking-[.50em] mb-4 outline-none'
-                                />
-                                {/* <PinInput length={4} type='numeric' value={value1} onChange={handleInputChange1}  inputStyle={{
-                                    border: 'none',
-                                    borderBottom: '1px solid black',
-                                    width: '50px',
-                                    textAlign: 'center',
-                                    marginRight: '30px',
-                                }}></PinInput> */}
+                                /> */}
+                                <label className='font-poppins text-[18px] align-bottom mr-8 '>Re Enter</label>
+                                <PinInput
+                                    length={4}
+                                    id='repin'
+                                    value={repin}
+                                    onComplete={handleRepinChange}
+                                    inputStyle={{
+                                        border: 'none',
+                                        borderBottom: '1px solid black',
+                                        width: '30px',
+                                        textAlign: 'center',
+                                        marginRight: '30px',
+                                    }}
+                                ></PinInput>
 
                             </div>
                             {/* <div className='flex flex-col gap-8 mt-8'>
@@ -169,9 +192,9 @@ const MultiPIN = () => {
                             </div>
                             </div> */}
 
-                            <div className='flex justify-center '>
+                            {/* <div className='flex justify-center '>
                                 {(value.length && value === value1) ?
-                                    (<Link to={(value.length  && value === value1) ? '/ShowProfile' : ''} className='w-[50%] '>
+                                    (<Link to={(value.length && value === value1) ? '/ShowProfile' : ''} className='w-[50%] '>
                                         <h2 className='bg-[#EFC319] text-center p-3 rounded-lg text-white'>Continue</h2>
                                     </Link>)
                                     :
@@ -180,7 +203,21 @@ const MultiPIN = () => {
                                     </div>
 
                                     )}
+                            </div> */}
+
+
+                            {error && <p className='text-red-500 text-center'>{error}</p>}
+                            
+                            <div className='flex flex-col justify-center pt-7'>
+                                <button
+                                    className={`w-48 h-12 bg-[#efc31a33] font-bold rounded-[20px] text-white items-center mx-auto ${error && error === 'Pins are equal' ? 'bg-[#efc31a]' : 'pointer-events-none'
+                                        }`}
+                                    disabled={error && error !== 'Pins are equal'}
+                                >
+                                    <Link to='/ShowProfile'>Continue</Link>
+                                </button>
                             </div>
+
 
                         </div>
 

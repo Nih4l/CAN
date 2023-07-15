@@ -157,7 +157,7 @@ const ShowProfile = () => {
                                 </div>
 
                                 
-                                <Link to={'/home'} className='w-[50%] ml-[25%] '>
+                                <Link to={'/home'} className='w-[50%] ml-[25%] cursor-pointer '>
                                     <div className='bg-[#EFC319] text-center p-3 rounded-lg text-white'>Finish!</div>
                                 </Link>
                                 
