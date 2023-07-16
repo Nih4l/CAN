@@ -42,7 +42,6 @@ import SubscriptionModels from './Pages/Subscription_Models'
 import Subscription_Payment_Method from './Pages/Subscription_Payment_Method'
 
 
-
 const App = () => {
   return (
     <> 
@@ -92,7 +91,7 @@ const App = () => {
         <Route exact path = 'loginimage' element={<LoginImage />} />
         <Route exact path = 'loginprofile' element={<LoginProfile />} />
         
-
+       
         
       </Routes>
       </BrowserRouter>
