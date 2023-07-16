@@ -7,20 +7,28 @@ import { Link } from 'react-router-dom'
 import CarouselMain from '../Components/CarouselMain'
 import c7 from '../Photos/c7.png'
 import vibird1 from '../Photos/vibird1.gif'
+import PinInput from 'react-pin-input'
 
 
 const LoginOTP = () => {
 
 
     //OTP range
-    const [value, setValue] = useState('');
+    // const [value, setValue] = useState('');
 
-    const handleInputChange = (event) => {
-        const inputValue = event.target.value;
-        if (/^\d*$/.test(inputValue)) {
-            setValue(inputValue);
-        }
+    const [pin, setPin] = useState('');
+
+
+    const handlePinChange = (value) => {
+        setPin(value);
+        console.log('Pin value:', value);
     };
+    // const handleInputChange = (event) => {
+    //     const inputValue = event.target.value;
+    //     if (/^\d*$/.test(inputValue)) {
+    //         setValue(inputValue);
+    //     }
+    // };
 
     return (
         <>
@@ -75,15 +83,28 @@ const LoginOTP = () => {
                             </div>
                             <div className='text-center py-4'>Enter the OTP sent to you</div>
 
-                            <div className='flex flex-row gap-5  justify-center relative items-center   '>
-                                <input maxLength={4} className='absolute mb-3 outline-none  ml-7 bg-transparent h-12 w-44  p-2  ' style={{ letterSpacing: 32 }}
+                            <div className='flex pl-4  justify-center relative items-center   '>
+                                {/* <input maxLength={4} className='absolute mb-3 outline-none  ml-7 bg-transparent h-12 w-44  p-2  ' style={{ letterSpacing: 32 }}
                                     value={value}
                                     onChange={handleInputChange}
                                 />
                                 <span>___</span>
                                 <span>___</span>
                                 <span>___</span>
-                                <span>___</span>
+                                <span>___</span> */}
+                                <PinInput
+                                    length={4}
+                                    id='pin'
+                                    value={pin}
+                                    onComplete={handlePinChange}
+                                    inputStyle={{
+                                        border: 'none',
+                                        borderBottom: '1px solid black',
+                                        width: '30px',
+                                        textAlign: 'center',
+                                        marginRight: '30px',
+                                    }}
+                                ></PinInput>
 
                             </div>
 
@@ -95,8 +116,8 @@ const LoginOTP = () => {
                             <div className='flex justify-center py-2'>
 
 
-                                {value ?
-                                    (<Link to='/password' className='w-[40%]'>
+                                {pin.length === 4 ?
+                                    (<Link to={(pin.length === 4) ? '/password' : ''} className='w-[40%]'>
                                         <h2 className='bg-[#EFC319]  text-center p-3 rounded-lg text-white'>Verify</h2>
                                     </Link>)
                                     :

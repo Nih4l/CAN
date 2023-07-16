@@ -102,14 +102,16 @@ const LoginDetails = () => {
                                 <h1>Your Details</h1>
                             </div>
 
-                            <div className='border-2 h-14 mx-8 my-4 px-2 rounded-[20px] flex items-center justify-center gap-4'>
+                            <div className='p-4'>
+
+                            <div className='border-2 h-14 my-4 px-2 rounded-[20px] flex items-center justify-center gap-4'>
                                 <h1 className='font-bold flex items-center w-max h-full lg:px-2 px-1'><VscAccount /></h1>
                                 <div className='font-bold bg-[#000] h-[35px] w-[1px] inline-block text-[20px]'></div>
                                 <input placeholder='Enter full name' className='border-none w-full bg-transparent placeholder:p-2 outline-none'
                                     value={Username} onChange={changeUsername} />
                             </div>
 
-                            <div className='border-2 h-14 mx-8 m-2 px-2 rounded-[20px] flex items-center gap-4'>
+                            <div className='border-2 h-14   px-2 rounded-[20px] flex items-center gap-4'>
                                 <h1 className='font-bold flex items-center w-max h-full lg:px-2 px-1'><BsGenderAmbiguous /></h1>
                                 <div className='font-bold bg-[#000] h-[35px] w-[1px] inline-block text-[20px]'></div>
                                 {/* <label htmlFor="gender" className="mr-2">
@@ -120,7 +122,7 @@ const LoginDetails = () => {
                                     id="gender"
                                     name="gender"
                                     onChange={handleChange}
-                                    className="px-4 py-2 w-full  rounded-md focus:outline-none focus:none bg-transparent "
+                                    className=" py-2 w-full  rounded-md focus:outline-none focus:none bg-transparent "
                                 >
                                     <option className='text-[#7E7E7E]' value="default">Gender</option>
                                     <option value="male">Male</option>
@@ -130,7 +132,7 @@ const LoginDetails = () => {
                                 {/* <Select options={options} className='w-full bg-transparent placeholder:p-2 outline-none bg-slate-200 ' defaultInputValue='Gender' /> */}
                             </div>
 
-                            <div className='border-2 h-14 mx-8 my-4 px-2 rounded-[20px] flex items-center gap-4'>
+                            <div className='border-2 h-14  my-4 px-2 rounded-[20px] flex items-center gap-4'>
                                 <h1 className='font-bold flex items-center w-max h-full lg:px-2 px-1'><SlCalender /></h1>
                                 <div className='font-bold bg-[#000] h-[35px] w-[1px] inline-block text-[20px]'></div>
                                 {/* <input placeholder='Date of Birth' className='border-none w-full bg-transparent placeholder:p-2 outline-none'
@@ -143,6 +145,7 @@ const LoginDetails = () => {
                                     placeholderText="Date of Birth "
                                     className='outline-none bg-transparent overflow-hidden'
                                 />
+                            </div>
                             </div>
 
                             <div className='flex justify-center py-2'>

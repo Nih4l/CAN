@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
-import Logo from '../Photos/Logo.png'
-import CAN from '../Photos/CAN.png'
+import LogoCAn from '../Photos/LogoCAn.png'
+import CANa from '../Photos/CANa.png'
 import { AiOutlineEyeInvisible } from 'react-icons/ai'
 import { AiOutlineEye } from 'react-icons/ai'
 import { IoKeyOutline } from 'react-icons/io5'
@@ -28,11 +28,12 @@ const ResetPassword = () => {
   function passwordChange1(e) {
     setFirstpass1(e.target.value)
   }
+  
   return (
     <>
-      <div className='ml-[80px] mt-2 absolute flex items-center '>
-        <img src={Logo} alt='not found' className='w-[80px] h-[80px]' />
-        <img src={CAN} alt='not found' className='w-[42.88px] h-[16.19px]  ' />
+      <div className='lg:ml-[80px] mt-2 lg:absolute flex items-center justify-center '>
+        <img src={LogoCAn} alt='not found' className='w-[80px] h-[80px]' />
+        <img src={CANa} alt='not found' className='w-[42.88px] h-[16.19px]  ' />
       </div>
 
       <div className='h-[100vh] flex  items-center justify-center'>

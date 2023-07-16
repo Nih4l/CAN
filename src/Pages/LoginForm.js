@@ -128,7 +128,7 @@ const LoginForm = () => {
                                 </div>
                                 <div className='border-2 lg:h-14 h-12 mx-4 mt-3 lg:mx-8 lg:m-2 px-2 rounded-[20px] flex items-center gap-4'>
                                     <input placeholder='password'
-                                        className='bg-transparent w-full outline-none placeholder:font-thin placeholder:text-[18px]'
+                                        className='bg-transparent w-full outline-none placeholder:font-thin placeholder:text-[18px] p-2'
                                         type={eye1 ? 'text' : 'password'}
                                         onChange={passwordChange1}
                                         minLength={3}

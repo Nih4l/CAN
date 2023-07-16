@@ -8,25 +8,43 @@ import { Link } from 'react-router-dom'
 import b4 from '../Photos/b4.png'
 import WelcomScreen from '../Photos/WelcomeScreen.png'
 import { RxCross2 } from 'react-icons/rx'
+import PinInput from 'react-pin-input'
 
 const ShowProfile = () => {
     const [creatPin_open, setCreatPin_open] = useState(false)
-    const [value, setValue] = useState('');
+    // const [value, setValue] = useState('');
+    const [pin, setPin] = useState('');
+    const [repin, setRepin] = useState('');
+    const [error, setError] = useState('');
+
+    // const handleInputChange = (event) => {
+    //     const inputValue = event.target.value;
+    //     if (/^\d*$/.test(inputValue)) {
+    //         setValue(inputValue);
+    //     }
+    // };
+    // const [value1, setValue1] = useState('');
 
 
-    const handleInputChange = (event) => {
-        const inputValue = event.target.value;
-        if (/^\d*$/.test(inputValue)) {
-            setValue(inputValue);
-        }
+    // const handleInputChange1 = (event) => {
+    //     const inputValue1 = event.target.value;
+    //     if (/^\d*$/.test(inputValue1)) {
+    //         setValue1(inputValue1);
+    //     }
+    // };
+    const handlePinChange = (value) => {
+        setPin(value);
+        console.log('Pin value:', value);
     };
-    const [value1, setValue1] = useState('');
 
+    const handleRepinChange = (value) => {
+        setRepin(value);
+        console.log('Repin value:', value);
 
-    const handleInputChange1 = (event) => {
-        const inputValue1 = event.target.value;
-        if (/^\d*$/.test(inputValue1)) {
-            setValue1(inputValue1);
+        if (pin === value) {
+            setError('Pins are equal');
+        } else {
+            setError('Pins do not match, Please re-enter the pin correctly!');
         }
     };
 
@@ -37,22 +55,22 @@ const ShowProfile = () => {
     return (
         <>
             {creatPin_open && (
-                <div className='fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50 '
+                <div className='fixed inset-0 flex items-center justify-center lg:p-0 p-2 bg-black bg-opacity-50 z-50 '
                     style={{ backdropFilter: 'blur(2px)' }}>
 
-                    <div className='bg-white h-max w-[35%] rounded-3xl'>
-                        <div className='relative flex py-6 px-16 items-center flex-col'>
-                            <div className='absolute top-2 right-2 '>
-                                <RxCross2 size={20} onClick={creatPin} />
+                    <div className='bg-white h-max  rounded-3xl'>
+                        <div className='relative flex lg:py-6  py-4 lg:px-4 items-center flex-col'>
+                            <div className='absolute top-3 right-4 '>
+                                <RxCross2 size={15} onClick={creatPin} />
                             </div>
-                            <div className='text-xl font-semibold'>Create a Pin</div>
-                            <p className='font-medium  text-center px-4 -'>Its your space, so add a profile lock to keep
+                            <div className='text-xl font-poppins font-semibold'>Create a Pin</div>
+                            <p className='font-poppins text-[14px]  text-center px-3 pt-2'>Its your space, so add a profile lock to keep
                                 your account information with you</p>
                             <div className=' text-2xl py-1 flex flex-row items-center justify-center w-full  '>
 
-                                <p className='text-xs  font-semibold flex justify-center w-[14%] '>PIN</p>
+                                <p className='text-xs  font-semibold flex justify-center w-[14%] pt-8 '>PIN</p>
 
-                                <input
+                                {/* <input
                                     type="text"
                                     value={value}
                                     onChange={handleInputChange}
@@ -60,13 +78,26 @@ const ShowProfile = () => {
                                     placeholder='__  __  __  __'
                                     className='w-[40%] placeholder:text-3xl placeholder:tracking-[0em] bg-transparent tracking-[1em]  mb-4 outline-none  '
 
-                                />
+                                /> */}
+                                <PinInput
+                                    length={4}
+                                    id='pin'
+                                    value={pin}
+                                    onComplete={handlePinChange}
+                                    inputStyle={{
+                                        border: 'none',
+                                        borderBottom: '1px solid black',
+                                        width: '30px',
+                                        textAlign: 'center',
+                                        marginRight: '30px',
+                                    }}
+                                ></PinInput>
                             </div>
                             <div className=' text-2xl py-1 flex flex-row items-center justify-center w-full  '>
 
-                                <p className='text-xs  font-semibold flex justify-center w-[14%]'>Re Enter</p>
+                                <p className='text-xs  font-semibold flex justify-center w-[14%] pt-8'>Re Enter</p>
 
-                                <input
+                                {/* <input
                                     type="text"
                                     value={value1}
                                     onChange={handleInputChange1}
@@ -74,10 +105,24 @@ const ShowProfile = () => {
                                     placeholder='__  __  __  __'
                                     className='w-[40%] placeholder:text-3xl placeholder:tracking-[0em] bg-transparent tracking-[1em]  mb-4 outline-none  '
 
-                                />
+                                /> */}
+                                <PinInput
+                                    length={4}
+                                    id='repin'
+                                    value={repin}
+                                    onComplete={handleRepinChange}
+                                    inputStyle={{
+                                        border: 'none',
+                                        borderBottom: '1px solid black',
+                                        width: '30px',
+                                        textAlign: 'center',
+                                        marginRight: '30px',
+                                    }}
+
+                                ></PinInput>
                             </div>
-                            <div className='w-[40%] pt-5 '>
-                                {(value.length === 4 && value === value1) ?
+                            <div className='w-[40%] pt-5 flex flex-col items-center  '>
+                                {/* {(value.length === 4 && value === value1) ?
                                     (<Link to={(value.length === 4 && value === value1) ? '/loginchoosetitle' : ''}>
                                         <div className='bg-[#EFC319] text-center p-3 rounded-xl text-white'>Continue</div>
                                     </Link>)
@@ -86,8 +131,17 @@ const ShowProfile = () => {
                                         <div className='bg-[#EFC319] text-center p-3 rounded-xl text-white opacity-50 '>Continue</div>
 
 
-                                    )}
-
+                                    )} */}
+                                {error && <p className='text-red-500 text-center'>{error}</p>}
+                                <div className='flex flex-col justify-center pt-7'>
+                                    <button
+                                        className={`w-48 h-12 bg-[#efc31a33] font-bold rounded-[20px] text-white items-center mx-auto ${error && error === 'Pins are equal' ? 'bg-[#efc31a]' : 'pointer-events-none'
+                                            }`}
+                                        disabled={error && error !== 'Pins are equal'}
+                                    >
+                                        <Link to='/loginchoosetitle'>Continue</Link>
+                                    </button>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -114,10 +168,10 @@ const ShowProfile = () => {
                             </div>
 
                             <div className='  flex flex-col items-center justify-center   '>
-                                    <h1 className='text-center text-[36px] font-bold'>Welcome Sierra!</h1>
-                                    <p className='text-[18px] font-semibold mt-2'>We welcome you to CAN with all our</p>
-                                    <p className='text-[18px] font-semibold'>Hearts. </p>
-                                </div>
+                                <h1 className='text-center text-[36px] font-bold'>Welcome Sierra!</h1>
+                                <p className='text-[18px] font-semibold mt-2'>We welcome you to CAN with all our</p>
+                                <p className='text-[18px] font-semibold'>Hearts. </p>
+                            </div>
 
                         </div>
                     </div>
@@ -156,17 +210,17 @@ const ShowProfile = () => {
                                     </div>
                                 </div>
 
-                                
+
                                 <Link to={'/home'} className='w-[50%] ml-[25%] cursor-pointer '>
                                     <div className='bg-[#EFC319] text-center p-3 rounded-lg text-white'>Finish!</div>
                                 </Link>
-                                
-                                
+
+
 
 
                             </div>
 
-                            
+
 
                         </div>
 
