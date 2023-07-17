@@ -3,6 +3,7 @@ import HomeNav from '../Components/HomeNav'
 import Acc from '../Photos/account.jpg'
 import { CgAdd } from 'react-icons/cg'
 import { MdOutlineCloudUpload } from 'react-icons/md'
+import SideMenu from '../Components/SideMenu'
 
 const HealthCard1 = () => {
 
@@ -17,10 +18,18 @@ const HealthCard1 = () => {
 
   return (
     <>
-      <div className='h-[100%]'>
-        <div>
-          <HomeNav />
+      { /* complete screen  */}
+      <div className="flex flex-row min-h-screen h-[100%] bg-[#FEF8FD] ">
+        {/* side menu column */}
+        <div className="sticky flex flex-row">
+          <SideMenu />
         </div>
+        {/* rest of the column  including homenav + bottom of the page code*/}
+        <div className="flex flex-col h-[100%] w-screen">
+          {/* home navigation top bar div */}
+                <div className="  bg-white">
+                    <HomeNav />
+                </div>
 
         <div className='h-full w-full bg-[#FEF8FD] flex flex-col gap-4  '>
 
@@ -196,6 +205,7 @@ const HealthCard1 = () => {
           </div>
 
         </div>
+      </div>
       </div>
     </>
   )

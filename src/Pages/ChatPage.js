@@ -10,6 +10,8 @@ import { AiOutlineSend } from 'react-icons/ai'
 import { GrMicrophone } from 'react-icons/gr'
 import account from '../Photos/account.jpg'
 import account2 from '../Photos/account2.jpg'
+import SideMenu from "../Components/SideMenu"
+
 
 const ChatPage = () => {
 
@@ -36,13 +38,21 @@ const ChatPage = () => {
 
     return (
         <>
-            <div className=' h-[100%]'>
-                <div>
+             {/* complete screen  */}
+      <div className="flex flex-row min-h-screen h-[100%] bg-[#FEF8FD] ">
+        {/* side menu column */}
+        <div className="sticky flex flex-row">
+          <SideMenu />
+        </div>
+        {/* rest of the column  including homenav + bottom of the page code*/}
+        <div className="flex flex-col h-[100%] w-screen">
+          {/* home navigation top bar div */}
+          <div className="  bg-white">
                     <HomeNav />
                 </div>
 
                 {/* background */}
-                <div className='bg-[#FEF8FD] h-[100vh]'>
+                <div className='bg-[#FEF8FD] '>
 
                     {/* chat space */}
                     <div className=' h-full flex pt-[2%] justify-center pl-[5%]'>
@@ -149,15 +159,15 @@ const ChatPage = () => {
                                     </div>
 
                                     {/* main chat */}
-                                    <div className='h-[69vh] bg-[#FFF8FC] '>
-                                        <div className='flex items-center absolute bottom-[10%] w-[63%] justify-between '>
+                                    <div className='h-full bg-[#FFF8FC] relative'>
+                                        <div className='flex flex-row absolute bottom-0 w-full  my-3'>
 
-                                            <div className='bg-white w-[110vh] p-2 px-4  shadow-2xl rounded-2xl flex justify-between items-center mx-5 '>
+                                            <div className='bg-white w-full p-2 px-4  shadow-2xl rounded-2xl flex justify-between items-center mx-5 '>
                                                 <input placeholder='Type your message....' className='w-[90%] outline-none' onChange={inputTaken} value={text} />
                                                 <ImAttachment color='#C4C4C4' />
                                             </div>
 
-                                            <div className='flex items-center justify-center mr-6 gap-3'>
+                                            <div className='flex relative items-center justify-center mr-6 gap-3'>
                                                 <div onClick={listOfItems} className='bg-[#EFC319] p-2 rounded-full shadow-gray-950 shadow-2xl'> <AiOutlineSend size={25} color='white' /></div>
                                                 <div className='bg-[#ffffff] p-2 rounded-full shadow-gray-950 shadow-2xl'> <GrMicrophone size={25} /></div>
                                             </div>
@@ -183,6 +193,8 @@ const ChatPage = () => {
 
                 </div>
             </div>
+            </div>
+            
         </>
     )
 }

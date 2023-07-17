@@ -8,7 +8,7 @@ import { RiArrowDropDownLine } from 'react-icons/ri'
 import SingleLineCalendar from '../Components/SingleLineCalender'
 import VerticalSLC from '../Components/VericalSLC'
 import { Link } from 'react-router-dom'
-
+import SideMenu from '../Components/SideMenu'
 
 const HealthRecord = () => {
 
@@ -21,15 +21,22 @@ const HealthRecord = () => {
 
     return (
         <>
-            <div className=' h-[100%]'>
-
-                <div>
+          { /* complete screen  */}
+      <div className="flex flex-row min-h-screen h-[100%] bg-[#FEF8FD] ">
+        {/* side menu column */}
+        <div className="sticky flex flex-row">
+          <SideMenu />
+        </div>
+        {/* rest of the column  including homenav + bottom of the page code*/}
+        <div className="flex flex-col h-[100%] w-screen">
+          {/* home navigation top bar div */}
+                <div className="  bg-white">
                     <HomeNav />
                 </div>
 
                 <div className='flex'>
                     {/* background */}
-                    <div className='bg-[#FEF8FD] h-[100vh] w-full flex flex-row'>
+                    <div className='bg-[#FEF8FD] w-full flex flex-row'>
 
                     <div className='flex flex-col w-[90%] mx-[5%]'>
                         <h1 className='ml-[8%] mt-6 text-lg font-semibold'>Health Record</h1>
@@ -54,7 +61,7 @@ const HealthRecord = () => {
                     </div>
                 </div>
             </div>
-
+        </div>
         </>
     )
 }

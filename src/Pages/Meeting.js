@@ -55,7 +55,7 @@ const Meeting = () => {
           <div className="bg-[#FEF8FD]">
             {/* top bar */}
             <div className="pl-[10%] pr-[6%] flex justify-between pt-8">
-              <div className="  ">
+              <div className=" cursor-pointer ">
                 {selectedOption === "Today" && (
                   <h2 className="text-xl font-semibold flex items-center gap-2">
                     <TiMediaRecord color="red" />
@@ -64,11 +64,11 @@ const Meeting = () => {
                 )}
 
                 {selectedOption === "Meeting" && (
-                  <h2 className="text-xl font-semibold">Meeting</h2>
+                  <h2 className="text-xl font-semibold cursor-pointer">Meeting</h2>
                 )}
 
                 {selectedOption !== "Today" && selectedOption !== "Meeting" && (
-                  <h2 className="text-xl font-semibold">History</h2>
+                  <h2 className="text-xl font-semibold cursor-pointer">History</h2>
                 )}
               </div>
 

@@ -17,6 +17,7 @@ import { BsDownload } from 'react-icons/bs'
 import { AiOutlineShareAlt } from 'react-icons/ai'
 import { BsTrash3 } from 'react-icons/bs'
 import { BsPencil } from 'react-icons/bs'
+import SideMenu from '../Components/SideMenu'
 
 const HealthRecord1 = () => {
 
@@ -85,15 +86,22 @@ const HealthRecord1 = () => {
 
     return (
         <>
-            <div className=' h-[100%]'>
-
-                <div>
-                    <HomeNav />
-                </div>
+        { /* complete screen  */}
+        <div className="flex flex-row min-h-screen h-[100%] bg-[#FEF8FD] ">
+          {/* side menu column */}
+          <div className="sticky flex flex-row">
+            <SideMenu />
+          </div>
+          {/* rest of the column  including homenav + bottom of the page code*/}
+          <div className="flex flex-col h-[100%] w-screen">
+            {/* home navigation top bar div */}
+                  <div className="  bg-white">
+                      <HomeNav />
+                  </div>
 
                 <div className='flex'>
                     {/* background */}
-                    <div className='bg-[#FEF8FD] h-[100vh] w-full flex flex-row'>
+                    <div className='bg-[#FEF8FD] w-full flex flex-row'>
 
                         <div className='flex flex-col w-[65%] mx-[5%]'>
 
@@ -234,6 +242,7 @@ const HealthRecord1 = () => {
                 </div>
             </div>
         </div>
+        </div>
 
 
             {/* pop up */ }
@@ -308,6 +317,7 @@ const HealthRecord1 = () => {
 
             </div>)
     }
+            
         </>
     )
 }
