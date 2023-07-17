@@ -35,7 +35,7 @@ const HealthCard1 = () => {
 
           <h1 className='ml-[13%] pt-6 font-semibold'>Make Your Health Card</h1>
 
-          <div className='ml-[13%] h-full w-[80%] bg-white shadow-xl rounded-xl p-2'>
+          <div className='ml-[13%] h-full w-[80%] bg-white rounded-xl p-2'>
 
 
 
@@ -66,7 +66,7 @@ const HealthCard1 = () => {
 
 
 
-            <form className='flex flex-wrap items-center justify-center gap-7 mx-[4%] mt-4'>
+            <form className='flex flex-wrap items-center justify-center gap-7 mx-[4%] my-4'>
 
               <div class="w-[46%] relative group">
                 <input type="text" id="username" required class="w-full h-10 px-4 text-sm peer  outline-none border rounded-lg " />

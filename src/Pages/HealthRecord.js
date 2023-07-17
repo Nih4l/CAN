@@ -39,16 +39,16 @@ const HealthRecord = () => {
                     <div className='bg-[#FEF8FD] w-full flex flex-row'>
 
                     <div className='flex flex-col w-[90%] mx-[5%]'>
-                        <h1 className='ml-[8%] mt-6 text-lg font-semibold'>Health Record</h1>
-                            <div className='bg-white h-[80vh] ml-[8%] mt-2 rounded-2xl shadow-xl flex flex-col items-center justify-center' >
+                        <h1 className='ml-[8%] mt-6 text-lg  font-semibold'>Health Record</h1>
+                            <div className='bg-white ml-[8%] mt-2 rounded-2xl  flex flex-col items-center gap-8 py-[100px] justify-center' >
                                 <div>
                                     <img src={HealthReco} alt='Health_Record.jpg' />
                                 </div>
-                                <div className='w-[50%] text-lg text-center mt-3'>
+                                <div className='w-[25%]  text-[18px] text-center text-[#696969]'>
                                     Add your document here of easy access anytime anywhere.
                                 </div>
                                 <Link to = '/HealthRecord1'>
-                                <div className='mt-3 bg-[#F2CF47] text-white px-3 py-1 rounded-3xl'>
+                                <div className=' bg-[#F2CF47] text-white px-4 py-2 rounded-3xl font-[500] text-[18px]'>
                                     Add health Record
                                 </div>
                                 </Link>
