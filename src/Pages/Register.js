@@ -11,11 +11,33 @@ import CarouselMain from '../Components/CarouselMain'
 import c4 from '../Photos/c4.png'
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
+// import { Signup } from '../Api/HandleApi'
+import axios from 'axios'
 
 
 const Register = () => {
 
+    const baseUrl = 'http://localhost:4000'
 
+    const handleRegistration = async () => {
+        // Create an object with the user data
+        const userData = {
+          username: Username,
+          email_phone: email,
+          gender: gender,
+          date_of_birth: startDate,
+        };
+    
+        try {
+          // Make a POST request to your API endpoint
+          const response = await axios.post(`${baseUrl}/api/userAccountregister`, userData);
+          console.log(response.data);
+          // TODO: Add any additional logic or UI updates
+        } catch (error) {
+          console.error(error);
+          // TODO: Add error handling logic or UI updates
+        }
+      };
 
     //Email input box
     const [email, setEmail] = useState('')
@@ -108,7 +130,7 @@ const Register = () => {
 
                     {/* right side */}
                     <div className='h-full  flex items-center mt-4  lg:mt-5 lg:bottom-10'>
-                        <div className='lg:h-[650px] lg:w-[420px] w-[330px] lg:mx-24 bg-[#D0F5D3] bg-opacity-10 z-10 backdrop-blur-md rounded-[20px] ' style={{
+                        <form className='lg:h-[650px] lg:w-[420px] w-[330px] lg:mx-24 bg-[#D0F5D3] bg-opacity-10 z-10 backdrop-blur-md rounded-[20px] ' style={{
                             boxShadow: '0px 0px 50px rgba(0, 0, 0, 0.1)'
                         }}>
 
@@ -202,8 +224,9 @@ const Register = () => {
                                 <h1 className='text-[14px]'><input type='checkbox' className=' mr-1' value={check} onChange={handleCheckChange} />By Continuing, you would agree our <Link className='underline font-semibold text-[14px]'>Terms of Service</Link> and <Link className='underline font-semibold text-[14px]'>Privacy Policy.</Link></h1>
                             </div>
 
-                            <div className='flex justify-center lg:py-2 py-4'>
-                                {Username && email && gender && startDate && check ?
+                            <div className='flex justify-center lg:py-2 py-4' 
+                            >
+                                {/* {Username && email && gender && startDate && check ?
                                     (<Link to='/loginotp' className='lg:w-[50%]'>
                                         <h2 className='bg-[#EFC319]  text-center lg:p-3 py-2 px-8  rounded-xl text-white'>Continue</h2>
                                     </Link>)
@@ -211,10 +234,17 @@ const Register = () => {
                                     (<div className='lg:w-[50%]'>
                                         <h2 className='bg-[#EFC319] opacity-50 text-center lg:p-3 py-2 px-8 rounded-xl text-white'>Continue</h2>
                                     </div>)
-                                }
+                                } */}
+                                {/* <div className='lg:w-[50%]' onClick={ ()=> Signup(Username,gender,email,startDate,setUsername,setEmail,setStartDate,setgender)}>
+                                        <h1 className='bg-[#EFC319] opacity-50 text-center lg:p-3 py-2 px-8 rounded-xl text-white'>Continue</h1>
+                                    </div> */}
+                                    <div className='lg:w-[50%]' onClick={handleRegistration}>
+                                        <h1 className='bg-[#EFC319] opacity-50 text-center lg:p-3 py-2 px-8 rounded-xl text-white'>Continue</h1>
+                                    </div>
+
                             </div>
 
-                        </div>
+                        </form>
 
                     </div>
 

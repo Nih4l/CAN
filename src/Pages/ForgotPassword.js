@@ -36,8 +36,8 @@ const ForgotPassword = () => {
         <img src={CANa} alt='not found' className='w-[42.88px] h-[16.19px]  ' />
       </div>
 
-      <div className='lg:h-screen h-fit flex lg:p-0 px-4  items-center  justify-center'>
-        <div className='  shadow-xl   pb-8 lg:px-6 px-2  bg-[#D0F5D3] bg-opacity-10 z-10 backdrop-blur-lg rounded-[20px]' style={{
+      <div className='lg:h-screen h-fit flex lg:p-0 px-4 pt-4 items-center  justify-center'>
+        <div className='  shadow-xl   pb-8 lg:px-6 px-2   bg-[#D0F5D3] bg-opacity-10 z-10 backdrop-blur-lg rounded-[20px]' style={{
           boxShadow: '0px 0px 50px rgba(0, 0, 0, 0.1)'
         }}>
 
