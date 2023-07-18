@@ -121,8 +121,8 @@ const SideMenu = () => {
                 <li className={`flex flex-row items-center gap-2 h-12 text-[14px] text-[#444] font-semibold  ${activePage === '/Appointment' ? 'bg-[rgba(239, 195, 25, 0.2)] border-l-[3px] lg:border-[#C31A7F]' : ''}`}><div className={`ml-10 `}><img className='w-4' src={appointment} alt='none' /></div><p className={` ${isOpen ? '  hidden translate-x-0' : ''}`}>Appointments</p></li>
               </Link>
 
-              <Link to='' onClick={() => setActivePage('/home')}>
-                <li className={`flex flex-row items-center gap-2 h-12 text-[14px] text-[#444] font-semibold  ${activePage === '' ? 'bg-[rgba(239, 195, 25, 0.2)] border-l-[3px]  lg:border-[#C31A7F]' : ''}`}><div className={`ml-10 `}><img className='w-4' src={medicine} alt='none' /></div><p className={` ${isOpen ? '  hidden translate-x-0' : ''}`}>Medicines</p></li>
+              <Link to='/Medicine' onClick={() => setActivePage('/Medicine')}>
+                <li className={`flex flex-row items-center gap-2 h-12 text-[14px] text-[#444] font-semibold  ${activePage === '/Medicine' ? 'bg-[rgba(239, 195, 25, 0.2)] border-l-[3px]  lg:border-[#C31A7F]' : ''}`}><div className={`ml-10 `}><img className='w-4' src={medicine} alt='none' /></div><p className={` ${isOpen ? '  hidden translate-x-0' : ''}`}>Medicines</p></li>
               </Link>
 
             </ul>
