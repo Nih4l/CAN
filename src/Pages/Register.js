@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useRef, useState } from 'react'
 import LogoCAn from '../Photos/LogoCAn.png'
 import CANa from '../Photos/CANa.png'
 import vibird1 from '../Photos/vibird1.gif'
@@ -13,11 +13,14 @@ import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 // import { Signup } from '../Api/HandleApi'
 import axios from 'axios'
+import { baseurl } from '../Api/baseUrl'
+import LoginOTP from './LoginOTP'
 
 
 const Register = () => {
 
-    const baseUrl = 'http://localhost:4000'
+    
+
 
     const handleRegistration = async () => {
         // Create an object with the user data
@@ -27,16 +30,29 @@ const Register = () => {
           gender: gender,
           date_of_birth: startDate,
         };
+        localStorage
+        .setItem('userValue', JSON.stringify({...userData}));
     
-        try {
-          // Make a POST request to your API endpoint
-          const response = await axios.post(`${baseUrl}/api/userAccountregister`, userData);
-          console.log(response.data);
-          // TODO: Add any additional logic or UI updates
-        } catch (error) {
-          console.error(error);
-          // TODO: Add error handling logic or UI updates
-        }
+    try {
+        const response = await axios.post(`${baseurl}/api/otpsend`, {
+            email_phone : email
+    });
+        console.log(response.data)
+        sessionStorage.setItem('email_phone',JSON.stringify({email_phone:email}))
+        sessionStorage.setItem('user_otp',JSON.stringify({user_otp:response.data.otp}))
+    }
+    catch(error){
+        console.error(error)
+    }
+        // try {
+        //   // Make a POST request to your API endpoint
+        //   const response = await axios.post('http://localhost:4000/api/userAccountregister');
+        //   console.log(response.data);
+         
+        // } catch (error) {
+        //   console.error(error);
+          
+        // }
       };
 
     //Email input box
@@ -226,21 +242,21 @@ const Register = () => {
 
                             <div className='flex justify-center lg:py-2 py-4' 
                             >
-                                {/* {Username && email && gender && startDate && check ?
-                                    (<Link to='/loginotp' className='lg:w-[50%]'>
+                                {Username && email && gender && startDate && check ?
+                                    (<Link to='/loginotp' className='lg:w-[50%]' onClick={handleRegistration}>
                                         <h2 className='bg-[#EFC319]  text-center lg:p-3 py-2 px-8  rounded-xl text-white'>Continue</h2>
                                     </Link>)
                                     :
                                     (<div className='lg:w-[50%]'>
                                         <h2 className='bg-[#EFC319] opacity-50 text-center lg:p-3 py-2 px-8 rounded-xl text-white'>Continue</h2>
                                     </div>)
-                                } */}
+                                }
                                 {/* <div className='lg:w-[50%]' onClick={ ()=> Signup(Username,gender,email,startDate,setUsername,setEmail,setStartDate,setgender)}>
                                         <h1 className='bg-[#EFC319] opacity-50 text-center lg:p-3 py-2 px-8 rounded-xl text-white'>Continue</h1>
                                     </div> */}
-                                    <div className='lg:w-[50%]' onClick={handleRegistration}>
-                                        <h1 className='bg-[#EFC319] opacity-50 text-center lg:p-3 py-2 px-8 rounded-xl text-white'>Continue</h1>
-                                    </div>
+                                    {/* <div className='lg:w-[50%]' onClick={handleRegistration}>
+                                        <h1 className='bg-[#EFC319]  text-center lg:p-3 py-2 px-8 rounded-xl text-white'>Continue</h1>
+                                    </div> */}
 
                             </div>
 
@@ -249,7 +265,7 @@ const Register = () => {
                     </div>
 
                 </div>
-
+                                    {/* <LoginOTP value={email} /> */}
             </div>
         </>
     )

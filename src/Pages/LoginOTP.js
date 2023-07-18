@@ -3,32 +3,62 @@ import LogoCAn from '../Photos/LogoCAn.png'
 import CANa from '../Photos/CANa.png'
 import WelcomeScreen from '../Photos/WelcomeScreen.png'
 import Video from '../Photos/Video.png'
-import { Link } from 'react-router-dom'
+import { Link,useNavigate } from 'react-router-dom'
 import CarouselMain from '../Components/CarouselMain'
 import c7 from '../Photos/c7.png'
 import vibird1 from '../Photos/vibird1.gif'
 import PinInput from 'react-pin-input'
+import { baseurl } from '../Api/baseUrl'
+import axios from 'axios'
 
+const LoginOTP = ({email}) => {
 
-const LoginOTP = () => {
+    const navigate = useNavigate()
 
+    // const resendOtp = async () => {
+    //     setloading("otpsend")
+    //     const { data } = await axios.post(`${baseurl}/api/otpsend`, {
+    //       email_phone: email
+    //     })
+    //     if (data.status === true) {
+    //       setloading(null)
+          
+    //     }
+       
+    // }
 
-    //OTP range
-    // const [value, setValue] = useState('');
+    const verifyOTP = async (e) => {
+        e.preventDefault();
+        
+        
+        try {
+            sessionStorage.getItem(JSON.stringify({email_phone:email}))
+          const { data } = await axios.post(`${baseurl}/api/otpverify`, {
+            
+            email_phone: email  ,
+            otp: pin,
+          });
+          console.log('Response:', data);
+          sessionStorage.getItem(JSON.stringify({user_otp:data.otp}))
+          
+          if (data.status === true) {
+            navigate('/password');
+          }
+        } catch (error) {
+          console.error('Error:', error);
+        }
+      };
 
     const [pin, setPin] = useState('');
+    const [otpErr, setotpErr] = useState("")
+    const [loading, setloading] = useState(null)
 
 
     const handlePinChange = (value) => {
         setPin(value);
         console.log('Pin value:', value);
     };
-    // const handleInputChange = (event) => {
-    //     const inputValue = event.target.value;
-    //     if (/^\d*$/.test(inputValue)) {
-    //         setValue(inputValue);
-    //     }
-    // };
+    
 
     return (
         <>
@@ -84,14 +114,7 @@ const LoginOTP = () => {
                             <div className='text-center py-4'>Enter the OTP sent to you</div>
 
                             <div className='flex pl-4  justify-center relative items-center   '>
-                                {/* <input maxLength={4} className='absolute mb-3 outline-none  ml-7 bg-transparent h-12 w-44  p-2  ' style={{ letterSpacing: 32 }}
-                                    value={value}
-                                    onChange={handleInputChange}
-                                />
-                                <span>___</span>
-                                <span>___</span>
-                                <span>___</span>
-                                <span>___</span> */}
+                                
                                 <PinInput
                                     length={4}
                                     id='pin'
@@ -110,13 +133,13 @@ const LoginOTP = () => {
 
                             <div className='text-center py-4 flex gap-1 justify-center'>
                                 <p>Didn't recieved the OTP?</p>
-                                <p className='text-center text-[#C31A7F]'>Resend OTP</p>
+                                <p className='text-center text-[#C31A7F]' >Resend OTP</p>
                             </div>
 
                             <div className='flex justify-center py-2'>
 
 
-                                {pin.length === 4 ?
+                                {/* {pin.length === 4 ?
                                     (<Link to={(pin.length === 4) ? '/password' : ''} className='w-[40%]'>
                                         <h2 className='bg-[#EFC319]  text-center p-3 rounded-lg text-white'>Verify</h2>
                                     </Link>)
@@ -124,7 +147,13 @@ const LoginOTP = () => {
                                     (<div className='w-[40%]'>
                                         <h2 className='bg-[#EFC319] opacity-50  text-center p-3 rounded-lg text-white'>Verify OTP</h2>
                                     </div>)
-                                }
+                                } */}
+                                <span>{otpErr}</span>
+
+                                <div className='w-[40%]' onClick={verifyOTP}>
+                                        <h2 className='bg-[#EFC319]   text-center p-3 rounded-lg text-white'>Verify OTP</h2>
+                                </div>
+
                             </div>
 
 
