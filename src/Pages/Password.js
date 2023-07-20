@@ -2,16 +2,30 @@ import React, { useState } from 'react'
 import LogoCAn from '../Photos/LogoCAn.png'
 import CANa from '../Photos/CANa.png'
 import Video from '../Photos/Video.png'
-import { Link } from 'react-router-dom'
+import { Link, json } from 'react-router-dom'
 import CarouselMain from '../Components/CarouselMain'
 import {IoKeyOutline} from 'react-icons/io5'
 import {AiOutlineEyeInvisible} from 'react-icons/ai'
 import {AiOutlineEye} from 'react-icons/ai'
 import Feed from '../Photos/Feed.png'
 import vibird1 from '../Photos/vibird1.gif'
+import axios from 'axios'
+import { baseurl } from '../Api/baseUrl'
 
 
 const LoginOTP = () => {
+
+
+    const SetPassword = async() => {
+        const userValue = JSON.parse(localStorage.getItem('userValue')) || {};
+        
+        userValue.password = firstpass;
+        userValue.confirmPassword = firstpass1;
+
+        localStorage.setItem('userValue', JSON.stringify(userValue));
+        console.log(userValue)
+      
+    }
 
     const [eye, setEye] = useState()
     const [eye1, setEye1] = useState()
@@ -123,8 +137,8 @@ const LoginOTP = () => {
 
 
                                 {(firstpass) === (firstpass1) ?
-                                    (<Link to='/choosetitle' className='w-[40%]'>
-                                        <h2 className='bg-[#EFC319]  text-center p-3 rounded-lg text-white'>Verify</h2>
+                                    (<Link to='/choosetitle' className='w-[40%]' onClick={SetPassword}>
+                                        <h2 className='bg-[#EFC319] cursor-pointer  text-center p-3 rounded-lg text-white'>Verify</h2>
                                     </Link>)
                                     :
                                     (<div className='w-[40%]'>

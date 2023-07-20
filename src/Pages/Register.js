@@ -32,32 +32,30 @@ const Register = () => {
         };
         localStorage
         .setItem('userValue', JSON.stringify({...userData}));
+        
     
     try {
         const response = await axios.post(`${baseurl}/api/otpsend`, {
             email_phone : email
     });
+
+    
         console.log(response.data)
         sessionStorage.setItem('email_phone',JSON.stringify({email_phone:email}))
         sessionStorage.setItem('user_otp',JSON.stringify({user_otp:response.data.otp}))
+        
     }
+    
     catch(error){
         console.error(error)
     }
-        // try {
-        //   // Make a POST request to your API endpoint
-        //   const response = await axios.post('http://localhost:4000/api/userAccountregister');
-        //   console.log(response.data);
-         
-        // } catch (error) {
-        //   console.error(error);
-          
-        // }
-      };
+        
+    };
 
     //Email input box
     const [email, setEmail] = useState('')
     const [error, setError] = useState('');
+   
 
 
     const handleChange = (e) => {
@@ -251,6 +249,7 @@ const Register = () => {
                                         <h2 className='bg-[#EFC319] opacity-50 text-center lg:p-3 py-2 px-8 rounded-xl text-white'>Continue</h2>
                                     </div>)
                                 }
+                                
                                 {/* <div className='lg:w-[50%]' onClick={ ()=> Signup(Username,gender,email,startDate,setUsername,setEmail,setStartDate,setgender)}>
                                         <h1 className='bg-[#EFC319] opacity-50 text-center lg:p-3 py-2 px-8 rounded-xl text-white'>Continue</h1>
                                     </div> */}
@@ -265,7 +264,7 @@ const Register = () => {
                     </div>
 
                 </div>
-                                    {/* <LoginOTP value={email} /> */}
+                {/* <LoginOTP email={email} /> */}
             </div>
         </>
     )
