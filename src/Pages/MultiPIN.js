@@ -14,6 +14,13 @@ const MultiPIN = () => {
     const [repin, setRepin] = useState('');
     const [error, setError] = useState('');
 
+    const SetLoginPin = () => {
+        const userValue = JSON.parse(localStorage.getItem('userValue')) || {};
+        userValue.profile_pin = pin
+        userValue.profile_pin = repin
+        localStorage.setItem('userValue', JSON.stringify(userValue));
+        console.log(userValue)
+    }
 
 
 
@@ -107,7 +114,7 @@ const MultiPIN = () => {
                                 <p className='lg:text-[18px] text-[14px] font-poppins font-semibold'>your account information with you</p>
                             </div>
 
-                            <div className=' text-xl py-6 flex flex-row items-center justify-center w-full '>
+                            <div className=' text-xl py-6 flex flex-row items-end justify-between w-full lg:gap-6 gap-6  lg:pl-3 pl-3 '>
 
                                 {/* <p className='text-sm  font-semibold flex justify-center w-[14%] '>PIN</p> */}
 
@@ -121,7 +128,7 @@ const MultiPIN = () => {
                                     
                                 /> */}
 
-                                <label className='font-poppins text-[18px] align-bottom mr-20 '> PIN </label>
+                                <label className='font-poppins lg:text-[18px] text-[14px] align-bottom '> PIN </label>
                                 <PinInput
                                     length={4}
                                     id='pin'
@@ -137,7 +144,7 @@ const MultiPIN = () => {
                                 ></PinInput>
                             </div>
 
-                            <div className=' text-xl py-3 flex items-center justify-center  w-full  '>
+                            <div className=' text-xl lg:py-3 lg:gap-6 gap-4  flex items-end justify-between  w-full lg:pl-3 pl-2  '>
 
                                 {/* <p className='text-sm  font-semibold flex justify-center w-[14%] '>Re Enter</p> */}
 
@@ -149,7 +156,7 @@ const MultiPIN = () => {
                                     placeholder='__  __  __  __'
                                     className='w-[64%] placeholder:text-4xl placeholder:tracking-[0em] bg-transparent tracking-[.50em] mb-4 outline-none'
                                 /> */}
-                                <label className='font-poppins text-[18px] align-bottom mr-8 '>Re Enter</label>
+                                <label className='font-poppins lg:text-[18px] text-[14px] align-bottom lg:mr-8 '>Re Enter</label>
                                 <PinInput
                                     length={4}
                                     id='repin'
@@ -214,7 +221,7 @@ const MultiPIN = () => {
                                         }`}
                                     disabled={error && error !== 'Pins are equal'}
                                 >
-                                    <Link to='/ShowProfile'>Continue</Link>
+                                    <Link to='/ShowProfile' onClick={SetLoginPin}>Continue</Link>
                                 </button>
                             </div>
 

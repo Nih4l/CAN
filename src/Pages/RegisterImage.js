@@ -13,6 +13,14 @@ const RegisterImage = () => {
   const [image, setImage] = useState(null);
   const hiddenChooseImage = useRef(null);
 
+  const SetRegisterImage = () => {
+    const userValue = JSON.parse(localStorage.getItem('userValue')) || {};
+
+    userValue.profile_photo = image
+    localStorage.setItem('userValue', JSON.stringify(userValue));
+    console.log(userValue);
+  }
+
   const hideImage = () => {
     setImage(false);
   };
@@ -108,7 +116,7 @@ const RegisterImage = () => {
                 {image ? (
                   <div className='flex justify-center py-2 w-[50%]'>
 
-                    <Link to='/MultiPIN' className='w-[86%]'>
+                    <Link to='/MultiPIN' className='w-[86%]' onClick={SetRegisterImage}>
                       <h2 className='bg-[#EFC319]  text-center p-3 rounded-lg text-white'>Continue</h2>
                     </Link>
                   </div>)
