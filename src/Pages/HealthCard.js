@@ -8,7 +8,7 @@ import { RiArrowDropDownLine } from 'react-icons/ri'
 import SingleLineCalendar from '../Components/SingleLineCalender'
 import VerticalSLC from '../Components/VericalSLC'
 import { Link } from 'react-router-dom'
-
+import SideMenu from '../Components/SideMenu'
 
 const HealthCard = () => {
 
@@ -21,29 +21,35 @@ const HealthCard = () => {
 
     return (
         <>
-            <div className=' h-[100%]'>
-
-                <div>
+            { /* complete screen  */}
+      <div className="flex flex-row min-h-screen h-[100%] bg-[#FEF8FD] ">
+        {/* side menu column */}
+        <div className="sticky flex flex-row">
+          <SideMenu />
+        </div>
+        {/* rest of the column  including homenav + bottom of the page code*/}
+        <div className="flex flex-col h-[100%] w-screen">
+          {/* home navigation top bar div */}
+                <div className="  bg-white">
                     <HomeNav />
                 </div>
 
                 <div className='flex'>
                     {/* background */}
-                    <div className='bg-[#FEF8FD] h-[100vh] w-full flex flex-row'>
+                    <div className='bg-[#FEF8FD] w-full flex flex-row'>
 
                         
                         <div className='flex flex-col w-[90%] mx-[5%]'>
                         <h1 className='ml-[8%] mt-6 text-lg font-semibold'>Health Card</h1>
-                            <div className='bg-white h-[80vh] ml-[8%] mt-2 rounded-2xl shadow-xl flex flex-col items-center justify-center' >
+                            <div className='bg-white ml-[8%] mt-2 rounded-2xl gap-8 py-[100px] flex flex-col items-center justify-center' >
                                 <div>
                                     <img src={HealthReco} alt='Health_Record.jpg' />
                                 </div>
-                                <div className='w-[50%] text-lg text-center mt-3'>
-                                    Add your Appointment and there timing here
-                                    so we can help you talking them on time.
+                                <div className='w-[25%] text-[18px] text-center text-[#696969]'>
+                                Create your Fit-to-Fly Report Card by filling in your details.
                                 </div>
                                 <Link to='/HealthCard1'>
-                                    <div className='mt-3 bg-[#F2CF47] text-white px-3 py-1 rounded-3xl'>
+                                    <div className='bg-[#F2CF47] text-white px-4 py-2 rounded-3xl font-[500] text-[18px]'>
                                         Make Your Health Card
                                     </div>
                                 </Link>
@@ -56,7 +62,7 @@ const HealthCard = () => {
                     </div>
                 </div>
             </div>
-
+        </div>
         </>
     )
 }

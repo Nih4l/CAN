@@ -25,6 +25,7 @@ import HealthCard from './Pages/HealthCard'
 import HealthCard1 from './Pages/HealthCard1'
 import Appointment from './Pages/Appointment'
 import Appointment1 from './Pages/Appointment1'
+import Medicine from './Pages/Medicine'
 import Password from './Pages/Password'
 import MultiPIN from './Pages/MultiPIN'
 import LoginForm from './Pages/LoginForm'
@@ -40,8 +41,8 @@ import ResetPassword from './Pages/ResetPassword'
 import ResetPasswordSuccessfully from './Pages/ResetPasswordSuccessfully'
 import SubscriptionModels from './Pages/Subscription_Models'
 import Subscription_Payment_Method from './Pages/Subscription_Payment_Method'
-
-
+import Medicine1 from './Pages/Medicine1'
+import MeetingActive from './Pages/MeetingActive'
 
 const App = () => {
   return (
@@ -76,6 +77,8 @@ const App = () => {
         <Route exact path = 'HealthCard1' element={<HealthCard1 />} />
         <Route exact path = 'Appointment' element={<Appointment />} />
         <Route exact path = 'Appointment1' element={<Appointment1 />} />
+        <Route exact path = 'Medicine' element={ <Medicine />} />
+        <Route exact path = 'Medicine1' element={<Medicine1 />} />
         <Route exact path = 'MultiPIN' element={<MultiPIN />} />
         <Route exact path = 'ShowProfile' element={<ShowProfile />} />
         <Route exact path = 'ForgotPassword' element={<ForgotPassword />} />
@@ -84,6 +87,7 @@ const App = () => {
         <Route exact path = 'ResetPasswordSuccessfully' element={<ResetPasswordSuccessfully />} />
         <Route exact path="Subscription_Models" element={<SubscriptionModels/>} />
         <Route exact path="Subscription_Payment_Method" element={<Subscription_Payment_Method />}></Route>
+        <Route exact path= 'MeetingActive' element={<MeetingActive/>}></Route>
         
         {/* New Routs Amit */}
         <Route exact path = 'AddProfile' element={<AddProfile />} />
@@ -91,8 +95,9 @@ const App = () => {
         <Route exact path = 'logindetails' element={<LoginDetails />} />
         <Route exact path = 'loginimage' element={<LoginImage />} />
         <Route exact path = 'loginprofile' element={<LoginProfile />} />
-        
 
+        
+       
         
       </Routes>
       </BrowserRouter>

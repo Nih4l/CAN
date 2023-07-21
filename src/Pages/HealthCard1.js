@@ -3,6 +3,7 @@ import HomeNav from '../Components/HomeNav'
 import Acc from '../Photos/account.jpg'
 import { CgAdd } from 'react-icons/cg'
 import { MdOutlineCloudUpload } from 'react-icons/md'
+import SideMenu from '../Components/SideMenu'
 
 const HealthCard1 = () => {
 
@@ -17,16 +18,24 @@ const HealthCard1 = () => {
 
   return (
     <>
-      <div className='h-[100%]'>
-        <div>
-          <HomeNav />
+      { /* complete screen  */}
+      <div className="flex flex-row min-h-screen h-[100%] bg-[#FEF8FD] ">
+        {/* side menu column */}
+        <div className="sticky flex flex-row">
+          <SideMenu />
         </div>
+        {/* rest of the column  including homenav + bottom of the page code*/}
+        <div className="flex flex-col h-[100%] w-screen">
+          {/* home navigation top bar div */}
+                <div className="  bg-white">
+                    <HomeNav />
+                </div>
 
         <div className='h-full w-full bg-[#FEF8FD] flex flex-col gap-4  '>
 
           <h1 className='ml-[13%] pt-6 font-semibold'>Make Your Health Card</h1>
 
-          <div className='ml-[13%] h-full w-[80%] bg-white shadow-xl rounded-xl p-2'>
+          <div className='ml-[13%] h-full w-[80%] bg-white rounded-xl p-2'>
 
 
 
@@ -57,7 +66,7 @@ const HealthCard1 = () => {
 
 
 
-            <form className='flex flex-wrap items-center justify-center gap-7 mx-[4%] mt-4'>
+            <form className='flex flex-wrap items-center justify-center gap-7 mx-[4%] my-4'>
 
               <div class="w-[46%] relative group">
                 <input type="text" id="username" required class="w-full h-10 px-4 text-sm peer  outline-none border rounded-lg " />
@@ -196,6 +205,7 @@ const HealthCard1 = () => {
           </div>
 
         </div>
+      </div>
       </div>
     </>
   )

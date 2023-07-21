@@ -2,7 +2,8 @@
 import React from "react";
 import HomeNav from "../Components/HomeNav";
 import SideNav from "../Components/SideNav";
-import SideMenu from '../Components/SideMenu'
+import SideMenu from '../Components/SideMenu';
+
 
 const Page = ({ pageContent  }) => {
   return (
