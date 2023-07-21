@@ -15,6 +15,14 @@ import {BsDot} from 'react-icons/bs'
 const ChooseTitle = () => {
   const [select, setSelect] = useState('');
 
+  const SetChooseTitle = () => {
+    const userValue = JSON.parse(localStorage.getItem('userValue')) || {};
+
+    userValue.profile_category = select
+    localStorage.setItem('userValue', JSON.stringify(userValue));
+    console.log(userValue);
+  }
+
   function selectedOption(value) {
     setSelect(value);
   }
@@ -158,7 +166,7 @@ const ChooseTitle = () => {
                   </div>
 
                   {select ? (
-                    <Link to="/registerimage" className="w-[50%]">
+                    <Link to="/registerimage" className="w-[50%]"onClick={SetChooseTitle}>
                       <h2 className="bg-[#EFC319] text-center p-3 rounded-lg text-white">
                         Continue
                       </h2>

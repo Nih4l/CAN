@@ -62,12 +62,6 @@ const LoginOTP = () => {
         }
     };
 
-    
-    
-    const [loading, setloading] = useState(null)
-
-
-
     const handlePinChange = (value) => {
         setPin(value);
         console.log('Pin value:', value);

@@ -19,43 +19,34 @@ import LoginOTP from './LoginOTP'
 
 const Register = () => {
 
-    
-
-
     const handleRegistration = async () => {
         // Create an object with the user data
         const userData = {
-          username: Username,
-          email_phone: email,
-          gender: gender,
-          date_of_birth: startDate,
+            username: Username,
+            email_phone: email,
+            gender: gender,
+            date_of_birth: startDate,
         };
         localStorage
-        .setItem('userValue', JSON.stringify({...userData}));
-        
-    
-    try {
-        const response = await axios.post(`${baseurl}/api/otpsend`, {
-            email_phone : email
-    });
+            .setItem('userValue', JSON.stringify({ ...userData }));
 
-    
-        console.log(response.data)
-        sessionStorage.setItem('email_phone',JSON.stringify({email_phone:email}))
-        sessionStorage.setItem('user_otp',JSON.stringify({user_otp:response.data.otp}))
-        
-    }
-    
-    catch(error){
-        console.error(error)
-    }
-        
+        try {
+            const response = await axios.post(`${baseurl}/api/otpsend`, {
+                email_phone: email
+            });
+            console.log(response.data)
+            sessionStorage.setItem('email_phone', JSON.stringify({ email_phone: email }))
+            sessionStorage.setItem('user_otp', JSON.stringify({ user_otp: response.data.otp }))
+        }
+        catch (error) {
+            console.error(error)
+        }
     };
 
     //Email input box
     const [email, setEmail] = useState('')
     const [error, setError] = useState('');
-   
+
 
 
     const handleChange = (e) => {
@@ -112,7 +103,7 @@ const Register = () => {
 
 
             <div className=' '>
-            
+
                 <div className='flex lg:flex-row lg:p-0 p-2 items-center justify-center'>
 
                     <div className='hidden lg:block w-[55%] mt-20  flex flex-col items-center justify-center   '>
@@ -169,52 +160,52 @@ const Register = () => {
                                 <input placeholder='Enter name' className='border-none w-full bg-transparent placeholder:p-2' />
                             </div> */}
 
-                                
-                        <div className='p-4'>
-                            <div className='border-2 lg:h-12 h-12  mt-1   px-2 rounded-[20px] flex items-center justify-center gap-4'>
-                                <h1 className='font-bold flex items-center w-max h-full px-2'><VscAccount /></h1>
-                                <div className='font-bold bg-[#000] h-[35px] w-[1px] inline-block text-[20px]'></div>
-                                <input placeholder='Enter full name' className='border-none w-full bg-transparent placeholder:p-2 outline-none'
-                                    value={Username} onChange={changeUsername} />
-                            </div>
 
-                            <div className='border-2 lg:h-12 h-12  mt-3   px-2 rounded-[20px] flex items-center gap-4'>
-                                <h1 className='font-bold flex items-center w-max h-full px-2'><AiOutlineMail /></h1>
-                                <div className='font-bold bg-[#000] h-[35px] w-[2px] inline-block text-[20px]'></div>
-                                <input placeholder='Email/phone no.' className='border-none w-full bg-transparent placeholder:p-2 outline-none'
-                                    value={email}
-                                    onChange={handleEmailChange} />
-                                <div className='text-red-400 lg:text-xs text-[10px]  lg:w-[50%] '>{error && <p>{error}</p>}</div>
-                            </div>
+                            <div className='p-4'>
+                                <div className='border-2 lg:h-12 h-12  mt-1   px-2 rounded-[20px] flex items-center justify-center gap-4'>
+                                    <h1 className='font-bold flex items-center w-max h-full px-2'><VscAccount /></h1>
+                                    <div className='font-bold bg-[#000] h-[35px] w-[1px] inline-block text-[20px]'></div>
+                                    <input placeholder='Enter full name' className='border-none w-full bg-transparent placeholder:p-2 outline-none'
+                                        value={Username} onChange={changeUsername} />
+                                </div>
 
-                            <div className='border-2 lg:h-12 h-12  mt-3  px-2 rounded-[20px] flex items-center gap-4'>
-                                <h1 className='font-bold flex items-center w-max h-full px-2'><BsGenderAmbiguous /></h1>
-                                <div className='font-bold bg-[#000] h-[35px] w-[1px] inline-block text-[20px]'></div>
-                                {/* <label htmlFor="gender" className="mr-2">
+                                <div className='border-2 lg:h-12 h-12  mt-3   px-2 rounded-[20px] flex items-center gap-4'>
+                                    <h1 className='font-bold flex items-center w-max h-full px-2'><AiOutlineMail /></h1>
+                                    <div className='font-bold bg-[#000] h-[35px] w-[2px] inline-block text-[20px]'></div>
+                                    <input placeholder='Email/phone no.' className='border-none w-full bg-transparent placeholder:p-2 outline-none'
+                                        value={email}
+                                        onChange={handleEmailChange} />
+                                    <div className='text-red-400 lg:text-xs text-[10px]  lg:w-[50%] '>{error && <p>{error}</p>}</div>
+                                </div>
+
+                                <div className='border-2 lg:h-12 h-12  mt-3  px-2 rounded-[20px] flex items-center gap-4'>
+                                    <h1 className='font-bold flex items-center w-max h-full px-2'><BsGenderAmbiguous /></h1>
+                                    <div className='font-bold bg-[#000] h-[35px] w-[1px] inline-block text-[20px]'></div>
+                                    {/* <label htmlFor="gender" className="mr-2">
                                         Gender:
                                     </label> */}
-                                <select
-                                    value={gender}
-                                    id="gender"
-                                    name="gender"
-                                    onChange={handleChange}
-                                    className=" py-2 w-full  rounded-md focus:outline-none focus:none bg-transparent "
-                                >
-                                    <option value="default">Gender</option>
-                                    <option value="male">Male</option>
-                                    <option value="female">Female</option>
-                                    <option value="other">Other</option>
-                                </select>
-                                {/* <Select options={options} className='w-full bg-transparent placeholder:p-2 outline-none bg-slate-200 ' defaultInputValue='Gender' /> */}
-                            </div>
+                                    <select
+                                        value={gender}
+                                        id="gender"
+                                        name="gender"
+                                        onChange={handleChange}
+                                        className=" py-2 w-full  rounded-md focus:outline-none focus:none bg-transparent "
+                                    >
+                                        <option value="default">Gender</option>
+                                        <option value="male">Male</option>
+                                        <option value="female">Female</option>
+                                        <option value="other">Other</option>
+                                    </select>
+                                    {/* <Select options={options} className='w-full bg-transparent placeholder:p-2 outline-none bg-slate-200 ' defaultInputValue='Gender' /> */}
+                                </div>
 
-                            <div className='border-2 lg:h-12 h-12   mt-3  px-2 rounded-[20px] flex items-center gap-4'>
-                                <h1 className='font-bold flex items-center w-max h-full px-2' ><SlCalender id='dateOfBirth' type='date' /></h1>
-                                <div className='font-bold bg-[#000] h-[35px] w-[1px] inline-block text-[20px]'></div>
-                                {/* <input placeholder='Date of Birth' className='border-none w-full bg-transparent placeholder:p-2 outline-none'
+                                <div className='border-2 lg:h-12 h-12   mt-3  px-2 rounded-[20px] flex items-center gap-4'>
+                                    <h1 className='font-bold flex items-center w-max h-full px-2' ><SlCalender id='dateOfBirth' type='date' /></h1>
+                                    <div className='font-bold bg-[#000] h-[35px] w-[1px] inline-block text-[20px]'></div>
+                                    {/* <input placeholder='Date of Birth' className='border-none w-full bg-transparent placeholder:p-2 outline-none'
                                         value={dob}
                                         onChange={handledobChange} /> */}
-                                {/* <label htmlFor="dateOfBirth"></label>
+                                    {/* <label htmlFor="dateOfBirth"></label>
                                 <input
                                     type="date"
                                     id="dateOfBirth"
@@ -223,14 +214,14 @@ const Register = () => {
                                     className='pr-10'
                                     
                                 /> */}
-                                <DatePicker
-                                    selected={startDate}
-                                    onChange={(date) => setStartDate(date)}
-                                    isClearable
-                                    placeholderText="Date of Birth"
-                                    className='outline-none bg-transparent'
-                                />
-                            </div>
+                                    <DatePicker
+                                        selected={startDate}
+                                        onChange={(date) => setStartDate(date)}
+                                        isClearable
+                                        placeholderText="Date of Birth"
+                                        className='outline-none bg-transparent'
+                                    />
+                                </div>
 
                             </div>
 
@@ -238,7 +229,7 @@ const Register = () => {
                                 <h1 className='text-[14px]'><input type='checkbox' className=' mr-1' value={check} onChange={handleCheckChange} />By Continuing, you would agree our <Link className='underline font-semibold text-[14px]'>Terms of Service</Link> and <Link className='underline font-semibold text-[14px]'>Privacy Policy.</Link></h1>
                             </div>
 
-                            <div className='flex justify-center lg:py-2 py-4' 
+                            <div className='flex justify-center lg:py-2 py-4'
                             >
                                 {Username && email && gender && startDate && check ?
                                     (<Link to='/loginotp' className='lg:w-[50%]' onClick={handleRegistration}>
@@ -249,11 +240,11 @@ const Register = () => {
                                         <h2 className='bg-[#EFC319] opacity-50 text-center lg:p-3 py-2 px-8 rounded-xl text-white'>Continue</h2>
                                     </div>)
                                 }
-                                
+
                                 {/* <div className='lg:w-[50%]' onClick={ ()=> Signup(Username,gender,email,startDate,setUsername,setEmail,setStartDate,setgender)}>
                                         <h1 className='bg-[#EFC319] opacity-50 text-center lg:p-3 py-2 px-8 rounded-xl text-white'>Continue</h1>
                                     </div> */}
-                                    {/* <div className='lg:w-[50%]' onClick={handleRegistration}>
+                                {/* <div className='lg:w-[50%]' onClick={handleRegistration}>
                                         <h1 className='bg-[#EFC319]  text-center lg:p-3 py-2 px-8 rounded-xl text-white'>Continue</h1>
                                     </div> */}
 

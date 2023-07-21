@@ -4,9 +4,9 @@ import CANa from '../Photos/CANa.png'
 import Video from '../Photos/Video.png'
 import { Link, json } from 'react-router-dom'
 import CarouselMain from '../Components/CarouselMain'
-import {IoKeyOutline} from 'react-icons/io5'
-import {AiOutlineEyeInvisible} from 'react-icons/ai'
-import {AiOutlineEye} from 'react-icons/ai'
+import { IoKeyOutline } from 'react-icons/io5'
+import { AiOutlineEyeInvisible } from 'react-icons/ai'
+import { AiOutlineEye } from 'react-icons/ai'
 import Feed from '../Photos/Feed.png'
 import vibird1 from '../Photos/vibird1.gif'
 import axios from 'axios'
@@ -16,50 +16,50 @@ import { baseurl } from '../Api/baseUrl'
 const LoginOTP = () => {
 
 
-    const SetPassword = async() => {
+    const SetPassword = async () => {
         const userValue = JSON.parse(localStorage.getItem('userValue')) || {};
-        
+
         userValue.password = firstpass;
         userValue.confirmPassword = firstpass1;
 
         localStorage.setItem('userValue', JSON.stringify(userValue));
         console.log(userValue)
-      
+
     }
 
     const [eye, setEye] = useState()
     const [eye1, setEye1] = useState()
-    
+
 
     //see pass
-    function seePass () {
+    function seePass() {
         setEye(!eye)
     }
-    function seePass1 () {
+    function seePass1() {
         setEye1(!eye1)
     }
 
     //final
     const [firstpass, setFirstpass] = useState('')
 
-    function passwordChange (e) {
+    function passwordChange(e) {
         setFirstpass(e.target.value)
     }
 
     const [firstpass1, setFirstpass1] = useState(null)
 
-    function passwordChange1 (e) {
+    function passwordChange1(e) {
         setFirstpass1(e.target.value)
     }
 
     return (
         <>
-        <div className='lg:ml-[80px] mt-2 lg:absolute flex items-center justify-center  '>
-                    <img src={LogoCAn} alt='not found' className='w-[80px] h-[80px]'  />
-                    <img src={CANa} alt='not found' className='w-[42.88px] h-[16.19px] ' />
-                </div>
+            <div className='lg:ml-[80px] mt-2 lg:absolute flex items-center justify-center  '>
+                <img src={LogoCAn} alt='not found' className='w-[80px] h-[80px]' />
+                <img src={CANa} alt='not found' className='w-[42.88px] h-[16.19px] ' />
+            </div>
             <div>
-                
+
 
                 <div className='flex lg:flex-row lg:p-0 p-2 items-center justify-center'>
 
@@ -78,12 +78,12 @@ const LoginOTP = () => {
                             </div>
 
                             <div className='flex flex-row items-center gap-4 mt-16 '>
-                                    <div className='h-[12px] w-[12px] rounded-full bg-[#E7E7E7]'></div>
-                                    <div className='h-[12px] w-[12px] rounded-full bg-[#E7E7E7]'></div>
-                                    <div className='h-[12px] w-[12px] rounded-full bg-[#EFC319]'></div>
-                                    <div className='h-[12px] w-[12px] rounded-full bg-[#E7E7E7]'></div>
-                                    <div className='h-[12px] w-[12px] rounded-full bg-[#E7E7E7]'></div>
-                                    <div className='h-[12px] w-[12px] rounded-full bg-[#E7E7E7]'></div>        
+                                <div className='h-[12px] w-[12px] rounded-full bg-[#E7E7E7]'></div>
+                                <div className='h-[12px] w-[12px] rounded-full bg-[#E7E7E7]'></div>
+                                <div className='h-[12px] w-[12px] rounded-full bg-[#EFC319]'></div>
+                                <div className='h-[12px] w-[12px] rounded-full bg-[#E7E7E7]'></div>
+                                <div className='h-[12px] w-[12px] rounded-full bg-[#E7E7E7]'></div>
+                                <div className='h-[12px] w-[12px] rounded-full bg-[#E7E7E7]'></div>
                             </div>
                         </div>
                     </div>
@@ -100,43 +100,51 @@ const LoginOTP = () => {
                             <div className='text-center lg:text-3xl text-[24px] font-semibold p-1 text-[#EFC319]'>
                                 <h1>Create your password</h1>
                             </div>
-                            
+
                             <div className='mt-6 flex flex-col gap-3'>
                                 <div className='border-2 lg:h-14 h-12 mx-4 mt-3 lg:mx-8 lg:m-2 px-2 rounded-[20px] flex items-center justify-center gap-4'>
                                     <IoKeyOutline />
                                     <div className='font-bold bg-[#000] h-[35px] w-[1px] inline-block text-[20px]'></div>
-                                    <input placeholder='Enter password' 
-                                    className='bg-transparent w-full outline-none'
-                                    type={eye ?  'text' : 'password'}
-                                    onChange={passwordChange}
-                                    minLength={3}
-                                    value={firstpass}
+                                    <input placeholder='Enter password'
+                                        className='bg-transparent w-full outline-none'
+                                        type={eye ? 'text' : 'password'}
+                                        onChange={passwordChange}
+                                        minLength={3}
+                                        value={firstpass}
                                     />
                                     <div onClick={seePass}>
-                                        {eye ?<AiOutlineEye/> : <AiOutlineEyeInvisible />}
+                                        {eye ? <AiOutlineEye /> : <AiOutlineEyeInvisible />}
                                     </div>
                                 </div>
                                 <div className='border-2 lg:h-14 h-12 mx-4  lg:mx-8 lg:m-2 px-2 rounded-[20px] flex items-center justify-center gap-4'>
                                     <IoKeyOutline />
                                     <div className='font-bold bg-[#000] h-[35px] w-[1px] inline-block text-[20px]'></div>
-                                    <input placeholder='Re-enter password' 
-                                    className='bg-transparent w-full outline-none'
-                                    type={eye1 ? 'text' : 'password'}
-                                    onChange={passwordChange1}
-                                    minLength={3}
-                                    value={firstpass1}
+                                    <input placeholder='Re-enter password'
+                                        className='bg-transparent w-full outline-none'
+                                        type={eye1 ? 'text' : 'password'}
+                                        onChange={passwordChange1}
+                                        minLength={3}
+                                        value={firstpass1}
                                     />
                                     <div onClick={seePass1}>
-                                        {eye1 ?<AiOutlineEye/> : <AiOutlineEyeInvisible />}
+                                        {eye1 ? <AiOutlineEye /> : <AiOutlineEyeInvisible />}
                                     </div>
                                 </div>
-                                
+
+                                {firstpass.length < 8 && (
+                                    <div className='text-red-500 text-sm text-center'>
+                                        Your password should be greater than 8 digits.
+                                    </div>
+                                )}
+
                             </div>
 
                             <div className='flex justify-center py-6'>
 
+                                
 
-                                {(firstpass) === (firstpass1) ?
+
+                                {firstpass.length >= 8 && (firstpass) === (firstpass1) ?
                                     (<Link to='/choosetitle' className='w-[40%]' onClick={SetPassword}>
                                         <h2 className='bg-[#EFC319] cursor-pointer  text-center p-3 rounded-lg text-white'>Verify</h2>
                                     </Link>)
