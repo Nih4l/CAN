@@ -11,7 +11,11 @@
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
+<<<<<<< HEAD
     "@trendmicro/react-sidenav": "^0.5.0",
+=======
+    "axios": "^1.4.0",
+>>>>>>> 612ed97307df0d5912b921d9280e60aed7cc4593
     "browser-router": "^0.2.0",
     "emoji-mart": "^5.5.2",
     "props": "^0.3.0",
@@ -20,6 +24,7 @@
     "react-dom": "^18.2.0",
     "react-dropdown": "^1.11.0",
     "react-icons": "^4.8.0",
+    "react-pin-input": "^1.3.1",
     "react-router-dom": "^6.11.1",
     "react-scripts": "5.0.1",
     "react-select": "^5.7.3",
