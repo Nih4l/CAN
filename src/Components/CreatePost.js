@@ -17,8 +17,8 @@ import { BiArrowBack } from 'react-icons/bi'
 import { CiSearch } from 'react-icons/ci'
 import { GrLocation } from 'react-icons/gr'
 
-const CreatePost = ({ close_createPost }) => {
-
+const CreatePost = ({close_createPost}) => {
+  
   const [image, setImage] = useState(null);
   const [input, setInput] = useState('')
   const [showEmoji, setShowEmoji] = useState(false);
@@ -98,7 +98,7 @@ const CreatePost = ({ close_createPost }) => {
   return (
     <>
       <div
-        className='fixed inset-0 flex items-center lg:p-0 p-2 justify-center bg-black bg-opacity-50 z-50'
+        className='fixed inset-0 flex items-center lg:p-0 p-2 justify-center bg-black bg-opacity-50  z-1000'
       >
 
         <div className='bg-white p-2  lg:w-[500px] relative  rounded-[30px] '>
@@ -109,7 +109,7 @@ const CreatePost = ({ close_createPost }) => {
             </div>)}
 
 
-            <div onClick={close_createPost} className='absolute left-[88%] md:left-[95%] top-3 '>
+            <div onClick={close_createPost} className='cursor-pointer absolute left-[88%] md:left-[95%] top-3 '>
               <IoMdClose />
             </div>
           </div>
@@ -169,7 +169,7 @@ const CreatePost = ({ close_createPost }) => {
               <img src={location} className='w-5 cursor-pointer' alt='none' onClick={toggleLocation} />
 
               {showgif && (
-                <div className='fixed inset-0 flex items-center justify-center lg:p-0 p-4 bg-black bg-opacity-50 z-50'>
+                <div className='fixed inset-0 flex items-center justify-center lg:p-0 p-4 bg-opacity-50 z-20 bg-inheri '>
                   <div className='w-[500px] h-[500px] bg-[#FFFFFF] flex flex-col  rounded-[30px] relative'>
                     <div className='flex items-center justify-center relative py-7 '>
                       <h1 className='text-[18px] font-semibold'>Choose a GIF</h1>
