@@ -5,7 +5,8 @@ import HomeNav from '../Components/HomeNav';
 import Medicineimg from '../Photos/Medicineimg.png'
 import MedicinePopup from '../Components/MedicinePopup';
 import { Link } from 'react-router-dom';
-// import Add_Medicines_Popup from './Add_Medicines_Popup'
+import Page from '../Layouts/Pages';
+
 
 
 
@@ -16,13 +17,8 @@ const Medicine = () => {
     setMedicine(!medicine);
 };
    return (
-    <div className='flex flex-row h-screen bg-[#FEF8FD] '>
-            
-            <div className='sticky flex flex-row '><SideMenu/></div>
-            <div className=' flex flex-col items-center w-screen'>
-                <div className='bg-white w-full '>
-                    <HomeNav />
-                </div>
+    <Page pageContent={(
+        <>
                 <div className='bg-[#FEF8FD] w-full flex flex-col items-center '>
                 
                 
@@ -48,8 +44,8 @@ const Medicine = () => {
 
                         </div>
                 </div>
-            </div>
-            </div>
+           </>
+    )}/>
   )
 }
 

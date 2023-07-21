@@ -8,6 +8,7 @@ import SideMenu from '../Components/SideMenu'
 import { Link } from 'react-router-dom'
 import { useLocation } from 'react-router-dom'
 import AppointmentPopup from '../Components/AppointmentPopup'
+import Page from '../Layouts/Pages';
 const Appointment1 = () => {
 
     //pop up
@@ -39,15 +40,10 @@ const Appointment1 = () => {
   }
 
     return (
+        <Page
+        pageContent={(
         <>
-            <div className='h-[100%] flex flex-row'>
-            <div className='[h-100%]'>
-                <SideMenu/>
-            </div>
-            <div className=' w-full'>
-                <div>
-                    <HomeNav />
-                </div>
+           
 
                 <div className='flex'>
                     {/* background */}
@@ -155,9 +151,9 @@ const Appointment1 = () => {
 
                     </div>
                 </div>
-                </div>
-            </div>
+            
         </>
+        )}/>
     )
 }
 

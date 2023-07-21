@@ -4,28 +4,22 @@ import { RiDeleteBinLine } from "react-icons/ri";
 import { MdOutlineEdit } from "react-icons/md";
 import { Link } from "react-router-dom";
 import MedicinePopup from '../Components/MedicinePopup';
-import SideMenu from "../Components/SideMenu";
-import HomeNav from "../Components/HomeNav";
+
+import Page from "../Layouts/Pages";
 
 
-function MedicineReminder() {
+const MedicineReminder= () => {
     const [isClicked, setIsClicked]=useState(true)
     const handleIsClicked=()=>{
         setIsClicked(!isClicked);
     }
   return (
-    <div className="h-[100%] flex flex-row">
-      <div className="[h-100%]">
-        <SideMenu />
-      </div>
-      <div className=" w-full">
-        <div>
-          <HomeNav />
-        </div>
-
+    <Page pageContent={(
+      <>
+        
         <div className="flex">
           {/* background */}
-          <div className="bg-[#FEF8FD] w-full flex flex-row">
+          <div className="bg-[#FEF8FD] w-full flex flex-row h-full">
             <div className="flex flex-col w-[90%] mx-[5%]">
               <div className=" ml-8 mt-6 flex justify-between m-4 flex-nowrap">
                 <div className="flex gap-8 w-[50%]">
@@ -112,8 +106,8 @@ function MedicineReminder() {
             </div>
           </div>
         </div>
-      </div>
-    </div>
+      </>
+    )} />
   );
 }
 

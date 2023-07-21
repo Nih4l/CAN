@@ -9,6 +9,7 @@ import SingleLineCalendar from '../Components/SingleLineCalender'
 import VerticalSLC from '../Components/VericalSLC'
 import { Link } from 'react-router-dom'
 import SideMenu from '../Components/SideMenu'
+import Page from "../Layouts/Pages";
 
 const HealthCard = () => {
 
@@ -20,23 +21,11 @@ const HealthCard = () => {
     }
 
     return (
+     
+       <Page pageContent={(
         <>
-            { /* complete screen  */}
-      <div className="flex flex-row min-h-screen h-[100%] bg-[#FEF8FD] ">
-        {/* side menu column */}
-        <div className="sticky flex flex-row">
-          <SideMenu />
-        </div>
-        {/* rest of the column  including homenav + bottom of the page code*/}
-        <div className="flex flex-col h-[100%] w-screen">
-          {/* home navigation top bar div */}
-                <div className="  bg-white">
-                    <HomeNav />
-                </div>
-
-                <div className='flex'>
                     {/* background */}
-                    <div className='bg-[#FEF8FD] w-full flex flex-row'>
+                    <div className='bg-[#FEF8FD] w-full flex flex-row h-full'>
 
                         
                         <div className='flex flex-col w-[90%] mx-[5%]'>
@@ -60,11 +49,9 @@ const HealthCard = () => {
                         
 
                     </div>
-                </div>
-            </div>
-        </div>
-        </>
+            </>
+       )}/>
     )
-}
+};
 
 export default HealthCard

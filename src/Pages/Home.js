@@ -231,7 +231,7 @@ const Home = () => {
         <Page
             pageContent={(
                 <>
-                    <div className=' min-h-screen h-[100%]  '>
+                    <div className=' h-[100%]  '>
 
 
 

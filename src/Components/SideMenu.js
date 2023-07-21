@@ -85,7 +85,7 @@ const SideMenu = () => {
 
 
    
-      <div className={`lg:relative absolute h-full z-10    bg-[#FFF] border-[1px] border-solid border-[#D9EAFF] transition-all duration-300 flex flex-col justify-between ${isOpen ? 'w-[0px]      lg:w-[100px]' : 'lg:w-[300px]  w-[250px] '}`} style={{ boxShadow: '0px 10px 30px 0px rgba(0, 0, 0, 0.05)' }}>
+      <div className={`lg:relative absolute h-full z-50 bg-[#FFF] border-[1px] border-solid border-[#D9EAFF] transition-all duration-300 flex flex-col justify-between ${isOpen ? 'w-[0px]      lg:w-[100px]' : 'lg:w-[300px]  w-[250px] '}`} style={{ boxShadow: '0px 10px 30px 0px rgba(0, 0, 0, 0.05)' }}>
         <div>
           {/* LOGo */}
           <div className={`flex flex-row gap-1 items-center justify-center pt-2  ${isOpen ? 'flex flex-col gap-1 ' : ''}`}>
@@ -161,8 +161,8 @@ const SideMenu = () => {
         </div>
 
         {/* show more */}
-        <div>
-          <ul className="relative bg-[#F5F5F5] w-full h-12">
+        <div onClick={() => setActivePage('showMore')}  className={`cursor-pointer hover:bg-[#efc4197c] ${activePage == 'showMore' ? 'bg-[#efc4197c] border-l-[3px] lg:border-[#C31A7F]' : ''}`}>
+          <ul className="relative w-full h-12 ">
             <li>
               <li
                 className="flex flex-row   gap-2 "
@@ -181,7 +181,7 @@ const SideMenu = () => {
             {showmore && (
               <div
                 ref={showmoreOutclick}
-                className=" h-max w-max bg-white shadow-2xl absolute bottom-0 left-[120%]  items-center"
+                className=" h-max w-max bg-white shadow-2xl absolute bottom-0 left-[120%]   items-center"
               >
                 <p className="flex pt-3 px-4 text-center w-full font-semibold">
                   Help and support
@@ -191,27 +191,27 @@ const SideMenu = () => {
                   <hr />
                 </p>
 
-                <p className="flex px-4 py-2 hover:bg-[rgba(239, 195, 25, 0.2)] gap-2">
+                <p className="flex px-4 py-2 hover:bg-[rgba(239, 195, 25, 0.2)] gap-2 hover:bg-[#efc4197c]">
                   <img src={CANnn} alt="none" />
                   About us
                 </p>
-                <p className="flex px-4 py-2 hover:bg-[rgba(239, 195, 25, 0.2)] gap-2">
+                <p className="flex px-4 py-2 hover:bg-[rgba(239, 195, 25, 0.2)] gap-2 hover:bg-[#efc4197c]">
                   <img src={help} alt="none" />
                   Help / Feedback
                 </p>
-                <p className="flex px-4 py-2 hover:bg-[rgba(239, 195, 25, 0.2)] gap-2">
+                <p className="flex px-4 py-2 hover:bg-[rgba(239, 195, 25, 0.2)] gap-2 hover:bg-[#efc4197c]">
                   <img src={contact} alt="none" />
                   Contact Us
                 </p>
-                <p className="flex px-4 py-2 hover:bg-[rgba(239, 195, 25, 0.2)] gap-2">
+                <p className="flex px-4 py-2 hover:bg-[rgba(239, 195, 25, 0.2)] gap-2 hover:bg-[#efc4197c]">
                   <img src={help} alt="none" />
                   Help a friend
                 </p>
-                <p className="flex px-4 py-2 hover:bg-[rgba(239, 195, 25, 0.2)] gap-2">
+                <p className="flex px-4 py-2 hover:bg-[rgba(239, 195, 25, 0.2)] gap-2 hover:bg-[#efc4197c]">
                   <img src={setting} alt="none" />
                   Setting
                 </p>
-                <p className="flex px-4 py-2 pb-4 hover:bg-[rgba(239, 195, 25, 0.2)] gap-2">
+                <p className="flex px-4 py-2 pb-4 hover:bg-[rgba(239, 195, 25, 0.2)] gap-2 hover:bg-[#efc4197c]">
                   <img src={logout} alt="none" />
                   Logout
                 </p>
