@@ -88,7 +88,7 @@ const HomeNav = ({}) => {
             
               <input
                 placeholder="Search"
-                className=" w-full h-9 outline-none rounded-xl  placeholder:text-[14px] px-8 placeholder:font-semibold   bg-[#FEF8FD]  "
+                className=" w-full h-9 outline-none rounded-xl placeholder:text-[14px] px-8 placeholder:font-semibold   bg-[#FEF8FD]  "
               />
             </div>
             <div className="flex  ">

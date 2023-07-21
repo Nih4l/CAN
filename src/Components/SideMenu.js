@@ -15,7 +15,7 @@ import healthRec from "../Photos/healthRec.png";
 import healthCard from "../Photos/healthCard.png";
 import appointment from "../Photos/appointment.png";
 import medicine from "../Photos/medicine.png";
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import CreatePost from "./CreatePost";
 import iconRight from '../Photos/iconRight.png'
 import iconLeft from '../Photos/iconLeft.png'
@@ -25,19 +25,33 @@ import CANa from '../Photos/CANa.png'
 
 
 const SideMenu = () => {
-  const [isOpen, setIsOpen] = useState(true);
+  const [isOpen, setIsOpen] = useState(() => {
+    const storedValue = localStorage.getItem('isOpen');
+    return storedValue ? JSON.parse(storedValue) : true;
+  });
   const [isiconVisible, setIsiconVisible] = useState(true);
   const [showmore, setShowmore] = useState(false);
   const [uploadPosts, setUploadPosts] = useState(false);
-  const [activePage, setActivePage] = useState('/home');
+  const [activePage, setActivePage] = useState(null);
+  const location = useLocation();
 
   const uploadPost = () => {
     setUploadPosts(!uploadPosts);
   };
-
+  
   function close_createPost() {
     setUploadPosts(!uploadPosts);
   }
+ 
+  useEffect(() => {
+    // Set the active page based on the current URL path
+    setActivePage(location.pathname);
+  }, [location]);
+
+  useEffect(() => {
+    // Store the 'isOpen' state in localStorage whenever it changes
+    localStorage.setItem('isOpen', JSON.stringify(isOpen));
+  }, [isOpen]);
 
   const showmoreOutclick = useRef(null);
 
@@ -53,7 +67,7 @@ const SideMenu = () => {
       setShowmore(false);
     }
   };
-
+ 
   useEffect(() => {
     document.addEventListener("click", handleClickOutsideshowmore, true);
     return () => {
@@ -89,15 +103,26 @@ const SideMenu = () => {
           {/* content with icons */}
 
           <div className='flex flex-col  pt-2'>
-            <ul className='flex flex-col gap-2'>
+            <ul className='flex flex-col gap-2 cursor-pointer'>
 
-              <Link to='/home' onClick={() => setActivePage('/home')}>
+              <Link to="/home">
+                <div onClick={() => setActivePage('/home')}>
                 <li className={`flex flex-row items-center gap-2 h-12 text-[14px]  text-[#444] font-semibold  ${activePage === '/home' ? 'bg-[#efc4197c] border-l-[3px] lg:border-[#C31A7F] text-[14px] font-semibold' : ''}`}><div className={`ml-10 `}><img className='w-4' src={home} alt='none' /></div><p className={` ${isOpen ? '  hidden translate-x-0 ' : ' '}`}>Feeds</p></li>
+                </div>
               </Link>
 
-              <Link to='/meeting' onClick={() => setActivePage('/meeting')}>
-                <li className={`flex flex-row items-center gap-2 h-12 text-[14px] text-[#444] font-semibold  ${activePage === '/meeting' ? 'bg-[#efc4197c] border-l-[3px] lg:border-[#C31A7F] text-[14px] font-semibold' : ''}`}><div className={`ml-10 `}><img className='w-4' src={meeting} alt='none' /></div><p className={` ${isOpen ? '  hidden translate-x-0 ml-2' : ' '}`}>Meetings</p></li>
-              </Link>
+              
+              <Link to="/meeting">
+      <div>
+        <li className={`flex flex-row items-center gap-2 h-12 text-[14px] text-[#444] font-semibold   ${activePage === '/meeting' ? 'bg-[#efc4197c] border-l-[3px] lg:border-[#C31A7F] text-[14px] font-semibold' : ''}`}>
+          <div className={`ml-10 `}>
+            <img className='w-4' src={meeting} alt='none' />
+          </div>
+          <p className={`${isOpen ? 'hidden translate-x-0 ml-2' : ''}`}>Meetings</p>
+        </li>
+      </div>
+    </Link>
+             
 
               <Link to='/chatpage' onClick={() => setActivePage('/chatpage')}>
                 <li className={`flex flex-row items-center gap-2 h-12 text-[14px] text-[#444] font-semibold  ${activePage === '/chatpage' ? 'bg-[#efc4197c] border-l-[3px] lg:border-[#C31A7F]' : ''}`}><div className={`ml-10 `}><img className='w-4' src={chat} alt='none' /></div><p className={` ${isOpen ? '  hidden translate-x-0' : ''}`}>Chat</p></li>
@@ -105,24 +130,29 @@ const SideMenu = () => {
 
 
 
-              <Link to='' onClick={() => setActivePage('/home')} >
+             <div onClick={() => setActivePage('/CreatePose')} >
                 <li className={`flex flex-row items-center gap-2 h-12 text-[14px] text-[#444] font-semibold  ${activePage === ''  ? 'bg-[rgba(239, 195, 25, 0.2)] border-l-[3px] lg:border-[#C31A7F]' : ''}`} onClick={uploadPost}><div className={`ml-10 `}><img src={createPost} className='w-4' alt='none' /></div><p className={` ${isOpen ? '  hidden translate-x-0' : ''}`}>Create Post</p></li>
-              </Link>
-
+              </div>
+              
+              {uploadPosts && (
+        <div>
+          <CreatePost close_createPost={close_createPost } />
+        </div>
+      )}
               <Link to='/HealthRecord' onClick={() => setActivePage('/HealthRecord')}>
-                <li className={`flex flex-row items-center gap-2 h-12 text-[14px] text-[#444] font-semibold  ${activePage === '/HealthRecord' ? 'bg-[rgba(239, 195, 25, 0.2)] border-l-[3px] lg:border-[#C31A7F]' : ''}`}><div className={`ml-10 `}><img className='w-4' src={healthRec} alt='none' /></div><p className={` ${isOpen ? '  hidden translate-x-0' : ''}`}>Health Record</p></li>
+                <li className={`flex flex-row items-center gap-2 h-12 text-[14px] text-[#444] font-semibold  ${activePage === '/HealthRecord' ? 'bg-[#efc4197c] border-l-[3px] lg:border-[#C31A7F]' : ''}`}><div className={`ml-10 `}><img className='w-4' src={healthRec} alt='none' /></div><p className={` ${isOpen ? '  hidden translate-x-0' : ''}`}>Health Record</p></li>
               </Link>
 
               <Link to='/HealthCard' onClick={() => setActivePage('/HealthCard')}>
-                <li className={`flex flex-row items-center gap-2 h-12 text-[14px] text-[#444] font-semibold  ${activePage === '/HealthCard' ? 'bg-[rgba(239, 195, 25, 0.2)] border-l-[3px] lg:border-[#C31A7F]' : ''}`}><div className={`ml-10 `}><img className='w-4' src={healthCard} alt='none' /></div><p className={` ${isOpen ? '  hidden translate-x-0' : ''}`}>Health Card</p></li>
+                <li className={`flex flex-row items-center gap-2 h-12 text-[14px] text-[#444] font-semibold  ${activePage === '/HealthCard' ? 'bg-[#efc4197c] border-l-[3px] lg:border-[#C31A7F]' : ''}`}><div className={`ml-10 `}><img className='w-4' src={healthCard} alt='none' /></div><p className={` ${isOpen ? '  hidden translate-x-0' : ''}`}>Health Card</p></li>
               </Link>
 
               <Link to='/Appointment' onClick={() => setActivePage('/Appointment')}>
-                <li className={`flex flex-row items-center gap-2 h-12 text-[14px] text-[#444] font-semibold  ${activePage === '/Appointment' ? 'bg-[rgba(239, 195, 25, 0.2)] border-l-[3px] lg:border-[#C31A7F]' : ''}`}><div className={`ml-10 `}><img className='w-4' src={appointment} alt='none' /></div><p className={` ${isOpen ? '  hidden translate-x-0' : ''}`}>Appointments</p></li>
+                <li className={`flex flex-row items-center gap-2 h-12 text-[14px] text-[#444] font-semibold  ${activePage === '/Appointment' ? 'bg-[#efc4197c] border-l-[3px] lg:border-[#C31A7F]' : ''}`}><div className={`ml-10 `}><img className='w-4' src={appointment} alt='none' /></div><p className={` ${isOpen ? '  hidden translate-x-0' : ''}`}>Appointments</p></li>
               </Link>
 
               <Link to='/Medicine' onClick={() => setActivePage('/Medicine')}>
-                <li className={`flex flex-row items-center gap-2 h-12 text-[14px] text-[#444] font-semibold  ${activePage === '/Medicine' ? 'bg-[rgba(239, 195, 25, 0.2)] border-l-[3px]  lg:border-[#C31A7F]' : ''}`}><div className={`ml-10 `}><img className='w-4' src={medicine} alt='none' /></div><p className={` ${isOpen ? '  hidden translate-x-0' : ''}`}>Medicines</p></li>
+                <li className={`flex flex-row items-center gap-2 h-12 text-[14px] text-[#444] font-semibold  ${activePage === '/Medicine' ? 'bg-[#efc4197c] border-l-[3px]  lg:border-[#C31A7F]' : ''}`}><div className={`ml-10 `}><img className='w-4' src={medicine} alt='none' /></div><p className={` ${isOpen ? '  hidden translate-x-0' : ''}`}>Medicines</p></li>
               </Link>
 
             </ul>
@@ -193,11 +223,7 @@ const SideMenu = () => {
         {/* toggle icon */}
         
 
-        {uploadPosts && (
-        <div>
-          <CreatePost close_createPost={close_createPost} />
-        </div>
-      )}
+         
 
       
       </div>

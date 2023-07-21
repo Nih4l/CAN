@@ -42,6 +42,7 @@ import ResetPasswordSuccessfully from './Pages/ResetPasswordSuccessfully'
 import SubscriptionModels from './Pages/Subscription_Models'
 import Subscription_Payment_Method from './Pages/Subscription_Payment_Method'
 import Medicine1 from './Pages/Medicine1'
+import MeetingActive from './Pages/MeetingActive'
 
 const App = () => {
   return (
@@ -86,6 +87,7 @@ const App = () => {
         <Route exact path = 'ResetPasswordSuccessfully' element={<ResetPasswordSuccessfully />} />
         <Route exact path="Subscription_Models" element={<SubscriptionModels/>} />
         <Route exact path="Subscription_Payment_Method" element={<Subscription_Payment_Method />}></Route>
+        <Route exact path= 'MeetingActive' element={<MeetingActive/>}></Route>
         
         {/* New Routs Amit */}
         <Route exact path = 'AddProfile' element={<AddProfile />} />

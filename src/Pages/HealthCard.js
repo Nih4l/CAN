@@ -36,7 +36,7 @@ const HealthCard = () => {
 
                 <div className='flex'>
                     {/* background */}
-                    <div className='bg-[#FEF8FD] h-[100vh] w-full flex flex-row'>
+                    <div className='bg-[#FEF8FD] w-full flex flex-row'>
 
                         
                         <div className='flex flex-col w-[90%] mx-[5%]'>

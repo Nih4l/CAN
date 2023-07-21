@@ -169,7 +169,7 @@ const CreatePost = ({close_createPost}) => {
               <img src={location} className='w-5 cursor-pointer' alt='none' onClick={toggleLocation} />
 
               {showgif && (
-                <div className='fixed inset-0 flex items-center justify-center lg:p-0 p-4 bg-opacity-50 z-20 bg-inheri '>
+                <div className='fixed inset-0 flex items-center justify-center lg:p-0 p-4 bg-opacity-50 z-20 bg-inherit '>
                   <div className='w-[500px] h-[500px] bg-[#FFFFFF] flex flex-col  rounded-[30px] relative'>
                     <div className='flex items-center justify-center relative py-7 '>
                       <h1 className='text-[18px] font-semibold'>Choose a GIF</h1>

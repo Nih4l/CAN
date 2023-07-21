@@ -47,7 +47,7 @@ const ChatPage = () => {
         {/* rest of the column  including homenav + bottom of the page code*/}
         <div className="flex flex-col h-[100%] w-screen">
           {/* home navigation top bar div */}
-          <div className="  bg-white">
+          <div className=" bg-white">
                     <HomeNav />
                 </div>
 
@@ -55,7 +55,7 @@ const ChatPage = () => {
                 <div className='bg-[#FEF8FD] '>
 
                     {/* chat space */}
-                    <div className=' h-full flex pt-[2%] justify-center pl-[5%]'>
+                    <div className=' h-full flex pt-[2%] justify-center pl-[5%] '>
                         <div className='h-[85%] w-[85%] bg-white rounded-3xl overflow-hidden shadow-2xl'>
 
                             <div className='flex'>
@@ -95,7 +95,7 @@ const ChatPage = () => {
                                     </div>
 
                                     {/* chats */}
-                                    <div className='flex pt-3 justify-between px-5 relative'>
+                                    <div className=' flex pt-3 justify-between px-5 relative'>
                                         <div className={chats ? 'font-bold text-[#8B1539] cursor-pointer' : 'font-bold text-[#C4C4C4] cursor-pointer'} onClick={toggleReq}>
                                             <h2 className=''>Chat</h2>
                                             <p className='absolute top-[50%]'>_______________</p>
@@ -143,7 +143,7 @@ const ChatPage = () => {
                                 </div>
 
                                 {/* right side */}
-                                <div className='w-full flex flex-col'>
+                                <div className='w-full flex flex-col '>
 
                                     <div className='flex h-[12vh]'>
                                         <div className=' w-full flex px-6 items-center  '>
