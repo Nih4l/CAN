@@ -43,6 +43,8 @@ import SubscriptionModels from './Pages/Subscription_Models'
 import Subscription_Payment_Method from './Pages/Subscription_Payment_Method'
 import Medicine1 from './Pages/Medicine1'
 import MeetingActive from './Pages/MeetingActive'
+import HelpAFriend from './Pages/HelpAFriend'
+import HelpFeedback from './Pages/HelpFeedback'
 
 const App = () => {
   return (
@@ -88,6 +90,8 @@ const App = () => {
         <Route exact path="Subscription_Models" element={<SubscriptionModels/>} />
         <Route exact path="Subscription_Payment_Method" element={<Subscription_Payment_Method />}></Route>
         <Route exact path= 'MeetingActive' element={<MeetingActive/>}></Route>
+        <Route exact path= 'HelpAFriend' element={<HelpAFriend/>}></Route>
+        <Route exact path= 'HelpFeedback' element={<HelpFeedback/>}></Route>
         
         {/* New Routs Amit */}
         <Route exact path = 'AddProfile' element={<AddProfile />} />

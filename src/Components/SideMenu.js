@@ -197,7 +197,7 @@ const SideMenu = () => {
                 </p>
                 <p className="flex px-4 py-2 hover:bg-[rgba(239, 195, 25, 0.2)] gap-2 hover:bg-[#efc4197c]">
                   <img src={help} alt="none" />
-                  Help / Feedback
+                  <Link to="/HelpFeedback">Help / Feedback</Link>
                 </p>
                 <p className="flex px-4 py-2 hover:bg-[rgba(239, 195, 25, 0.2)] gap-2 hover:bg-[#efc4197c]">
                   <img src={contact} alt="none" />
@@ -205,7 +205,7 @@ const SideMenu = () => {
                 </p>
                 <p className="flex px-4 py-2 hover:bg-[rgba(239, 195, 25, 0.2)] gap-2 hover:bg-[#efc4197c]">
                   <img src={help} alt="none" />
-                  Help a friend
+                 <Link to='/HelpAFriend'> Help a friend</Link>
                 </p>
                 <p className="flex px-4 py-2 hover:bg-[rgba(239, 195, 25, 0.2)] gap-2 hover:bg-[#efc4197c]">
                   <img src={setting} alt="none" />
