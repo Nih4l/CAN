@@ -48,6 +48,8 @@ import HelpFeedback from './Pages/HelpFeedback'
 import Settings from './Pages/Settings'
 import ProfileLock from './Pages/ProfileLock'
 import SetPin from './Components/SetPin'
+import SetPassword from './Components/SetPassword'
+import BlockedAccounts from './Pages/BlockedAccounts'
 
 const App = () => {
   return (
@@ -97,13 +99,15 @@ const App = () => {
         <Route exact path= 'HelpFeedback' element={<HelpFeedback/>}></Route>
         <Route exact path='Settings' element={<Settings/>}></Route>
         <Route exact path='ProfileLock' element={<ProfileLock/>}></Route>
-        {/* New Routs Amit */}
+      
         <Route exact path = 'AddProfile' element={<AddProfile />} />
         <Route exact path = 'loginchoosetitle' element={<LoginChooseTitle />} />
         <Route exact path = 'logindetails' element={<LoginDetails />} />
         <Route exact path = 'loginimage' element={<LoginImage />} />
         <Route exact path = 'loginprofile' element={<LoginProfile />} />
         <Route exact path= 'SetPin' element={<SetPin/>}/>
+        <Route exact path= 'SetPassword' element={<SetPassword/>}/>
+        <Route exact path= 'BlockedAccounts' element={<BlockedAccounts/>}/>
 
         
        
