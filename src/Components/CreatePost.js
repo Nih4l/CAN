@@ -98,7 +98,7 @@ const CreatePost = ({close_createPost}) => {
   return (
     <>
       <div
-        className='fixed inset-0 flex items-center lg:p-0 p-2 justify-center bg-black bg-opacity-50  z-1000'
+        className='fixed inset-0 flex items-center lg:p-0 p-2 justify-center bg-black bg-opacity-50  z-50'
       >
 
         <div className='bg-white p-2  lg:w-[500px] relative  rounded-[30px] '>

@@ -19,7 +19,7 @@ const Medicine = () => {
    return (
     <Page pageContent={(
         <>
-                <div className='bg-[#FEF8FD] w-full flex flex-col items-center '>
+                <div className='bg-[#FEF8FD] w-full flex flex-col items-center cursor-default'>
                 
                 
                     {/* background */}

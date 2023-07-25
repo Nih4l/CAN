@@ -21,7 +21,7 @@ import iconRight from '../Photos/iconRight.png'
 import iconLeft from '../Photos/iconLeft.png'
 import LogoCAn from '../Photos/LogoCAn.png'
 import CANa from '../Photos/CANa.png'
-
+import CanLogo from '../Photos/CanLogo.png'
 
 
 const SideMenu = () => {
@@ -42,7 +42,10 @@ const SideMenu = () => {
   function close_createPost() {
     setUploadPosts(!uploadPosts);
   }
- 
+  const [logOut,setLogOut] = useState(false);
+  const handleLogOut=() => {
+    setLogOut(!logOut);
+  }
   useEffect(() => {
     // Set the active page based on the current URL path
     setActivePage(location.pathname);
@@ -67,7 +70,19 @@ const SideMenu = () => {
       setShowmore(false);
     }
   };
- 
+  const logoutDivRef = useRef(null);
+
+  const handleClickOutsideLogout = (event) => {
+    if (logOut && logoutDivRef.current && !logoutDivRef.current.contains(event.target)) {
+      setLogOut(false);
+    }
+  };
+  useEffect(() => {
+    document.addEventListener("click", handleClickOutsideLogout, true);
+    return () => {
+      document.removeEventListener("click", handleClickOutsideLogout, true);
+    };
+  }, [setLogOut]);
   useEffect(() => {
     document.addEventListener("click", handleClickOutsideshowmore, true);
     return () => {
@@ -79,6 +94,8 @@ const SideMenu = () => {
     setIsOpen(!isOpen);
     setIsiconVisible(!isiconVisible);
   };
+
+ 
   return (
     <>
     <div className='relative'>
@@ -199,22 +216,33 @@ const SideMenu = () => {
                   <img src={help} alt="none" />
                   <Link to="/HelpFeedback">Help / Feedback</Link>
                 </p>
-                <p className="flex px-4 py-2 hover:bg-[rgba(239, 195, 25, 0.2)] gap-2 hover:bg-[#efc4197c]">
-                  <img src={contact} alt="none" />
-                  Contact Us
-                </p>
+                
                 <p className="flex px-4 py-2 hover:bg-[rgba(239, 195, 25, 0.2)] gap-2 hover:bg-[#efc4197c]">
                   <img src={help} alt="none" />
                  <Link to='/HelpAFriend'> Help a friend</Link>
                 </p>
                 <p className="flex px-4 py-2 hover:bg-[rgba(239, 195, 25, 0.2)] gap-2 hover:bg-[#efc4197c]">
                   <img src={setting} alt="none" />
-                  Setting
+                 <Link to='/Settings'>Setting </Link> 
                 </p>
-                <p className="flex px-4 py-2 pb-4 hover:bg-[rgba(239, 195, 25, 0.2)] gap-2 hover:bg-[#efc4197c]">
+                <p className="flex px-4 py-2 pb-4 hover:bg-[rgba(239, 195, 25, 0.2)] gap-2 hover:bg-[#efc4197c]" onClick={handleLogOut}>
                   <img src={logout} alt="none" />
                   Logout
                 </p>
+                {/* logout */}
+                {logOut && (
+                    <div className='fixed inset-0 flex items-center lg:p-0 p-2 justify-center bg-black bg-opacity-50  z-50'>
+
+                     <div ref={logoutDivRef} className='bg-white flex flex-col items-center gap-3 px-10 py-4 justify-center rounded-[20px] p-4'>
+                     <img src={CanLogo} alt="logo"/> 
+                      <p className='font-[600]'>Are you sure you want to log out? </p>
+                      <button className='bg-[#EFC319] rounded-[15px] text-white py-2 px-10 font-[500]'><Link to="/LoginForm">Log out</Link></button>
+                      <button className='border-[2px] border-[#C31A7F] text-[#C31A7F]  rounded-[15px] py-2 px-5' onClick={handleLogOut}>Cancel</button>
+
+                      </div>
+                  </div>
+
+                )}
               </div>
             )}
           </ul>
