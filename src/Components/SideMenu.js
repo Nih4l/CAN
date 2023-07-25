@@ -82,7 +82,7 @@ const SideMenu = () => {
     return () => {
       document.removeEventListener("click", handleClickOutsideLogout, true);
     };
-  }, [setLogOut]);
+  }, [logOut]);
   useEffect(() => {
     document.addEventListener("click", handleClickOutsideshowmore, true);
     return () => {
