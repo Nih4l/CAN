@@ -1,18 +1,21 @@
 import React from 'react'
 import Page from '../Layouts/Pages'
-import Helpafriend from '../Photos/Helpafriend.png'
+// import Helpafriend from '../Photos/Helpafriend.png'
+import shareAfriend from '../Photos/shareAfriend.png'
 
 const HelpAFriend = () => {
   return (
     <Page pageContent={(
         <>
-                <div className='bg-[#FEF8FD] w-full flex flex-col items-center gap-2 py-10 h-full'>
+                <div className='bg-[#FEF8FD] w-full flex flex-col items-center gap-2 py-10 h-full overflow-hidden'
+                 style={{ backgroundImage: `url(${shareAfriend})`,
+                 backgroundRepeat: 'no-repeat',
+                 backgroundSize: '100% 80%', 
+                 backgroundPosition:'bottom'}}>
                     {/* background */}
                     <div><h2 className="text-heading text-[36px] font-[500] leading-60">Help a Friend</h2></div>
-                                <div>
-                                    <img src={Helpafriend} alt='Refer a Friend' className='w-[450px] h-[410px]'/>
-                                </div>
-                                <div className=' text-center -mt-10 mb-4'>
+                               
+                                <div className=' text-center  mb-4'>
                                    <p className=' text-[18px] text-[#000] font-[500] '>Had a good experience?<br/>Share it with the once in need.</p> 
                                 </div>
                                 

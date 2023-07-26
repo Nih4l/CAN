@@ -50,6 +50,7 @@ import ProfileLock from './Pages/ProfileLock'
 import SetPin from './Components/SetPin'
 import SetPassword from './Components/SetPassword'
 import BlockedAccounts from './Pages/BlockedAccounts'
+import Notification from './Pages/Notification'
 
 const App = () => {
   return (
@@ -108,6 +109,7 @@ const App = () => {
         <Route exact path= 'SetPin' element={<SetPin/>}/>
         <Route exact path= 'SetPassword' element={<SetPassword/>}/>
         <Route exact path= 'BlockedAccounts' element={<BlockedAccounts/>}/>
+        <Route exact path= 'Notification' element={<Notification/>}/>
 
         
        

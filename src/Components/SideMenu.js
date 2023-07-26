@@ -22,7 +22,7 @@ import iconLeft from '../Photos/iconLeft.png'
 import LogoCAn from '../Photos/LogoCAn.png'
 import CANa from '../Photos/CANa.png'
 import CanLogo from '../Photos/CanLogo.png'
-
+import share from '../Photos/MoreIcons/share.png'
 
 const SideMenu = () => {
   const [isOpen, setIsOpen] = useState(() => {
@@ -218,7 +218,7 @@ const SideMenu = () => {
                 </p>
                 
                 <p className="flex px-4 py-2 hover:bg-[rgba(239, 195, 25, 0.2)] gap-2 hover:bg-[#efc4197c]">
-                  <img src={help} alt="none" />
+                  <img src={share} alt="none" />
                  <Link to='/HelpAFriend'> Help a friend</Link>
                 </p>
                 <p className="flex px-4 py-2 hover:bg-[rgba(239, 195, 25, 0.2)] gap-2 hover:bg-[#efc4197c]">

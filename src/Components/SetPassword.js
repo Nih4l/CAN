@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { IoKeyOutline } from 'react-icons/io5';
 import { AiOutlineEyeInvisible, AiOutlineEye } from 'react-icons/ai';
+import { Link } from 'react-router-dom';
 
 const SetPassword = () => {
   const eye1=false;
@@ -44,7 +45,7 @@ const SetPassword = () => {
           value={firstpass1}
         />
       </div>
-      <div className='text-[#3C37FF] flex text-[12px] font-[400] -mt-2 justify-end'>Forgot Password?</div>
+      <div className='text-[#3C37FF] flex text-[12px] font-[400] -mt-2 justify-end cursor-pointer'><a href='/ForgotPassword'>Forgot Password?</a></div>
       <div className='flex items-center gap-4  px-3 p-2 border-2 rounded-[20px]'>
         <IoKeyOutline />
         <div className='font-bold bg-[#000] h-[35px] w-[1px] inline-block text-[20px]'></div>
