@@ -38,11 +38,11 @@ const SetPin = ({createPin_open,handlePin}) => {
     };
 
   return (
-    <div  className='fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50 '
+    <div  className='fixed inset-0 flex items-center justify-center bg-black p-4 bg-opacity-50 z-50 '
                     style={{ backdropFilter: 'blur(2px)' }}>
 
-                    <div ref={pinDivRef} className='bg-white h-max w-[35%] rounded-3xl '>
-                        <div className='relative flex py-6 px-16 items-center flex-col'>
+                    <div ref={pinDivRef} className='bg-white h-max lg:md:w-[35%] rounded-3xl '>
+                        <div className='relative flex py-6 lg:md:px-16 items-center flex-col'>
                            
                             <div className='text-xl font-semibold'>Create a Pin</div>
                             <p className='font-medium  text-center px-4 py-2'>Its your space, so add a profile lock to keep

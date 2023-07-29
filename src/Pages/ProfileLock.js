@@ -10,13 +10,13 @@ const ProfileLock = () => {
       setCreatePin_open(!createPin_open)
   };
   return (
-    <div className='flex flex-col bg-white px-20 py-6 rounded-[20px] gap-3 w-[700px] border-[0.5px] border-[#e3e2e2]' style={{boxShadow:'0px 10px 30px 0px rgba(0, 0, 0, 0.05)'}}>
-        <p className='font-[500]'>Enter your account password to edit Profie lock for Ananya profile.</p>
+    <div className='flex flex-col  bg-white lg:md:px-20 lg:md:py-6 p-4 rounded-[20px] gap-3 lg:md:w-[700px] border-[0.5px] border-[#e3e2e2]' style={{boxShadow:'0px 10px 30px 0px rgba(0, 0, 0, 0.05)'}}>
+        <p className='font-[500] flex-wrap'>Enter your account password to edit Profie lock for Ananya profile.</p>
         <div className='flex items-center gap-4  px-3 p-2 border-2 rounded-[20px]'>
             <IoKeyOutline />
             <div className='font-bold bg-[#000] h-[35px] w-[1px] inline-block text-[20px]'></div>
             <input placeholder='Enter Your password' 
-            className='bg-transparent w-full outline-none'
+            className='bg-transparent lg:w-full w-fit outline-none'
             type={eye ?  'text' : 'password'}
             minLength={3}
             />

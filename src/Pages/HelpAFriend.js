@@ -7,10 +7,13 @@ const HelpAFriend = () => {
   return (
     <Page pageContent={(
         <>
-                <div className='bg-[#FEF8FD] w-full flex flex-col items-center gap-2 py-10 h-full overflow-hidden'
+                <div className='bg-[#FEF8FD] w-full flex flex-col items-center gap-2 py-20 md:py-10 h-full overflow-hidden'
                  style={{ backgroundImage: `url(${shareAfriend})`,
                  backgroundRepeat: 'no-repeat',
+                 backgroundSize:'100% 40%',
+                '@media (min-width: 768px)': {
                  backgroundSize: '100% 80%', 
+                 },
                  backgroundPosition:'bottom'}}>
                     {/* background */}
                     <div><h2 className="text-heading text-[36px] font-[500] leading-60">Help a Friend</h2></div>

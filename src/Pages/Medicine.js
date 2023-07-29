@@ -19,18 +19,18 @@ const Medicine = () => {
    return (
     <Page pageContent={(
         <>
-                <div className='bg-[#FEF8FD] w-full flex flex-col items-center cursor-default'>
+                <div className='bg-[#FEF8FD] w-full flex flex-col items-center cursor-default h-full'>
                 
                 
                     {/* background */}
                    
-                        <div className='flex flex-col w-[90%] mx-[5%] justify-center'>
-                            <h1 className='ml-[8%] mt-6 mb-2 text-lg font-semibold self-start'>Medicines</h1>
-                            <div className='ml-[8%] bg-white rounded-[16px] flex flex-col items-center gap-8 justify-center py-[100px]' >
+                        <div className='flex flex-col w-[90%] mx-[5%] justify-center '>
+                            <h1 className='lg:md:ml-[8%] mt-6 mb-2 text-lg font-semibold self-start'>Medicines</h1>
+                            <div className='lg:md:ml-[8%] bg-white px-4 rounded-[16px] flex flex-col items-center gap-8 justify-center py-[100px]' >
                                 <div>
                                     <img src={Medicineimg} alt='medicine image'/>
                                 </div>
-                                <div className='w-[30%] text-center'>
+                                <div className='lg:md:w-[30%]  text-center'>
                                    <p className=' text-[18px] text-[#696969]'>Add your Medicines and there timing here
                                     so we can help you talking them on time.</p> 
                                 </div>
@@ -39,7 +39,7 @@ const Medicine = () => {
                                         Add Schedule
                                         
                                     </div>
-                                    {medicine && (<MedicinePopup/> )}
+                                    {medicine && (<MedicinePopup toggleMedicine={toggleMedicine}/> )}
                             </div>
 
                         </div>

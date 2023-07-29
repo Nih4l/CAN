@@ -50,13 +50,13 @@ const Settings = () => {
     <Page
     pageContent={(
         <>
-                <div className=' flex flex-col bg-[#FFF6FB] h-[100%] w-[100%]'>
+                <div className=' flex flex-col bg-[#FFF6FB] h-full w-full'>
                     {/* background */}
-                    <div className='px-20 py-6'><h1 className='font-[600] text-[30px] '>Settings/ Change your Pin</h1></div>
-                    <div className='flex flex-row items-start justify-center h-calc(100% -[50px]) w-full mx-20 gap-10'>
-                    <div className=' flex-col flex  w-[35%]'>
+                    <div className='px-20 py-6'><h1 className='font-[600] lg:md:text-[30px] text-[18px]'>Settings/ Change your Pin</h1></div>
+                    <div className='flex lg:md:flex-row flex-col items-start justify-center h-calc(100% -[50px]) w-full lg:md:mx-20 px-2 gap-10'>
+                    <div className=' flex-col flex  lg:md:w-[35%] w-fit'>
                     {/* left side settings */}
-                    <div className='flex flex-col'>
+                    <div className='flex flex-col w-auto flex-wrap'>
                         <div className='flex flex-col bg-white rounded-[25px] border-[0.5px] border-[#dfdede] cursor-pointer' style={{boxShadow:'0px 10px 30px 0px rgba(0, 0, 0, 0.05)'}}>
                            {/* notification */}
                            
@@ -105,7 +105,7 @@ const Settings = () => {
                 
                 {/* right side  */}
 
-                <div className='flex-col justify-center items-start flex w-[60%] '>
+                <div className='flex-col justify-center items-start flex lg:md:w-[60%] w-full'>
                     {/* change password code */}
                     {selectedTab === 'changePassword' && <SetPassword />}
 

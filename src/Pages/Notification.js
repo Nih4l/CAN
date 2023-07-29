@@ -46,7 +46,7 @@ const Notification = () => {
       {dataArray.map((data, index) => (
         <div
           key={data.id}
-          className={`flex flex-row bg-white px-10 cursor-pointer py-4 rounded-[20px] items-center w-[700px] justify-between border-[0.5px] border-[#e3e2e2]`}
+          className={`flex flex-row bg-white px-10 cursor-pointer py-4 rounded-[20px] items-center lg:md:w-[700px] justify-between border-[0.5px] border-[#e3e2e2]`}
           style={{ boxShadow: '0px 10px 30px 0px rgba(0, 0, 0, 0.05)' }}
         >
           <div className="flex flex-col">

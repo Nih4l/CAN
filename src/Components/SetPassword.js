@@ -32,7 +32,7 @@ const SetPassword = () => {
   
 
   return (
-    <div className='flex flex-col bg-white px-20 py-8 rounded-[20px] gap-3 w-[700px] border-[0.5px] border-[#e3e2e2]' style={{ boxShadow: '0px 10px 30px 0px rgba(0, 0, 0, 0.05)' }}>
+    <div className='flex flex-col bg-white px-20 py-8 rounded-[20px] gap-3 lg:md:w-[700px] border-[0.5px] border-[#e3e2e2]' style={{ boxShadow: '0px 10px 30px 0px rgba(0, 0, 0, 0.05)' }}>
       <div className='flex items-center gap-4  px-3 p-2 border-2 rounded-[20px]'>
         <IoKeyOutline />
         <div className='font-bold bg-[#000] h-[35px] w-[1px] inline-block text-[20px]'></div>

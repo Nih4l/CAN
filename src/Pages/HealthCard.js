@@ -29,12 +29,12 @@ const HealthCard = () => {
 
                         
                         <div className='flex flex-col w-[90%] mx-[5%]'>
-                        <h1 className='ml-[8%] mt-6 text-lg font-semibold'>Health Card</h1>
-                            <div className='bg-white ml-[8%] mt-2 rounded-2xl gap-8 py-[100px] flex flex-col items-center justify-center' >
+                        <h1 className='lg:md:ml-[8%] mt-6 text-lg font-semibold'>Health Card</h1>
+                            <div className='bg-white lg:md:ml-[8%] mt-2 rounded-2xl gap-8 py-[100px] flex flex-col items-center justify-center' >
                                 <div>
                                     <img src={HealthReco} alt='Health_Record.jpg' />
                                 </div>
-                                <div className='w-[25%] text-[18px] text-center text-[#696969]'>
+                                <div className='lg:md:w-[25%] px-4 text-[18px] text-center text-[#696969]'>
                                 Create your Fit-to-Fly Report Card by filling in your details.
                                 </div>
                                 <Link to='/HealthCard1'>

@@ -95,14 +95,25 @@ const SideMenu = () => {
     setIsiconVisible(!isiconVisible);
   };
 
- 
+  const sideMenuDivRef = useRef(null);
+  const handleClickOutsideSideMenu = (event) => {
+    if (isOpen===false && sideMenuDivRef.current && !sideMenuDivRef.current.contains(event.target)) {
+      setIsOpen(true);
+    }
+  };
+  useEffect(() => {
+    document.addEventListener("click", handleClickOutsideSideMenu, false);
+    return () => {
+      document.removeEventListener("click", handleClickOutsideSideMenu, false);
+    };
+  }, [isOpen]);
   return (
     <>
-    <div className='relative'>
+    <div ref={sideMenuDivRef} className='relative'>
 
 
    
-      <div className={`lg:relative absolute h-full z-50 bg-[#FFF] border-[1px] border-solid border-[#D9EAFF] transition-all duration-300 flex flex-col justify-between ${isOpen ? 'w-[0px]      lg:w-[100px]' : 'lg:w-[300px]  w-[250px] '}`} style={{ boxShadow: '0px 10px 30px 0px rgba(0, 0, 0, 0.05)' }}>
+      <div  className={`lg:relative absolute h-full z-50 bg-[#FFF] border-[1px] border-solid border-[#D9EAFF] transition-all duration-300 flex flex-col justify-between ${isOpen ? 'w-[0px] lg:w-[100px]' : 'lg:w-[300px]  w-[250px] '}`} style={{ boxShadow: '0px 10px 30px 0px rgba(0, 0, 0, 0.05)' }}>
         <div>
           {/* LOGo */}
           <div className={`flex flex-row gap-1 items-center justify-center pt-2  ${isOpen ? 'flex flex-col gap-1 ' : ''}`}>
@@ -198,8 +209,7 @@ const SideMenu = () => {
             {showmore && (
               <div
                 ref={showmoreOutclick}
-                className=" h-max w-max bg-white shadow-2xl absolute bottom-0 left-[120%]   items-center"
-              >
+                className=" h-max w-max bg-white shadow-2xl absolute bottom-0 lg:left-[120%] -right-1/3 items-center">
                 <p className="flex pt-3 px-4 text-center w-full font-semibold">
                   Help and support
                 </p>

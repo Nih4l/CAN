@@ -58,7 +58,7 @@ const HelpFeedback = () => {
     <Page pageContent={(
         <>
         {/* screen  */}
-            <div className='flex flex-col bg-[#FEF8FD] h-full px-20'>
+            <div className='flex flex-col bg-[#FEF8FD] min-h-full lg:md:px-20 px-3 py-1'>
                 {/* 2 column divide  */}
                 {/* Help/Feedback */}
                 
@@ -68,14 +68,14 @@ const HelpFeedback = () => {
                    
                 </div>
                 {/* questions block */}
-                <div className='flex flex-row gap-4'>
-                <div className='flex flex-col w-3/4 gap-3'> 
+                <div className='flex lg:md:flex-row flex-col gap-4'>
+                <div className='flex flex-col lg:md:w-3/4 w-full gap-3'> 
               
                 {/* mapping question and answer blocks */}
       {questionsAndAnswers.map((qa, index) => (
         <div
           key={index}
-          className="flex flex-col px-10 py-6 bg-white rounded-[20px] border-[0.5px] border-[#e6e5e5]"
+          className="flex flex-col md:px-10 px-2 py-6 bg-white rounded-[20px] border-[0.5px] border-[#e6e5e5]"
           style={{ boxShadow: '0px 10px 30px 0px rgba(0, 0, 0, 0.05)' }}
         >
           <div className="flex flex-row justify-between py-4">
@@ -114,7 +114,7 @@ const HelpFeedback = () => {
                 </div>
                
                 {/* Column 2 */}
-                <div className='flex flex-col justify-center gap-3 w-1/4'>
+                <div className='flex flex-col justify-center gap-3 lg:md:w-1/4'>
                     {/* Contact us card */}
                     <div className='flex flex-col rounded-[25px] text-[14px] font-[500] gap-3 px-6 py-4 text-center justify-center bg-white' style={{boxShadow:'0px 10px 30px 0px rgba(0, 0, 0, 0.05)'}}>
                         <h1 className='font-[600] text-[25px] leading-10'>Contact Us</h1>
