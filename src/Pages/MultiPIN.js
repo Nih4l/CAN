@@ -3,25 +3,71 @@ import LogoCAn from '../Photos/LogoCAn.png';
 import CANa from '../Photos/CANa.png';
 import Video from '../Photos/Video.png';
 import CarouselMain from '../Components/CarouselMain';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import SelfCare from '../Photos/SelfCare.png'
 import vibird1 from '../Photos/vibird1.gif'
 import PinInput from 'react-pin-input'
+import axios from 'axios';
+import { baseurl } from '../Api/baseUrl';
+import { Cookies } from 'react-cookie'
 
 const MultiPIN = () => {
 
     const [pin, setPin] = useState('');
     const [repin, setRepin] = useState('');
     const [error, setError] = useState('');
+    const cookie = new Cookies()
+    const location=useLocation()
+    console.log("location.state",location.state);
 
-    const SetLoginPin = () => {
+    
+
+    // const SetLoginPin = () => {
+        
+       
+    // }
+
+    const registerUserAccount = async () => {
+        let profile=location.state
         const userValue = JSON.parse(localStorage.getItem('userValue')) || {};
         userValue.profile_pin = pin
         userValue.profile_pin = repin
         localStorage.setItem('userValue', JSON.stringify(userValue));
         console.log(userValue)
-    }
+        console.log(localStorage.getItem("photo"))
+       const formdata=new FormData()
+       formdata.set("username", userValue.username)
+       formdata.set("email_phone", userValue.email_phone)
+       formdata.set("gender", userValue.gender)
+       formdata.set("date_of_birth", userValue.date_of_birth)
+       formdata.set("password", userValue.password)
+       formdata.set("profile_category", userValue.categoryId)
+       formdata.set("profile_pin", userValue.profile_pin)
+       formdata.set("confirmPassword", userValue.confirmPassword)
+       formdata.set("profile_photo", profile)
 
+        try {
+            const userValue = JSON.parse(localStorage.getItem('userValue')) || {};
+            const {data} = await axios.post(`${baseurl}/api/userAccountregister`, formdata)
+            console.log(data)
+            
+
+            if (data.status === true) {
+                // Registration success
+                console.log('User account registered successfully!');
+                cookie.set('token', data.token)
+                
+                
+            } else {
+                // Registration failed
+                console.log('Failed to register user account.');
+                // Handle error as required
+            }
+        } catch (error) {
+            console.error('Error occurred during registration:', error);
+            // Handle error as required
+        }
+    };
 
 
     const handlePinChange = (value) => {
@@ -221,7 +267,7 @@ const MultiPIN = () => {
                                         }`}
                                     disabled={error && error !== 'Pins are equal'}
                                 >
-                                    <Link to='/ShowProfile' onClick={SetLoginPin}>Continue</Link>
+                                    <Link to='/ShowProfile' onClick={registerUserAccount}>Continue</Link>
                                 </button>
                             </div>
 

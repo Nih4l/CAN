@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import LogoCAn from '../Photos/LogoCAn.png';
 import CANa from '../Photos/CANa.png';
 import Roles_Fighter from '../Photos/Roles_Fighter.png';
@@ -10,18 +10,77 @@ import { Link } from 'react-router-dom';
 import MeetPeople from '../Photos/MeetPeople.png';
 import { CiCircleInfo } from 'react-icons/ci';
 import vibird1 from '../Photos/vibird1.gif'
-import {BsDot} from 'react-icons/bs'
+import { BsDot } from 'react-icons/bs'
+import axios from 'axios';
+import { baseurl } from '../Api/baseUrl';
 
 const ChooseTitle = () => {
+  // const [selectedCategory, setSelectedCategory] = useState('');
+  // const [selectedImage, setSelectedImage] = useState(null);
+  const [viewCategory, setViewCategory] = useState([])
+  const title = [
+    {
+
+    },
+  ]
+
   const [select, setSelect] = useState('');
 
   const SetChooseTitle = () => {
     const userValue = JSON.parse(localStorage.getItem('userValue')) || {};
 
     userValue.profile_category = select
+    userValue.categoryId=categoryId
     localStorage.setItem('userValue', JSON.stringify(userValue));
     console.log(userValue);
   }
+
+  const [categoryId,setcategoryId]=useState("")
+
+  const getprofileCategory = async () => {
+    const { data } = await axios.get(`${baseurl}/api/profile_category_create`)
+    console.log(data);
+    if (data.status == true) {
+      setViewCategory(data.data)
+    }
+  }
+
+  useEffect(() => {
+    getprofileCategory()
+  }, []);
+
+  // const SetChooseTitle = async () => {
+
+  //   // Check if both category and image are selected before proceeding
+  //   if (!selectedCategory || !selectedImage) {
+  //     console.log("Please select a category and image.");
+  //     return;
+  //   }
+
+  //   // Step 1: Prepare the data to be sent
+  //   const data = new FormData();
+  //   data.set('profile_category', selectedCategory);
+  //   data.set('image', selectedImage);
+
+  //   try {
+
+  //     // Step 2: Send the data to the API
+  //     const response = await axios.post(`${baseurl}/api/profile_category_create`, data);
+
+  //     // Handle the response as needed
+  //     console.log(response.data);
+  //   } catch (error) {
+
+  //     // Handle errors if any
+  //     console.error('Error posting profile_category:', error);
+  //   }
+  // }
+
+
+  // function selectCategory(category, image) {
+  //   setSelectedCategory(category);
+  //   setSelectedImage(image);
+  // }
 
   function selectedOption(value) {
     setSelect(value);
@@ -116,7 +175,7 @@ const ChooseTitle = () => {
                 </div>
               </div>
 
-              <div className="w-fit pt-2">
+              {/* <div className="w-fit pt-2">
                 <div className="flex flex-col items-center justify-center gap-4">
                   <div
                     className={`flex justify-center cursor-pointer ${select !== '' && select !== 'Fighter' ? 'opacity-50' : ''
@@ -179,7 +238,55 @@ const ChooseTitle = () => {
                     </div>
                   )}
                 </div>
+              </div> */}
+
+
+              <div className="w-fit pt-2">
+                <div className="flex flex-col items-center justify-center gap-4">
+
+
+                  {
+                    viewCategory && viewCategory?.map((it) => {
+
+                      return (
+                        <div
+                          className={`flex justify-center cursor-pointer ${select !== '' && select !== `${it.category_Name}` ? 'opacity-50' : ''
+                            }`}
+                          onClick={() =>{ selectedOption(it.category_Name)
+                            setcategoryId(it._id)
+                          }}
+                        >
+
+                          <img src={`${baseurl}/${it.image}`} alt="not found" className='w-fit px-3 relative ' />
+                          
+                          <div className="w-[40%] absolute right-10 mt-2">
+                            <h3 className="   font-poppins flex flex-col  lg:text-[20px] text-white text-[16px] ">{it.category_Name}</h3>
+                            <div className=" ">
+                              <p className="     font-poppins text-white lg:text-[14px] text-[12px] ">{it.descritption}</p>
+                              {/* <p className=" font-poppins lg:text-[14px] text-[12px] ">cancer</p> */}
+                            </div>
+                          </div>
+                        </div>
+                      )
+                    })
+                  }
+
+                  {select ? (
+                    <Link to="/registerimage" className="w-[50%]" onClick={SetChooseTitle}>
+                      <h2 className="bg-[#EFC319] text-center p-3 rounded-lg text-white">
+                        Continue
+                      </h2>
+                    </Link>
+                  ) : (
+                    <div className="w-[50%]">
+                      <h2 className="bg-[#efc41975] text-center p-3 rounded-lg text-white">
+                        Continue
+                      </h2>
+                    </div>
+                  )}
+                </div>
               </div>
+
             </div>
           </div>
         </div>
