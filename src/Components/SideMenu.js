@@ -21,8 +21,8 @@ import iconRight from '../Photos/iconRight.png'
 import iconLeft from '../Photos/iconLeft.png'
 import LogoCAn from '../Photos/LogoCAn.png'
 import CANa from '../Photos/CANa.png'
-
-
+import CanLogo from '../Photos/CanLogo.png'
+import share from '../Photos/MoreIcons/share.png'
 
 const SideMenu = () => {
   const [isOpen, setIsOpen] = useState(() => {
@@ -41,6 +41,11 @@ const SideMenu = () => {
 
   function close_createPost() {
     setUploadPosts(!uploadPosts);
+  }
+
+  const [logOut,setLogOut] = useState(false);
+  const handleLogOut=() => {
+    setLogOut(!logOut);
   }
 
   useEffect(() => {
@@ -68,6 +73,22 @@ const SideMenu = () => {
     }
   };
 
+  const logoutDivRef = useRef(null);
+
+  const handleClickOutsideLogout = (event) => {
+    if (logOut && logoutDivRef.current && !logoutDivRef.current.contains(event.target)) {
+      setLogOut(false);
+    }
+  };
+  useEffect(() => {
+    document.addEventListener("click", handleClickOutsideLogout, true);
+    return () => {
+      document.removeEventListener("click", handleClickOutsideLogout, true);
+    };
+  }, [logOut]);
+
+
+
   useEffect(() => {
     document.addEventListener("click", handleClickOutsideshowmore, true);
     return () => {
@@ -79,11 +100,23 @@ const SideMenu = () => {
     setIsOpen(!isOpen);
     setIsiconVisible(!isiconVisible);
   };
+
+  const sideMenuDivRef = useRef(null);
+  const handleClickOutsideSideMenu = (event) => {
+    if (isOpen===false && sideMenuDivRef.current && !sideMenuDivRef.current.contains(event.target)) {
+      setIsOpen(true);
+    }
+  };
+  useEffect(() => {
+    document.addEventListener("click", handleClickOutsideSideMenu, false);
+    return () => {
+      document.removeEventListener("click", handleClickOutsideSideMenu, false);
+    };
+  }, [isOpen]);
   return (
     <>
-      <div className='relative'>
 
-
+      <div ref={sideMenuDivRef} className='relative'>
 
         <div className={`lg:relative absolute h-full z-10    bg-[#FFF] border-[1px] border-solid border-[#D9EAFF] transition-all duration-300 flex flex-col justify-between ${isOpen ? 'w-[0px]      lg:w-[100px]' : 'lg:w-[300px]  w-[250px] '}`} style={{ boxShadow: '0px 10px 30px 0px rgba(0, 0, 0, 0.05)' }}>
           <div>
@@ -178,7 +211,17 @@ const SideMenu = () => {
                 </li>
               </li>
 
+
+        {/* show more */}
+        <div onClick={() => setActivePage('showMore')}  className={`cursor-pointer hover:bg-[#efc4197c] ${activePage == 'showMore' ? 'bg-[#efc4197c] border-l-[3px] lg:border-[#C31A7F]' : ''}`}>
+          <ul className="relative w-full h-12 ">
+            <li>
+              <li
+                className="flex flex-row   gap-2 "
+                onClick={showmoreToggle}
+              >
               {showmore && (
+
                 <div
                   ref={showmoreOutclick}
                   className=" h-max w-max bg-white shadow-2xl absolute bottom-0 left-[120%]  items-center"
@@ -220,7 +263,24 @@ const SideMenu = () => {
             </ul>
           </div>
 
-          {/* toggle icon */}
+              {/* logout */}
+                {logOut && (
+                    <div className='fixed inset-0 flex items-center lg:p-0 p-2 justify-center bg-black bg-opacity-50  z-50'>
+
+                     <div ref={logoutDivRef} className='bg-white flex flex-col items-center gap-3 px-10 py-4 justify-center rounded-[20px] p-4'>
+                     <img src={CanLogo} alt="logo"/> 
+                      <p className='font-[600]'>Are you sure you want to log out? </p>
+                      <button className='bg-[#EFC319] rounded-[15px] text-white py-2 px-10 font-[500]'><Link to="/LoginForm">Log out</Link></button>
+                      <button className='border-[2px] border-[#C31A7F] text-[#C31A7F]  rounded-[15px] py-2 px-5' onClick={handleLogOut}>Cancel</button>
+
+                      </div>
+                  </div>
+
+                )}
+              </div>
+            )}
+          </ul>
+        </div>
 
 
 

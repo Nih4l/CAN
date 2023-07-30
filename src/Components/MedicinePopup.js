@@ -5,11 +5,11 @@ import { Link } from 'react-router-dom';
 import Select, { defaultTheme } from 'react-select'
 
 
-const MedicinePopup = () => {
-    const [medicine, setMedicine]=useState(true);
-  const toggleMedicine= ()=>{
-    setMedicine(!medicine);
-  }
+const MedicinePopup = ({toggleMedicine}) => {
+  //   const [medicine, setMedicine]=useState(true);
+  // const toggleMedicine= ()=>{
+  //   setMedicine(!medicine);
+  // }
   const [medicineCount, setMedicineCount] = useState(1);
   const [deleteMedicine, setDeleteMedicine] = useState(false);
   const [time, setTime] = useState();
@@ -73,10 +73,10 @@ const customStyles = {
     
 
     <div className='fixed inset-0 flex items-center justify-center bg-black bg-opacity-40 z-50 overflow-y-scroll overscroll-y-auto'>
-    <div className=' flex flex-col bg-white rounded-[40px] w-auto h-auto px-10 m-3'>
-    <div className='flex flex-row py-4 justify-end items-center'>
+    <div className=' flex flex-col bg-white rounded-[40px] lg:md:w-auto lg:md:h-auto w-full px-10 m-3'>
+    <div className='flex flex-row py-4 justify- items-center w-full'>
        <h1 className='text-[22px] font-[500]'>Add Medicines</h1>
-        <RxCross2 className=' ml-80 cursor-pointer' onClick={toggleMedicine}/>
+        <RxCross2 className=' lg:md:ml-80 cursor-pointer' onClick={toggleMedicine}/>
     </div>
     <div className='flex flex-col'>
         <form>

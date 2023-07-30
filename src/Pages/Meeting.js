@@ -5,6 +5,8 @@ import { FiSearch } from "react-icons/fi";
 import account from "../Photos/account.jpg";
 import { IoMdClose } from "react-icons/io";
 import SideMenu from "../Components/SideMenu";
+import Page from "../Layouts/Pages";
+
 
 const Meeting = () => {
   const [selectedOption, setSelectedOption] = useState("Today");
@@ -38,21 +40,11 @@ const Meeting = () => {
   };
 
   return (
+    <Page pageContent={(
+      
     <>
-      {/* complete screen  */}
-      <div className="flex flex-row min-h-screen h-[100%] bg-[#FEF8FD] ">
-        {/* side menu column */}
-        <div className="sticky flex flex-row">
-          <SideMenu />
-        </div>
-        {/* rest of the column  including homenav + bottom of the page code*/}
-        <div className="flex flex-col h-[100%] w-screen">
-          {/* home navigation top bar div */}
-          <div className="  bg-white">
-            <HomeNav />
-          </div>
-          {/* background */}
-          <div className="bg-[#FEF8FD]">
+     
+          <div className="bg-[#FEF8FD] h-full">
             {/* top bar */}
             <div className="pl-[10%] pr-[6%] flex justify-between pt-8">
               <div className=" cursor-pointer ">
@@ -381,9 +373,9 @@ const Meeting = () => {
               </div>
             )}
           </div>
-        </div>
-      </div>
+       
     </>
+    )}/>
   );
 };
 
