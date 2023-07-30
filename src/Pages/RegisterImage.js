@@ -1,6 +1,6 @@
 import React, { useRef, useState } from 'react';
-import Logo from '../Photos/Logo.png';
-import CAN from '../Photos/CAN.png';
+import LogoCAn from '../Photos/LogoCAn.png';
+import CANa from '../Photos/CANa.png';
 import Video from '../Photos/Video.png';
 import { VscAccount } from 'react-icons/vsc';
 import { IoCloseCircleSharp } from 'react-icons/io5';
@@ -13,6 +13,8 @@ const RegisterImage = () => {
   const [image, setImage] = useState(null);
   const hiddenChooseImage = useRef(null);
 
+  const [img_file,setImg_file]=useState([])
+
   const hideImage = () => {
     setImage(false);
   };
@@ -23,20 +25,36 @@ const RegisterImage = () => {
 
   const handleImageUpload = (event) => {
     const file = event.target.files[0];
+    console.log(file);
+    setImg_file(file)
     setImage(URL.createObjectURL(file));
   };
 
+  const SetRegisterImage = () => {
+    const userValue = JSON.parse(localStorage.getItem('userValue')) || {};
+    
+    userValue.profile_photo = [img_file]
+    localStorage.setItem('userValue', JSON.stringify(userValue));
+    localStorage.setItem("photo",img_file);
+    localStorage.setItem("photo",JSON.stringify({file:img_file}));
+    
+    
+    console.log(JSON.parse(localStorage.getItem("photo")))
+    
+    console.log(userValue);   
+  }
+
   return (
     <>
-      <div className='ml-[80px] mt-2 absolute flex items-center '>
-        <img src={Logo} alt='not found' className='w-[80px] h-[80px]' />
-        <img src={CAN} alt='not found' className='w-[42.88px] h-[16.19px]  ' />
+      <div className='lg:ml-[80px] mt-2 lg:absolute flex items-center justify-center '>
+        <img src={LogoCAn} alt='not found' className='w-[80px] h-[80px]' />
+        <img src={CANa} alt='not found' className='w-[42.88px] h-[16.19px]  ' />
       </div>
       <div>
 
 
-        <div className='flex'>
-          <div className='w-[55%] mt-20  flex flex-col items-center justify-center '>
+        <div className='flex lg:flex-row lg:p-0 p-2 items-center justify-center'>
+          <div className='hidden lg:block w-[55%] mt-20  flex flex-col items-center justify-center '>
             <div className='flex flex-col items-center justify-center gap-4'>
               {/* <img src={WelcomeScreen} className='' /> */}
               <div className=''>
@@ -50,7 +68,7 @@ const RegisterImage = () => {
                 <p className='text-center text-[18px] font-semibold'>Lets fight against cancer , together</p>
               </div>
             </div>
-            <div className='flex flex-row items-center gap-4 mt-8 '>
+            <div className='flex flex-row items-center justify-center gap-4 mt-8 '>
               <div className='h-[12px] w-[12px] rounded-full bg-[#E7E7E7]'></div>
               <div className='h-[12px] w-[12px] rounded-full bg-[#E7E7E7]'></div>
               <div className='h-[12px] w-[12px] rounded-full bg-[#E7E7E7]'></div>
@@ -61,8 +79,8 @@ const RegisterImage = () => {
           </div>
 
           {/* right side */}
-          <div className='h-[100vh] flex items-center'>
-            <div className='h-[90%] w-[60vh]  mx-24 bg-[#D0F5D3] bg-opacity-10 z-10 backdrop-blur-lg rounded-[20px]' style={{
+          <div className='h-full  flex items-center mt-4  lg:mt-10 lg:bottom-10'>
+            <div className='lg:h-[600px] lg:w-[420px] w-[330px] h-[550px] lg:mx-24 bg-[#D0F5D3] bg-opacity-10 z-10 backdrop-blur-md rounded-[20px]' style={{
               boxShadow: '0px 0px 50px rgba(0, 0, 0, 0.1)'
             }}>
               <div>
@@ -108,7 +126,7 @@ const RegisterImage = () => {
                 {image ? (
                   <div className='flex justify-center py-2 w-[50%]'>
 
-                    <Link to='/MultiPIN' className='w-[86%]'>
+                    <Link to='/MultiPIN' state={img_file} className='w-[86%]' onClick={SetRegisterImage}>
                       <h2 className='bg-[#EFC319]  text-center p-3 rounded-lg text-white'>Continue</h2>
                     </Link>
                   </div>)

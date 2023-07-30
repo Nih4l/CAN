@@ -38,14 +38,16 @@ const SideMenu = () => {
   const uploadPost = () => {
     setUploadPosts(!uploadPosts);
   };
-  
+
   function close_createPost() {
     setUploadPosts(!uploadPosts);
   }
+
   const [logOut,setLogOut] = useState(false);
   const handleLogOut=() => {
     setLogOut(!logOut);
   }
+
   useEffect(() => {
     // Set the active page based on the current URL path
     setActivePage(location.pathname);
@@ -70,6 +72,7 @@ const SideMenu = () => {
       setShowmore(false);
     }
   };
+
   const logoutDivRef = useRef(null);
 
   const handleClickOutsideLogout = (event) => {
@@ -83,6 +86,9 @@ const SideMenu = () => {
       document.removeEventListener("click", handleClickOutsideLogout, true);
     };
   }, [logOut]);
+
+
+
   useEffect(() => {
     document.addEventListener("click", handleClickOutsideshowmore, true);
     return () => {
@@ -109,84 +115,102 @@ const SideMenu = () => {
   }, [isOpen]);
   return (
     <>
-    <div ref={sideMenuDivRef} className='relative'>
+
+      <div ref={sideMenuDivRef} className='relative'>
+
+        <div className={`lg:relative absolute h-full z-10    bg-[#FFF] border-[1px] border-solid border-[#D9EAFF] transition-all duration-300 flex flex-col justify-between ${isOpen ? 'w-[0px]      lg:w-[100px]' : 'lg:w-[300px]  w-[250px] '}`} style={{ boxShadow: '0px 10px 30px 0px rgba(0, 0, 0, 0.05)' }}>
+          <div>
+            {/* LOGo */}
+            <div className={`flex flex-row gap-1 items-center justify-center pt-2  ${isOpen ? 'flex flex-col gap-1 ' : ''}`}>
+              <img src={LogoCAn} alt="none" className="w-[70px]" />
+              <img src={CANa} alt="none" className="w-[42px]" />
+            </div>
+
+            {/* separate line */}
+
+            <div className='flex items-center justify-center pt-2'>
+              <hr className={`h-1 w-[80%]`} />
+            </div>
 
 
-   
-      <div  className={`lg:relative absolute h-full z-50 bg-[#FFF] border-[1px] border-solid border-[#D9EAFF] transition-all duration-300 flex flex-col justify-between ${isOpen ? 'w-[0px] lg:w-[100px]' : 'lg:w-[300px]  w-[250px] '}`} style={{ boxShadow: '0px 10px 30px 0px rgba(0, 0, 0, 0.05)' }}>
-        <div>
-          {/* LOGo */}
-          <div className={`flex flex-row gap-1 items-center justify-center pt-2  ${isOpen ? 'flex flex-col gap-1 ' : ''}`}>
-            <img src={LogoCAn} alt="none" className="w-[70px]" />
-            <img src={CANa} alt="none" className="w-[42px]" />
-          </div>
+            {/* content with icons */}
 
-          {/* separate line */}
+            <div className='flex flex-col  pt-2'>
+              <ul className='flex flex-col gap-2 cursor-pointer'>
 
-          <div className='flex items-center justify-center pt-2'>
-            <hr className={`h-1 w-[80%]`} />
-          </div>
+                <Link to="/home">
+                  <div onClick={() => setActivePage('/home')}>
+                    <li className={`flex flex-row items-center gap-2 h-12 text-[14px]  text-[#444] font-semibold  ${activePage === '/home' ? 'bg-[#efc4197c] border-l-[3px] lg:border-[#C31A7F] text-[14px] font-semibold' : ''}`}><div className={`ml-10 `}><img className='w-4' src={home} alt='none' /></div><p className={` ${isOpen ? '  hidden translate-x-0 ' : ' '}`}>Feeds</p></li>
+                  </div>
+                </Link>
 
 
-          {/* content with icons */}
+                <Link to="/meeting">
+                  <div>
+                    <li className={`flex flex-row items-center gap-2 h-12 text-[14px] text-[#444] font-semibold   ${activePage === '/meeting' ? 'bg-[#efc4197c] border-l-[3px] lg:border-[#C31A7F] text-[14px] font-semibold' : ''}`}>
+                      <div className={`ml-10 `}>
+                        <img className='w-4' src={meeting} alt='none' />
+                      </div>
+                      <p className={`${isOpen ? 'hidden translate-x-0 ml-2' : ''}`}>Meetings</p>
+                    </li>
+                  </div>
+                </Link>
 
-          <div className='flex flex-col  pt-2'>
-            <ul className='flex flex-col gap-2 cursor-pointer'>
 
-              <Link to="/home">
-                <div onClick={() => setActivePage('/home')}>
-                <li className={`flex flex-row items-center gap-2 h-12 text-[14px]  text-[#444] font-semibold  ${activePage === '/home' ? 'bg-[#efc4197c] border-l-[3px] lg:border-[#C31A7F] text-[14px] font-semibold' : ''}`}><div className={`ml-10 `}><img className='w-4' src={home} alt='none' /></div><p className={` ${isOpen ? '  hidden translate-x-0 ' : ' '}`}>Feeds</p></li>
+                <Link to='/chatpage' onClick={() => setActivePage('/chatpage')}>
+                  <li className={`flex flex-row items-center gap-2 h-12 text-[14px] text-[#444] font-semibold  ${activePage === '/chatpage' ? 'bg-[#efc4197c] border-l-[3px] lg:border-[#C31A7F]' : ''}`}><div className={`ml-10 `}><img className='w-4' src={chat} alt='none' /></div><p className={` ${isOpen ? '  hidden translate-x-0' : ''}`}>Chat</p></li>
+                </Link>
+
+
+
+                <div onClick={() => setActivePage('/CreatePose')} >
+                  <li className={`flex flex-row items-center gap-2 h-12 text-[14px] text-[#444] font-semibold  ${activePage === '' ? 'bg-[rgba(239, 195, 25, 0.2)] border-l-[3px] lg:border-[#C31A7F]' : ''}`} onClick={uploadPost}><div className={`ml-10 `}><img src={createPost} className='w-4' alt='none' /></div><p className={` ${isOpen ? '  hidden translate-x-0' : ''}`}>Create Post</p></li>
                 </div>
-              </Link>
 
-              
-              <Link to="/meeting">
-      <div>
-        <li className={`flex flex-row items-center gap-2 h-12 text-[14px] text-[#444] font-semibold   ${activePage === '/meeting' ? 'bg-[#efc4197c] border-l-[3px] lg:border-[#C31A7F] text-[14px] font-semibold' : ''}`}>
-          <div className={`ml-10 `}>
-            <img className='w-4' src={meeting} alt='none' />
-          </div>
-          <p className={`${isOpen ? 'hidden translate-x-0 ml-2' : ''}`}>Meetings</p>
-        </li>
-      </div>
-    </Link>
-             
+                {uploadPosts && (
+                  <div>
+                    <CreatePost close_createPost={close_createPost} />
+                  </div>
+                )}
+                <Link to='/HealthRecord' onClick={() => setActivePage('/HealthRecord')}>
+                  <li className={`flex flex-row items-center gap-2 h-12 text-[14px] text-[#444] font-semibold  ${activePage === '/HealthRecord' ? 'bg-[#efc4197c] border-l-[3px] lg:border-[#C31A7F]' : ''}`}><div className={`ml-10 `}><img className='w-4' src={healthRec} alt='none' /></div><p className={` ${isOpen ? '  hidden translate-x-0' : ''}`}>Health Record</p></li>
+                </Link>
 
-              <Link to='/chatpage' onClick={() => setActivePage('/chatpage')}>
-                <li className={`flex flex-row items-center gap-2 h-12 text-[14px] text-[#444] font-semibold  ${activePage === '/chatpage' ? 'bg-[#efc4197c] border-l-[3px] lg:border-[#C31A7F]' : ''}`}><div className={`ml-10 `}><img className='w-4' src={chat} alt='none' /></div><p className={` ${isOpen ? '  hidden translate-x-0' : ''}`}>Chat</p></li>
-              </Link>
+                <Link to='/HealthCard' onClick={() => setActivePage('/HealthCard')}>
+                  <li className={`flex flex-row items-center gap-2 h-12 text-[14px] text-[#444] font-semibold  ${activePage === '/HealthCard' ? 'bg-[#efc4197c] border-l-[3px] lg:border-[#C31A7F]' : ''}`}><div className={`ml-10 `}><img className='w-4' src={healthCard} alt='none' /></div><p className={` ${isOpen ? '  hidden translate-x-0' : ''}`}>Health Card</p></li>
+                </Link>
 
+                <Link to='/Appointment' onClick={() => setActivePage('/Appointment')}>
+                  <li className={`flex flex-row items-center gap-2 h-12 text-[14px] text-[#444] font-semibold  ${activePage === '/Appointment' ? 'bg-[#efc4197c] border-l-[3px] lg:border-[#C31A7F]' : ''}`}><div className={`ml-10 `}><img className='w-4' src={appointment} alt='none' /></div><p className={` ${isOpen ? '  hidden translate-x-0' : ''}`}>Appointments</p></li>
+                </Link>
 
+                <Link to='/Medicine' onClick={() => setActivePage('/Medicine')}>
+                  <li className={`flex flex-row items-center gap-2 h-12 text-[14px] text-[#444] font-semibold  ${activePage === '/Medicine' ? 'bg-[#efc4197c] border-l-[3px]  lg:border-[#C31A7F]' : ''}`}><div className={`ml-10 `}><img className='w-4' src={medicine} alt='none' /></div><p className={` ${isOpen ? '  hidden translate-x-0' : ''}`}>Medicines</p></li>
+                </Link>
 
-             <div onClick={() => setActivePage('/CreatePose')} >
-                <li className={`flex flex-row items-center gap-2 h-12 text-[14px] text-[#444] font-semibold  ${activePage === ''  ? 'bg-[rgba(239, 195, 25, 0.2)] border-l-[3px] lg:border-[#C31A7F]' : ''}`} onClick={uploadPost}><div className={`ml-10 `}><img src={createPost} className='w-4' alt='none' /></div><p className={` ${isOpen ? '  hidden translate-x-0' : ''}`}>Create Post</p></li>
-              </div>
-              
-              {uploadPosts && (
-        <div>
-          <CreatePost close_createPost={close_createPost } />
-        </div>
-      )}
-              <Link to='/HealthRecord' onClick={() => setActivePage('/HealthRecord')}>
-                <li className={`flex flex-row items-center gap-2 h-12 text-[14px] text-[#444] font-semibold  ${activePage === '/HealthRecord' ? 'bg-[#efc4197c] border-l-[3px] lg:border-[#C31A7F]' : ''}`}><div className={`ml-10 `}><img className='w-4' src={healthRec} alt='none' /></div><p className={` ${isOpen ? '  hidden translate-x-0' : ''}`}>Health Record</p></li>
-              </Link>
+              </ul>
+            </div>
 
-              <Link to='/HealthCard' onClick={() => setActivePage('/HealthCard')}>
-                <li className={`flex flex-row items-center gap-2 h-12 text-[14px] text-[#444] font-semibold  ${activePage === '/HealthCard' ? 'bg-[#efc4197c] border-l-[3px] lg:border-[#C31A7F]' : ''}`}><div className={`ml-10 `}><img className='w-4' src={healthCard} alt='none' /></div><p className={` ${isOpen ? '  hidden translate-x-0' : ''}`}>Health Card</p></li>
-              </Link>
-
-              <Link to='/Appointment' onClick={() => setActivePage('/Appointment')}>
-                <li className={`flex flex-row items-center gap-2 h-12 text-[14px] text-[#444] font-semibold  ${activePage === '/Appointment' ? 'bg-[#efc4197c] border-l-[3px] lg:border-[#C31A7F]' : ''}`}><div className={`ml-10 `}><img className='w-4' src={appointment} alt='none' /></div><p className={` ${isOpen ? '  hidden translate-x-0' : ''}`}>Appointments</p></li>
-              </Link>
-
-              <Link to='/Medicine' onClick={() => setActivePage('/Medicine')}>
-                <li className={`flex flex-row items-center gap-2 h-12 text-[14px] text-[#444] font-semibold  ${activePage === '/Medicine' ? 'bg-[#efc4197c] border-l-[3px]  lg:border-[#C31A7F]' : ''}`}><div className={`ml-10 `}><img className='w-4' src={medicine} alt='none' /></div><p className={` ${isOpen ? '  hidden translate-x-0' : ''}`}>Medicines</p></li>
-              </Link>
-
-            </ul>
           </div>
 
-        </div>
+          {/* show more */}
+          <div>
+            <ul className="relative bg-[#F5F5F5] w-full h-12">
+              <li>
+                <li
+                  className="flex flex-row   gap-2 "
+                  onClick={showmoreToggle}
+                >
+                  <div
+                    className={` ${isOpen ? ' ml-10 mt-4 translate-x-0' : 'ml-10   mt-4'}`}
+                  >
+                    <img src={more} alt="none" />
+                  </div>
+                  <p className={`${isOpen ? ' flex hidden' : 'mt-3'}`}>Show More</p>
+
+                </li>
+              </li>
+
 
         {/* show more */}
         <div onClick={() => setActivePage('showMore')}  className={`cursor-pointer hover:bg-[#efc4197c] ${activePage == 'showMore' ? 'bg-[#efc4197c] border-l-[3px] lg:border-[#C31A7F]' : ''}`}>
@@ -196,50 +220,50 @@ const SideMenu = () => {
                 className="flex flex-row   gap-2 "
                 onClick={showmoreToggle}
               >
+              {showmore && (
+
                 <div
-                  className={` ${isOpen ? ' ml-10 mt-4 translate-x-0' : 'ml-10   mt-4'}`}
+                  ref={showmoreOutclick}
+                  className=" h-max w-max bg-white shadow-2xl absolute bottom-0 left-[120%]  items-center"
                 >
-                  <img src={more} alt="none" />
+                  <p className="flex pt-3 px-4 text-center w-full font-semibold">
+                    Help and support
+                  </p>
+
+                  <p className="flex p-3">
+                    <hr />
+                  </p>
+
+                  <p className="flex px-4 py-2 hover:bg-[rgba(239, 195, 25, 0.2)] gap-2">
+                    <img src={CANnn} alt="none" />
+                    About us
+                  </p>
+                  <p className="flex px-4 py-2 hover:bg-[rgba(239, 195, 25, 0.2)] gap-2">
+                    <img src={help} alt="none" />
+                    Help / Feedback
+                  </p>
+                  <p className="flex px-4 py-2 hover:bg-[rgba(239, 195, 25, 0.2)] gap-2">
+                    <img src={contact} alt="none" />
+                    Contact Us
+                  </p>
+                  <p className="flex px-4 py-2 hover:bg-[rgba(239, 195, 25, 0.2)] gap-2">
+                    <img src={help} alt="none" />
+                    Help a friend
+                  </p>
+                  <p className="flex px-4 py-2 hover:bg-[rgba(239, 195, 25, 0.2)] gap-2">
+                    <img src={setting} alt="none" />
+                    Setting
+                  </p>
+                  <p className="flex px-4 py-2 pb-4 hover:bg-[rgba(239, 195, 25, 0.2)] gap-2">
+                    <img src={logout} alt="none" />
+                    Logout
+                  </p>
                 </div>
-                <p className={`${isOpen ? ' flex hidden' : 'mt-3'}`}>Show More</p>
+              )}
+            </ul>
+          </div>
 
-              </li>
-            </li>
-
-            {showmore && (
-              <div
-                ref={showmoreOutclick}
-                className=" h-max w-max bg-white shadow-2xl absolute bottom-0 lg:left-[120%] -right-1/3 items-center">
-                <p className="flex pt-3 px-4 text-center w-full font-semibold">
-                  Help and support
-                </p>
-
-                <p className="flex p-3">
-                  <hr />
-                </p>
-
-                <p className="flex px-4 py-2 hover:bg-[rgba(239, 195, 25, 0.2)] gap-2 hover:bg-[#efc4197c]">
-                  <img src={CANnn} alt="none" />
-                  About us
-                </p>
-                <p className="flex px-4 py-2 hover:bg-[rgba(239, 195, 25, 0.2)] gap-2 hover:bg-[#efc4197c]">
-                  <img src={help} alt="none" />
-                  <Link to="/HelpFeedback">Help / Feedback</Link>
-                </p>
-                
-                <p className="flex px-4 py-2 hover:bg-[rgba(239, 195, 25, 0.2)] gap-2 hover:bg-[#efc4197c]">
-                  <img src={share} alt="none" />
-                 <Link to='/HelpAFriend'> Help a friend</Link>
-                </p>
-                <p className="flex px-4 py-2 hover:bg-[rgba(239, 195, 25, 0.2)] gap-2 hover:bg-[#efc4197c]">
-                  <img src={setting} alt="none" />
-                 <Link to='/Settings'>Setting </Link> 
-                </p>
-                <p className="flex px-4 py-2 pb-4 hover:bg-[rgba(239, 195, 25, 0.2)] gap-2 hover:bg-[#efc4197c]" onClick={handleLogOut}>
-                  <img src={logout} alt="none" />
-                  Logout
-                </p>
-                {/* logout */}
+              {/* logout */}
                 {logOut && (
                     <div className='fixed inset-0 flex items-center lg:p-0 p-2 justify-center bg-black bg-opacity-50  z-50'>
 
@@ -258,20 +282,18 @@ const SideMenu = () => {
           </ul>
         </div>
 
-        {/* toggle icon */}
-        
 
-         
 
-      
-      </div>
-      <button
+
+
+        </div>
+        <button
           className={` lg:absolute absolute z-10 top-5 -right-8  lg:z-10  lg:top-5 lg:-right-8  rounded-lg transition-all duration-300 ${isOpen ? "" : "translate-x-0 "
             }`}
           onClick={toggleNavbar}
         >
-        { isOpen ? <img className='w-5' src={iconRight} alt="none" />  : <img className='w-5' src={iconLeft} alt="none" />  }
-          
+          {isOpen ? <img className='w-5' src={iconRight} alt="none" /> : <img className='w-5' src={iconLeft} alt="none" />}
+
         </button>
       </div>
     </>
