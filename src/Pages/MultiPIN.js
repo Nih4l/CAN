@@ -87,24 +87,7 @@ const MultiPIN = () => {
         }
     };
 
-    //OTP range
-    // const [value, setValue] = useState('');
-
-    // const handleInputChange = (event) => {
-    //     const inputValue = event.target.value;
-    //     if (/^\d*$/.test(inputValue)) {
-    //         setValue(inputValue);
-    //     }
-    // };
-    // //Re Enter OTP range
-    // const [value1, setValue1] = useState('');
-
-    // const handleInputChange1 = (event) => {
-    //     const inputValue1 = event.target.value;
-    //     if (/^\d*$/.test(inputValue1)) {
-    //         setValue1(inputValue1);
-    //     }
-    // };
+   
 
     return (
         <>
@@ -192,16 +175,7 @@ const MultiPIN = () => {
 
                             <div className=' text-xl lg:py-3 lg:gap-6 gap-4  flex items-end justify-between  w-full lg:pl-3 pl-2  '>
 
-                                {/* <p className='text-sm  font-semibold flex justify-center w-[14%] '>Re Enter</p> */}
-
-                                {/* <input
-                                    type="text"
-                                    value={value1}
-                                    onChange={handleInputChange1}
-                                    maxlength="4"
-                                    placeholder='__  __  __  __'
-                                    className='w-[64%] placeholder:text-4xl placeholder:tracking-[0em] bg-transparent tracking-[.50em] mb-4 outline-none'
-                                /> */}
+                                
                                 <label className='font-poppins lg:text-[18px] text-[14px] align-bottom lg:mr-8 '>Re Enter</label>
                                 <PinInput
                                     length={4}
@@ -218,45 +192,7 @@ const MultiPIN = () => {
                                 ></PinInput>
 
                             </div>
-                            {/* <div className='flex flex-col gap-8 mt-8'>
-                            <div className='flex flex-row gap-5  justify-center relative items-center   '>
-                                <input maxLength={4} className='absolute mb-3 outline-none  ml-7 bg-transparent h-12 w-44  p-2  ' style={{ letterSpacing: 32 }}
-                                    value={value}
-                                    onChange={handleInputChange1}
-                                />
-                                <span>PIN</span>
-                                <span>___</span>
-                                <span>___</span>
-                                <span>___</span>
-                                <span>___</span>
-
-                            </div>
-                            <div className='flex flex-row gap-5  justify-center relative items-center   '>
-                                <input maxLength={4} className='absolute mb-3 outline-none  ml-7 bg-transparent h-12 w-44  p-2  ' style={{ letterSpacing: 32 }}
-                                    value={value1}
-                                    onChange={handleInputChange}
-                                />
-                                <span>Re Enter</span>
-                                <span>___</span>
-                                <span>___</span>
-                                <span>___</span>
-                                <span>___</span>
-
-                            </div>
-                            </div> */}
-
-                            {/* <div className='flex justify-center '>
-                                {(value.length && value === value1) ?
-                                    (<Link to={(value.length && value === value1) ? '/ShowProfile' : ''} className='w-[50%] '>
-                                        <h2 className='bg-[#EFC319] text-center p-3 rounded-lg text-white'>Continue</h2>
-                                    </Link>)
-                                    :
-                                    (<div className='w-[50%] '>
-                                        <h2 className='bg-[#EFC319] opacity-50 text-center p-3 rounded-lg text-white'>Continue</h2>
-                                    </div>
-
-                                    )}
-                            </div> */}
+                            
 
 
                             {error && <p className='text-red-500 text-center'>{error}</p>}

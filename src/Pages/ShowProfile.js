@@ -11,9 +11,12 @@ import { RxCross2 } from 'react-icons/rx'
 import PinInput from 'react-pin-input'
 import { baseurl } from '../Api/baseUrl'
 import axios from 'axios'
+import { Cookies } from 'react-cookie'
+import { useEffect } from 'react'
 
 const ShowProfile = () => {
-
+    const cookie = new Cookies()
+    const token = cookie.get("token")
 
     const userValue = JSON.parse(localStorage.getItem('userValue')) || {}
     const Photo = JSON.parse(localStorage.getItem('userValue')) || {}
@@ -22,12 +25,12 @@ const ShowProfile = () => {
     const name = userValue.username;
     const title = userValue.profile_category;
 
-    
-    console.log('Photo:' , photo);
+    const [singleuserData, setsingleuserData] = useState([])
+    console.log('Photo:', photo);
     // console.log('Name:', name);
     // console.log('Title:', title)
 
-   
+
 
     const [creatPin_open, setCreatPin_open] = useState(false)
     // const [value, setValue] = useState('');
@@ -65,6 +68,25 @@ const ShowProfile = () => {
             setError('Pins do not match, Please re-enter the pin correctly!');
         }
     };
+
+    const getsingleuser = async (token) => {
+        try {
+            const { data } = await axios.get(`${baseurl}/api/getuseraccount?token=${token}`)
+            if (data?.status === true) {
+                console.log(data);
+                setsingleuserData(data?.data)
+            } else {
+                console.log(data);
+            }
+        } catch (error) {
+            console.log(error);
+        }
+    }
+    useEffect(() => {
+        if (token && !singleuserData.length) {
+            getsingleuser(token)
+        }
+    }, [token]);
 
 
     const creatPin = () => {
@@ -197,7 +219,7 @@ const ShowProfile = () => {
 
                     {/* right side */}
                     <div className='h-full  flex items-center mt-4  lg:mt-10 lg:bottom-10'>
-                        <div className='lg:h-[600px] lg:w-[420px] w-[330px] h-[550px] lg:mx-24 bg-[#D0F5D3] bg-opacity-10 z-10 backdrop-blur-md rounded-[20px]' style={{
+                        <div className='lg:h-[620px] lg:w-[420px] w-[330px] h-[570px] lg:mx-24 bg-[#D0F5D3] bg-opacity-10 z-10 backdrop-blur-md rounded-[20px]' style={{
                             boxShadow: '0px 0px 50px rgba(0, 0, 0, 0.1)'
                         }}>
 
@@ -205,25 +227,37 @@ const ShowProfile = () => {
                                 <img src={b4} />
                             </div>
 
-                            <div className='p-4 mx-4 lg:text-[14px] font-poppins text-[14px] font-semibold text-center'>
+                            <div className='p-2 mx-4 lg:text-[14px] font-poppins text-[14px] font-semibold text-center'>
                                 <h1>You can add the profile of your Caregiver by clicking on the Add profile button.</h1>
                             </div>
 
-                            <div className='h-[60%] w-[100%] px-[10%] mt-10  flex justify-between  flex-wrap relative'>
+                            <div className='h-[60%] w-[100%] px-6 mt-3  flex justify-between  flex-wrap relative'>
 
-                                <div className='w-[45%] h-[40%] bg-[#FEE5EA] rounded-3xl flex flex-col justify-center items-center ' style={{ boxShadow: '0px 10px 30px rgba(0, 0, 0, 0.05)' }}>
-                                    <h1 className='font-semibold text-lg'>{name}</h1>
-                                    <p className='text-sm'>{title}</p>
-                                    <div className='absolute -top-5 rounded-full overflow-hidden bg-white w-[60px] h-[60px] '>
-                                        <img src={photo} className='p-1  h-full rounded-full' />
-                                    </div>
-                                    <div className='absolute -top-5 rounded-full overflow-hidden bg-white w-[60px] h-[60px] p-1'>
-                                        <div
-                                            className='h-full rounded-full '
-                                            style={{ backgroundImage: `url(${photo})`, backgroundSize: 'cover', backgroundPosition: 'center' }}
-                                        />
-                                    </div>
-                                </div>
+                                {singleuserData && singleuserData.map((it) => {
+                                    return (
+
+                                        <div className='w-[45%] h-[40%] bg-[#FEE5EA] rounded-3xl flex flex-col justify-center items-center ' style={{ boxShadow: '0px 10px 30px rgba(0, 0, 0, 0.05)' }}>
+                                            <h1 className='font-semibold text-lg'>{it.username}</h1>
+                                            <p className='text-sm'>{it.profile_category.category_Name}</p>
+                                            <div className=' absolute -top-5 rounded-full overflow-hidden bg-white w-[60px] h-[60px]  '>
+                                                <img src={`${baseurl}/${it.profile_photo}`} className='p-1 object-cover
+                                                bg-center h-full rounded-full' alt='img' />
+                                            </div>
+                                            {/* <div className='absolute -top-5 rounded-full overflow-hidden bg-white w-[60px] h-[60px]'>
+                                                <div
+                                                    className='h-full rounded-full'
+                                                    style={{
+                                                        backgroundImage: `url('${baseurl}/${it.profile_photo}')`,
+                                                        backgroundSize: 'cover',
+                                                        backgroundPosition: 'center'
+                                                    }}
+                                                />
+                                            </div> */}
+                                        </div>
+
+                                    )
+                                })}
+
 
                                 <div className='w-[45%] h-[40%] bg-[#FEE5EA] rounded-3xl flex flex-col justify-center items-center ' style={{ boxShadow: '0px 10px 30px rgba(0, 0, 0, 0.05)' }} >
                                     <div onClick={creatPin} className='w-[45%] h-[100%]'>
