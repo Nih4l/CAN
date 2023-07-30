@@ -3,18 +3,71 @@ import LogoCAn from '../Photos/LogoCAn.png';
 import CANa from '../Photos/CANa.png';
 import Video from '../Photos/Video.png';
 import CarouselMain from '../Components/CarouselMain';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import SelfCare from '../Photos/SelfCare.png'
 import vibird1 from '../Photos/vibird1.gif'
 import PinInput from 'react-pin-input'
+import axios from 'axios';
+import { baseurl } from '../Api/baseUrl';
+import { Cookies } from 'react-cookie'
 
 const MultiPIN = () => {
 
     const [pin, setPin] = useState('');
     const [repin, setRepin] = useState('');
     const [error, setError] = useState('');
+    const cookie = new Cookies()
+    const location=useLocation()
+    console.log("location.state",location.state);
 
+    
 
+    // const SetLoginPin = () => {
+        
+       
+    // }
+
+    const registerUserAccount = async () => {
+        let profile=location.state
+        const userValue = JSON.parse(localStorage.getItem('userValue')) || {};
+        userValue.profile_pin = pin
+        userValue.profile_pin = repin
+        localStorage.setItem('userValue', JSON.stringify(userValue));
+        console.log(userValue)
+        console.log(localStorage.getItem("photo"))
+       const formdata=new FormData()
+       formdata.set("username", userValue.username)
+       formdata.set("email_phone", userValue.email_phone)
+       formdata.set("gender", userValue.gender)
+       formdata.set("date_of_birth", userValue.date_of_birth)
+       formdata.set("password", userValue.password)
+       formdata.set("profile_category", userValue.categoryId)
+       formdata.set("profile_pin", userValue.profile_pin)
+       formdata.set("confirmPassword", userValue.confirmPassword)
+       formdata.set("profile_photo", profile)
+
+        try {
+            const userValue = JSON.parse(localStorage.getItem('userValue')) || {};
+            const {data} = await axios.post(`${baseurl}/api/userAccountregister`, formdata)
+            console.log(data)
+            
+
+            if (data.status === true) {
+                // Registration success
+                console.log('User account registered successfully!');
+                cookie.set('token', data.token)
+                
+                
+            } else {
+                // Registration failed
+                console.log('Failed to register user account.');
+                // Handle error as required
+            }
+        } catch (error) {
+            console.error('Error occurred during registration:', error);
+            // Handle error as required
+        }
+    };
 
 
     const handlePinChange = (value) => {
@@ -107,7 +160,7 @@ const MultiPIN = () => {
                                 <p className='lg:text-[18px] text-[14px] font-poppins font-semibold'>your account information with you</p>
                             </div>
 
-                            <div className=' text-xl py-6 flex flex-row items-center justify-center w-full '>
+                            <div className=' text-xl py-6 flex flex-row items-end justify-between w-full lg:gap-6 gap-6  lg:pl-3 pl-3 '>
 
                                 {/* <p className='text-sm  font-semibold flex justify-center w-[14%] '>PIN</p> */}
 
@@ -121,7 +174,7 @@ const MultiPIN = () => {
                                     
                                 /> */}
 
-                                <label className='font-poppins text-[18px] align-bottom mr-20 '> PIN </label>
+                                <label className='font-poppins lg:text-[18px] text-[14px] align-bottom '> PIN </label>
                                 <PinInput
                                     length={4}
                                     id='pin'
@@ -137,7 +190,7 @@ const MultiPIN = () => {
                                 ></PinInput>
                             </div>
 
-                            <div className=' text-xl py-3 flex items-center justify-center  w-full  '>
+                            <div className=' text-xl lg:py-3 lg:gap-6 gap-4  flex items-end justify-between  w-full lg:pl-3 pl-2  '>
 
                                 {/* <p className='text-sm  font-semibold flex justify-center w-[14%] '>Re Enter</p> */}
 
@@ -149,7 +202,7 @@ const MultiPIN = () => {
                                     placeholder='__  __  __  __'
                                     className='w-[64%] placeholder:text-4xl placeholder:tracking-[0em] bg-transparent tracking-[.50em] mb-4 outline-none'
                                 /> */}
-                                <label className='font-poppins text-[18px] align-bottom mr-8 '>Re Enter</label>
+                                <label className='font-poppins lg:text-[18px] text-[14px] align-bottom lg:mr-8 '>Re Enter</label>
                                 <PinInput
                                     length={4}
                                     id='repin'
@@ -214,7 +267,7 @@ const MultiPIN = () => {
                                         }`}
                                     disabled={error && error !== 'Pins are equal'}
                                 >
-                                    <Link to='/ShowProfile'>Continue</Link>
+                                    <Link to='/ShowProfile' onClick={registerUserAccount}>Continue</Link>
                                 </button>
                             </div>
 

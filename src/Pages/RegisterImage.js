@@ -13,6 +13,8 @@ const RegisterImage = () => {
   const [image, setImage] = useState(null);
   const hiddenChooseImage = useRef(null);
 
+  const [img_file,setImg_file]=useState([])
+
   const hideImage = () => {
     setImage(false);
   };
@@ -23,8 +25,24 @@ const RegisterImage = () => {
 
   const handleImageUpload = (event) => {
     const file = event.target.files[0];
+    console.log(file);
+    setImg_file(file)
     setImage(URL.createObjectURL(file));
   };
+
+  const SetRegisterImage = () => {
+    const userValue = JSON.parse(localStorage.getItem('userValue')) || {};
+    
+    userValue.profile_photo = [img_file]
+    localStorage.setItem('userValue', JSON.stringify(userValue));
+    localStorage.setItem("photo",img_file);
+    localStorage.setItem("photo",JSON.stringify({file:img_file}));
+    
+    
+    console.log(JSON.parse(localStorage.getItem("photo")))
+    
+    console.log(userValue);   
+  }
 
   return (
     <>
@@ -108,7 +126,7 @@ const RegisterImage = () => {
                 {image ? (
                   <div className='flex justify-center py-2 w-[50%]'>
 
-                    <Link to='/MultiPIN' className='w-[86%]'>
+                    <Link to='/MultiPIN' state={img_file} className='w-[86%]' onClick={SetRegisterImage}>
                       <h2 className='bg-[#EFC319]  text-center p-3 rounded-lg text-white'>Continue</h2>
                     </Link>
                   </div>)

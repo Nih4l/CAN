@@ -9,8 +9,26 @@ import b4 from '../Photos/b4.png'
 import WelcomScreen from '../Photos/WelcomeScreen.png'
 import { RxCross2 } from 'react-icons/rx'
 import PinInput from 'react-pin-input'
+import { baseurl } from '../Api/baseUrl'
+import axios from 'axios'
 
 const ShowProfile = () => {
+
+
+    const userValue = JSON.parse(localStorage.getItem('userValue')) || {}
+    const Photo = JSON.parse(localStorage.getItem('userValue')) || {}
+
+    const photo = Photo.profile_photo;
+    const name = userValue.username;
+    const title = userValue.profile_category;
+
+    
+    console.log('Photo:' , photo);
+    // console.log('Name:', name);
+    // console.log('Title:', title)
+
+   
+
     const [creatPin_open, setCreatPin_open] = useState(false)
     // const [value, setValue] = useState('');
     const [pin, setPin] = useState('');
@@ -194,10 +212,16 @@ const ShowProfile = () => {
                             <div className='h-[60%] w-[100%] px-[10%] mt-10  flex justify-between  flex-wrap relative'>
 
                                 <div className='w-[45%] h-[40%] bg-[#FEE5EA] rounded-3xl flex flex-col justify-center items-center ' style={{ boxShadow: '0px 10px 30px rgba(0, 0, 0, 0.05)' }}>
-                                    <h1 className='font-semibold text-lg'>Sierra</h1>
-                                    <p className='text-sm'>Fighter</p>
-                                    <div className='absolute -top-5 rounded-full overflow-hidden bg-white w-[15%] h-[] '>
-                                        <img src={account} className='p-1 rounded-full' />
+                                    <h1 className='font-semibold text-lg'>{name}</h1>
+                                    <p className='text-sm'>{title}</p>
+                                    <div className='absolute -top-5 rounded-full overflow-hidden bg-white w-[60px] h-[60px] '>
+                                        <img src={photo} className='p-1  h-full rounded-full' />
+                                    </div>
+                                    <div className='absolute -top-5 rounded-full overflow-hidden bg-white w-[60px] h-[60px] p-1'>
+                                        <div
+                                            className='h-full rounded-full '
+                                            style={{ backgroundImage: `url(${photo})`, backgroundSize: 'cover', backgroundPosition: 'center' }}
+                                        />
                                     </div>
                                 </div>
 
@@ -212,7 +236,7 @@ const ShowProfile = () => {
 
 
                                 <Link to={'/home'} className='w-[50%] ml-[25%] cursor-pointer '>
-                                    <div className='bg-[#EFC319] text-center p-3 rounded-lg text-white'>Finish!</div>
+                                    <div className='bg-[#EFC319] text-center p-3 rounded-lg text-white' >Finish!</div>
                                 </Link>
 
 
