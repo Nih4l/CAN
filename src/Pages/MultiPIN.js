@@ -3,7 +3,7 @@ import LogoCAn from '../Photos/LogoCAn.png';
 import CANa from '../Photos/CANa.png';
 import Video from '../Photos/Video.png';
 import CarouselMain from '../Components/CarouselMain';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import SelfCare from '../Photos/SelfCare.png'
 import vibird1 from '../Photos/vibird1.gif'
 import PinInput from 'react-pin-input'
@@ -16,6 +16,7 @@ const MultiPIN = () => {
     const [pin, setPin] = useState('');
     const [repin, setRepin] = useState('');
     const [error, setError] = useState('');
+    const navigate = useNavigate()
     const cookie = new Cookies()
     const location=useLocation()
     console.log("location.state",location.state);
@@ -56,6 +57,7 @@ const MultiPIN = () => {
                 // Registration success
                 console.log('User account registered successfully!');
                 cookie.set('token', data.token)
+                navigate('/ShowProfile')
                 
                 
             } else {
@@ -109,9 +111,9 @@ const MultiPIN = () => {
                             </div>
 
                             <div className='mt-2 flex flex-col items-center justify-center gap-1 '>
-                                <h1 className='text-center text-[36px] font-bold'>A companion to your relaxation.</h1>
-                                <p className='text-center text-[18px] font-semibold'>Listen to our evergreen radio, do guided meditations, and</p>
-                                <p className='text-center text-[18px] font-semibold'>record your memories to relax and unwind.</p>
+                                <h1 className='text-center text-[36px] font-poppins font-bold'>A companion to your relaxation.</h1>
+                                <p className='text-center text-[18px] font-semibold font-poppins'>Listen to our evergreen radio, do guided meditations, and</p>
+                                <p className='text-center text-[18px] font-semibold font-poppins'>record your memories to relax and unwind.</p>
                             </div>
 
                             <div className="flex flex-row items-center gap-4 mt-3">
@@ -127,7 +129,7 @@ const MultiPIN = () => {
 
                     {/* right side */}
                     <div className='h-full  flex items-center mt-4  lg:mt-10 lg:bottom-10'>
-                        <div className='lg:h-[600px] lg:w-[420px] w-[330px] h-[550px] lg:mx-24 bg-[#D0F5D3] bg-opacity-10 z-10 backdrop-blur-md rounded-[20px]' style={{
+                        <div className='lg:h-[620px] lg:w-[420px] w-[330px] h-[550px] lg:mx-24 bg-[#D0F5D3] bg-opacity-10 z-10 backdrop-blur-md rounded-[20px]' style={{
                             boxShadow: '0px 0px 50px rgba(0, 0, 0, 0.1)'
                         }}>
                             <div>
@@ -203,7 +205,7 @@ const MultiPIN = () => {
                                         }`}
                                     disabled={error && error !== 'Pins are equal'}
                                 >
-                                    <Link to='/ShowProfile' onClick={registerUserAccount}>Continue</Link>
+                                    <h1    to='/ShowProfile' onClick={registerUserAccount}>Continue</h1>
                                 </button>
                             </div>
 

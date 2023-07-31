@@ -115,12 +115,12 @@ const Register = () => {
                             </div>
 
                             <div className='  flex flex-col items-center justify-center mt-4  '>
-                                <h1 className='text-center text-[36px] font-bold'>WELCOME TO CAN!</h1>
-                                <p className='text-center font-semibold text-[18px] mt-2'>CAN is a safe place to share strength hope and ask for help.</p>
+                                <h1 className='text-center text-[36px] font-bold font-poppins'>WELCOME TO CAN!</h1>
+                                <p className='text-center font-semibold text-[18px] mt-2 font-poppins'>CAN is a safe place to share strength hope and ask for help.</p>
                                 <p className='font-semibold'></p>
-                                <p className='text-center text-[18px] font-semibold'>Lets fight against cancer , together</p>
+                                <p className='text-center text-[18px] font-semibold font-poppins'>Lets fight against cancer , together</p>
                             </div>
-                            <div className='flex flex-row items-center gap-4 mt-11 '>
+                            <div className='flex flex-row items-center gap-4 mt-5 '>
                                 <div className='h-[12px] w-[12px] rounded-full bg-[#EFC319]'></div>
                                 <div className='h-[12px] w-[12px] rounded-full bg-[#E7E7E7]'></div>
                                 <div className='h-[12px] w-[12px] rounded-full bg-[#E7E7E7]'></div>
@@ -134,8 +134,8 @@ const Register = () => {
                     </div>
 
                     {/* right side */}
-                    <div className='h-full  flex items-center mt-4  lg:mt-5 lg:bottom-10'>
-                        <form className='lg:h-[650px] lg:w-[420px] w-[330px] lg:mx-24 bg-[#D0F5D3] bg-opacity-10 z-10 backdrop-blur-md rounded-[20px] ' style={{
+                    <div className='h-full  flex items-center mt-4  lg:mt-8 lg:bottom-10'>
+                        <form className='lg:h-[640px] lg:w-[420px] w-[330px] lg:mx-24 bg-[#D0F5D3] bg-opacity-10 z-10 backdrop-blur-md rounded-[20px] ' style={{
                             boxShadow: '0px 0px 50px rgba(0, 0, 0, 0.1)'
                         }}>
 
