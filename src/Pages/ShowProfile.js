@@ -208,9 +208,14 @@ const ShowProfile = () => {
                             </div>
 
                             <div className='  flex flex-col items-center justify-center   '>
-                                <h1 className='text-center text-[36px] font-bold'>Welcome Sierra!</h1>
-                                <p className='text-[18px] font-semibold mt-2'>We welcome you to CAN with all our</p>
-                                <p className='text-[18px] font-semibold'>Hearts. </p>
+                            {singleuserData && singleuserData.map((it)=> {
+                                return (
+                                    <h1 className='text-center text-[36px] font-bold font-poppins'>Welcome {it.username}!</h1>
+                                )
+                            })}
+                                
+                                <p className='text-[18px] font-semibold mt-2 font-poppins'>We welcome you to CAN with all our</p>
+                                <p className='text-[18px] font-semibold font-poppins'>Hearts. </p>
                             </div>
 
                         </div>
