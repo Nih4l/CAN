@@ -110,6 +110,7 @@ const App = () => {
         <Route exact path= 'SetPassword' element={<SetPassword/>}/>
         <Route exact path= 'BlockedAccounts' element={<BlockedAccounts/>}/>
         <Route exact path= 'Notification' element={<Notification/>}/>
+        <Route exact path= 'MeetingActive' element={<MeetingActive/>}/>
 
         
        
