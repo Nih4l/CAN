@@ -63,8 +63,8 @@ const AppointmentPopup = () => {
   };
 
   return (
-    <div className={`fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50 ${!pop ? 'hidden' : ''}`} style={{ backdropFilter: 'blur(2px)' }}>
-      <div className='w-[40%] h-[83%] bg-white rounded-[24px] flex flex-col justify-center px-5 relative'>
+    <div className={`fixed inset-0 flex items-center justify-center p-2 bg-black bg-opacity-50 z-50 ${!pop ? 'hidden' : ''}`} style={{ backdropFilter: 'blur(2px)' }}>
+      <div className='lg:md:w-[40%] lg:md:h-[83%] bg-white rounded-[24px] flex flex-col justify-center px-5 py-2 relative'>
         <div className='flex items-center justify-center font-semibold'>
           <h1 className='text-lg'>Add Appointment</h1>
           <div className='absolute right-[8%] cursor-pointer' onClick={() => setPop(!pop)}>
@@ -177,10 +177,10 @@ const AppointmentPopup = () => {
             />
           </form>
           <div className='flex gap-4 mb-3 mt-3 w-full justify-end px-8'>
-            <button className='border-2 py-1 w-[15%] border-[#7E7E7E] text-center rounded-[12px]' onClick={() => setPop(!pop)}>
+            <button className='border-2 py-1 px-2 md:lg:w-[15%] border-[#7E7E7E] text-center rounded-[12px]' onClick={() => setPop(!pop)}>
               Cancel
             </button>
-            <button className='bg-[#F2CF47] py-1 w-[15%] text-white text-center rounded-[12px]' onClick={handleSave}>
+            <button className='bg-[#F2CF47] px-2 py-1 md:lg:w-[15%] text-white text-center rounded-[12px]' onClick={handleSave}>
               Save
             </button>
           </div>

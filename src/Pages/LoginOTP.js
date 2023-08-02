@@ -89,12 +89,12 @@ const LoginOTP = () => {
                             </div>
 
                             <div className=' mt-5 flex flex-col items-center justify-center gap-1 '>
-                                <h1 className='text-center text-[36px] font-bold'>Hospital visits, easier.</h1>
-                                <p className='text-center text-[18px] font-semibold'>Upload and manage your medical records and reports,</p>
-                                <p className='text-center text-[18px] font-semibold'> all in one place.</p>
+                                <h1 className='text-center text-[36px] font-bold font-poppins'>Hospital visits, easier.</h1>
+                                <p className='text-center text-[18px] font-semibold font-poppins'>Upload and manage your medical records and reports,</p>
+                                <p className='text-center text-[18px] font-semibold font-poppins'> all in one place.</p>
                             </div>
 
-                            <div className='flex flex-row items-center gap-4 mt-14 '>
+                            <div className='flex flex-row items-center gap-4 mt-8 '>
                                 <div className='h-[12px] w-[12px] rounded-full bg-[#E7E7E7]'></div>
                                 <div className='h-[12px] w-[12px] rounded-full bg-[#EFC319]'></div>
                                 <div className='h-[12px] w-[12px] rounded-full bg-[#E7E7E7]'></div>
@@ -110,13 +110,13 @@ const LoginOTP = () => {
 
                     {/* right side */}
                     <div className='h-full  flex items-center mt-4  lg:mt-10 lg:bottom-10'>
-                        <div className='lg:h-[600px] lg:w-[420px] w-[330px] h-[550px] lg:mx-24 bg-[#D0F5D3] bg-opacity-10 z-10 backdrop-blur-md rounded-[20px]' style={{
+                        <div className='lg:h-[620px] lg:w-[420px] w-[330px] h-[550px] lg:mx-24 bg-[#D0F5D3] bg-opacity-10 z-10 backdrop-blur-md rounded-[20px]' style={{
                             boxShadow: '0px 0px 50px rgba(0, 0, 0, 0.1)'
                         }}>
                             <div>
                                 <img className='object-contain' src={vibird1} alt='none' />
                             </div>
-                            <div className='text-center lg:text-3xl text-[24px] font-semibold p-1 text-[#EFC319]'>
+                            <div className='text-center lg:text-3xl text-[24px] font-semibold font-poppins p-1 text-[#EFC319]'>
                                 <h1>OTP Verification</h1>
                             </div>
                             <div className='text-center py-4'>Enter the OTP sent to you</div>

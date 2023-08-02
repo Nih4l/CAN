@@ -64,20 +64,24 @@ const LoginOTP = () => {
                 <div className='flex lg:flex-row lg:p-0 p-2 items-center justify-center'>
 
                     <div className='hidden lg:block w-[55%] mt-20  flex flex-col items-center justify-center  '>
-                        <div className='flex flex-col items-center justify-center '>
+                        <div className='flex flex-col gap-7 items-center justify-center '>
                             {/* <img src={WelcomeScreen} className='' /> */}
-                            <div className='mt-12'>
+                                {/* <CarouselMain /> */}
+                            {/* <div className='mt-12'>
+                                <img src={Feed} className='h-[350px] w-[350px]' alt='none' />
+                            </div> */}
+                            <div className=''>
                                 {/* <CarouselMain /> */}
                                 <img src={Feed} className='h-[350px] w-[350px]' alt='none' />
                             </div>
 
                             <div className='mt-5 flex flex-col items-center justify-center  '>
-                                <h1 className='text-center text-[36px] font-bold '>Stay up to date, and inspired</h1>
-                                <p className=' font-semibold text-[18px] mt-2'>Read curated articles on the latest research, and success</p>
-                                <p className='font-semibold text-[18px]'>stories from our community</p>
+                                <h1 className='text-center text-[36px] font-bold font-poppins '>Stay up to date, and inspired</h1>
+                                <p className=' font-semibold text-[18px] font-poppins mt-2'>Read curated articles on the latest research, and success</p>
+                                <p className='font-semibold text-[18px] font-poppins'>stories from our community</p>
                             </div>
 
-                            <div className='flex flex-row items-center gap-4 mt-16 '>
+                            <div className='flex flex-row items-center gap-4 mt-3 '>
                                 <div className='h-[12px] w-[12px] rounded-full bg-[#E7E7E7]'></div>
                                 <div className='h-[12px] w-[12px] rounded-full bg-[#E7E7E7]'></div>
                                 <div className='h-[12px] w-[12px] rounded-full bg-[#EFC319]'></div>
@@ -91,13 +95,13 @@ const LoginOTP = () => {
 
                     {/* right side */}
                     <div className='h-full  flex items-center mt-4  lg:mt-10 lg:bottom-10'>
-                        <div className='lg:h-[600px] lg:w-[420px] w-[330px] h-[550px] lg:mx-24 bg-[#D0F5D3] bg-opacity-10 z-10 backdrop-blur-md rounded-[20px]' style={{
+                        <div className='lg:h-[620px] lg:w-[420px] w-[330px] h-[550px] lg:mx-24 bg-[#D0F5D3] bg-opacity-10 z-10 backdrop-blur-md rounded-[20px]' style={{
                             boxShadow: '0px 0px 50px rgba(0, 0, 0, 0.1)'
                         }}>
                             <div>
                                 <img src={vibird1} alt='none' />
                             </div>
-                            <div className='text-center lg:text-3xl text-[24px] font-semibold p-1 text-[#EFC319]'>
+                            <div className='text-center lg:text-3xl text-[24px] font-semibold font-poppins p-1 text-[#EFC319]'>
                                 <h1>Create your password</h1>
                             </div>
 

@@ -81,10 +81,10 @@ const HomeNav = ({}) => {
      
       <div className="flex  p-3     border-b-[1px] border-[#D9EAFF] " style={{boxShadow :  '0px 10px 40px 0px rgba(231, 237, 243, 0.40)'}}>
           {/* <div className=" w-[30%]"></div> */}
-          <div className="flex w-full gap-4 md:justify-between">
+          <div className="flex w-full gap-4 jus md:justify-between">
             <div className="md:w-[50%] md:relative flex items-center justify-center md:ml-40 ml-8 ">
             
-            <CiSearch size={20}  className="md:absolute md:top-2 md:left-2 absolute left-12  top-5" />
+            <CiSearch size={20}  className="md:absolute md:top-2 md:left-2 absolute left-12  top-6" />
             
               <input
                 placeholder="Search"

@@ -63,12 +63,12 @@ const RegisterImage = () => {
               </div>
 
               <div className='mt-2 flex flex-col items-center justify-center gap-1'>
-                <h1 className='text-center text-[36px] font-bold'>Care, one step away</h1>
-                <p className='text-center text-[18px] font-semibold'>CAN is a safe place to share strength hope and ask for help.</p>
-                <p className='text-center text-[18px] font-semibold'>Lets fight against cancer , together</p>
+                <h1 className='text-center text-[36px] font-bold font-poppins'>Care, one step away</h1>
+                <p className='text-center text-[18px] font-semibold font-poppins'>CAN is a safe place to share strength hope and ask for help.</p>
+                <p className='text-center text-[18px] font-semibold font-poppins'>Lets fight against cancer , together</p>
               </div>
             </div>
-            <div className='flex flex-row items-center justify-center gap-4 mt-8 '>
+            <div className='flex flex-row items-center justify-center gap-4 mt-14 '>
               <div className='h-[12px] w-[12px] rounded-full bg-[#E7E7E7]'></div>
               <div className='h-[12px] w-[12px] rounded-full bg-[#E7E7E7]'></div>
               <div className='h-[12px] w-[12px] rounded-full bg-[#E7E7E7]'></div>
@@ -80,7 +80,7 @@ const RegisterImage = () => {
 
           {/* right side */}
           <div className='h-full  flex items-center mt-4  lg:mt-10 lg:bottom-10'>
-            <div className='lg:h-[600px] lg:w-[420px] w-[330px] h-[550px] lg:mx-24 bg-[#D0F5D3] bg-opacity-10 z-10 backdrop-blur-md rounded-[20px]' style={{
+            <div className='lg:h-[620px] lg:w-[420px] w-[330px] h-[550px] lg:mx-24 bg-[#D0F5D3] bg-opacity-10 z-10 backdrop-blur-md rounded-[20px]' style={{
               boxShadow: '0px 0px 50px rgba(0, 0, 0, 0.1)'
             }}>
               <div>
