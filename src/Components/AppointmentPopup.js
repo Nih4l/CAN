@@ -64,7 +64,7 @@ const AppointmentPopup = () => {
 
   return (
     <div className={`fixed inset-0 flex items-center justify-center p-2 bg-black bg-opacity-50 z-50 ${!pop ? 'hidden' : ''}`} style={{ backdropFilter: 'blur(2px)' }}>
-      <div className='lg:md:w-[40%] lg:md:h-[83%] bg-white rounded-[24px] flex flex-col justify-center px-5 py-2 relative'>
+      <div className='lg:md:w-[40%] h-fit bg-white rounded-[24px] flex flex-col justify-center px-5 py-2 relative'>
         <div className='flex items-center justify-center font-semibold'>
           <h1 className='text-lg'>Add Appointment</h1>
           <div className='absolute right-[8%] cursor-pointer' onClick={() => setPop(!pop)}>
@@ -110,42 +110,49 @@ const AppointmentPopup = () => {
           <form className='flex flex-wrap justify-between mx-[4%] mt-4'>
             <div className='flex py-3 gap-6 w-full'>
             <div className="relative z-0 w-1/2 mb-4 group">
-    <input type="text" name="appointmentName" id="appointmentName" className="block  w-full text-sm text-gray-900 bg-transparent border-2 border-gray-300 rounded-[20px] p-3 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-black-500 focus:outline-none focus:ring-0 focus:border-black-600 peer" placeholder=" " required />
+    <input type="text" name="appointmentName" id="appointmentName" value={formValues.appointmentName}
+                onChange={handleInputChange} className="block  w-full text-sm text-gray-900 bg-transparent border-2 border-gray-300 rounded-[20px] p-3 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-black-500 focus:outline-none focus:ring-0 focus:border-black-600 peer" placeholder=" " required />
 
-        <label for="appointmentName" className="peer-focus:font-medium absolute px-2 text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-4 left-3 z-10 origin-[0]  peer-focus:left-3 peer-focus:text-black-600 peer-focus:dark:text-black-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6 "><p className='bg-white border-0 rounded-[8px] peer-focus:bg-transparent'>Appointment Name</p></label>
+        <label for="appointmentName" className="peer-focus:font-medium absolute px-2 lg:md:text-sm text-xs text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-4 left-3 z-10 origin-[0]  peer-focus:left-3 peer-focus:text-black-600 peer-focus:dark:text-black-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6 "><p className='bg-white border-0 rounded-[8px] peer-focus:bg-transparent'>Appointment Name</p></label>
     </div>
     <div className="relative z-0 w-1/2 mb-4 group">
-    <input type="text" name="DoctorName" id="DoctorName" className="block  w-full text-sm text-gray-900 bg-transparent border-2 border-gray-300 rounded-[20px] p-3 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-black-500 focus:outline-none focus:ring-0 focus:border-black-600 peer" placeholder=" " required />
+    <input type="text" name="doctorName" id="doctorName" value={formValues.doctorName}
+                onChange={handleInputChange} className="block  w-full text-sm text-gray-900 bg-transparent border-2 border-gray-300 rounded-[20px] p-3 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-black-500 focus:outline-none focus:ring-0 focus:border-black-600 peer" placeholder=" " required />
 
-        <label for="DoctorName" className="peer-focus:font-medium absolute px-2 text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-4 left-3 z-10 origin-[0]  peer-focus:left-3 peer-focus:text-black-600 peer-focus:dark:text-black-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6 "><p className='bg-white border-0 rounded-[8px] peer-focus:bg-transparent'>Doctor's Name</p></label>
+        <label for="DoctorName" className="peer-focus:font-medium absolute px-2 lg:md:text-sm text-xs text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-4 left-3 z-10 origin-[0]  peer-focus:left-3 peer-focus:text-black-600 peer-focus:dark:text-black-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6 "><p className='bg-white border-0 rounded-[8px] peer-focus:bg-transparent'>Doctor's Name</p></label>
     </div>
             </div>
             <div className='flex py-3 gap-6 w-full'>
             <div className="relative z-0 w-1/2 mb-4 group">
-    <input type="text" name="hospitalName" id="ospitalName" className="block  w-full text-sm text-gray-900 bg-transparent border-2 border-gray-300 rounded-[20px] p-3 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-black-500 focus:outline-none focus:ring-0 focus:border-black-600 peer" placeholder=" " required />
+    <input type="text" name="hospitalName" id="hospitalName" value={formValues.hospitalName}
+                onChange={handleInputChange} className="block  w-full text-sm text-gray-900 bg-transparent border-2 border-gray-300 rounded-[20px] p-3 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-black-500 focus:outline-none focus:ring-0 focus:border-black-600 peer" placeholder=" " required />
 
-        <label for="hospitalName" className="peer-focus:font-medium absolute px-2 text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-4 left-3 z-10 origin-[0]  peer-focus:left-3 peer-focus:text-black-600 peer-focus:dark:text-black-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6 "><p className='bg-white border-0 rounded-[8px] peer-focus:bg-transparent'>Hospital's Name</p></label>
+        <label for="hospitalName" className="peer-focus:font-medium absolute px-2 lg:md:text-sm text-xs text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-4 left-3 z-10 origin-[0]  peer-focus:left-3 peer-focus:text-black-600 peer-focus:dark:text-black-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6 "><p className='bg-white border-0 rounded-[8px] peer-focus:bg-transparent'>Hospital's Name</p></label>
     </div>
     <div className="relative z-0 w-1/2 mb-4 group">
-    <input type="text" name="hospitalAdd" id="hospitalAdd" className="block  w-full text-sm text-gray-900 bg-transparent border-2 border-gray-300 rounded-[20px] p-3 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-black-500 focus:outline-none focus:ring-0 focus:border-black-600 peer" placeholder=" " required />
+    <input type="text" name="hospitalAddress" id="hospitalAddress" value={formValues.hospitalAddress}
+                onChange={handleInputChange} className="block  w-full text-sm text-gray-900 bg-transparent border-2 border-gray-300 rounded-[20px] p-3 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-black-500 focus:outline-none focus:ring-0 focus:border-black-600 peer" placeholder=" " required />
 
-        <label for="hospitalAdd" className="peer-focus:font-medium absolute px-2 text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-4 left-3 z-10 origin-[0]  peer-focus:left-3 peer-focus:text-black-600 peer-focus:dark:text-black-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6 "><p className='bg-white border-0 rounded-[8px] peer-focus:bg-transparent'>Hospital's Address</p></label>
+        <label for="hospitalAdd" className="peer-focus:font-medium absolute px-2 lg:md:text-sm text-xs text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-4 left-3 z-10 origin-[0]  peer-focus:left-3 peer-focus:text-black-600 peer-focus:dark:text-black-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6 "><p className='bg-white border-0 rounded-[8px] peer-focus:bg-transparent'>Hospital's Address</p></label>
     </div>
             </div>
             <div className='flex py-3 gap-6 w-full'>
             <div className="relative z-0 w-1/2 mb-4 group">
-    <input type="text" onFocus={(e) => {e.target.type = 'date';}} id="date" className="block  w-full text-sm text-gray-900 bg-transparent border-2 border-gray-300 rounded-[20px] p-3 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-black-500 focus:outline-none focus:ring-0 focus:border-black-600 peer" placeholder=" " required />
-    <label for="date" className="peer-focus:font-medium absolute px-2 text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-4 left-3 z-10 origin-[0]  peer-focus:left-3 peer-focus:text-black-600 peer-focus:dark:text-black-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6 "><p className='bg-white border-0 rounded-[8px] peer-focus:bg-transparent'>DD/MM/YYYY</p></label>
+    <input type="text" onFocus={(e) => {e.target.type = 'date';}} value={formValues.appointmentDate}
+                onChange={handleInputChange} id="appointmentDate" name="appointmentDate" className=" block  w-full text-sm text-gray-900 bg-transparent border-2 border-gray-300 rounded-[20px] p-3 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-black-500 focus:outline-none focus:ring-0 focus:border-black-600 peer" placeholder=" " required />
+    <label for="appointmentDate" className="peer-focus:font-medium absolute px-2 lg:md:text-sm text-xs text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-4 left-3 z-10 origin-[0]  peer-focus:left-3 peer-focus:text-black-600 peer-focus:dark:text-black-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6 "><p className='bg-white border-0 rounded-[8px] peer-focus:bg-transparent'>DD/MM/YYYY</p></label>
     </div> 
     <div className="relative z-0 w-1/2 mb-4 group">
-    <input type="text" onFocus={(e) => {e.target.type = 'time';}} id="time" className="block  w-full text-sm text-gray-900 bg-transparent border-2 border-gray-300 rounded-[20px] p-3 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-black-500 focus:outline-none focus:ring-0 focus:border-black-600 peer" placeholder=" " required />
-    <label for="time" className="peer-focus:font-medium absolute px-2 text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-4 left-3 z-10 origin-[0]  peer-focus:left-3 peer-focus:text-black-600 peer-focus:dark:text-black-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6 "><p className='bg-white border-0 rounded-[8px] peer-focus:bg-transparent'>Time</p></label>
+    <input type="text" onFocus={(e) => {e.target.type = 'time';}} id="appointmentTime" name="appointmentTime" value={formValues.appointmentTime}
+                onChange={handleInputChange} className="block  w-full text-sm text-gray-900 bg-transparent border-2 border-gray-300 rounded-[20px] p-3 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-black-500 focus:outline-none focus:ring-0 focus:border-black-600 peer" placeholder=" " required />
+    <label for="time" className="peer-focus:font-medium absolute px-2 lg:md:text-sm text-xs text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-4 left-3 z-10 origin-[0]  peer-focus:left-3 peer-focus:text-black-600 peer-focus:dark:text-black-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6 "><p className='bg-white border-0 rounded-[8px] peer-focus:bg-transparent'>Time</p></label>
     </div>
             </div>
             <div className="relative z-0 w-full mb-4 group">
-    <input type="text" name="appointmentNote" id="appointmentNote" className="block  w-full text-sm text-gray-900 bg-transparent border-2 border-gray-300 rounded-[20px] p-3 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-black-500 focus:outline-none focus:ring-0 focus:border-black-600 peer" placeholder=" " required />
+    <input type="text" name="appointmentNote" id="appointmentNote" value={formValues.appointmentNote}
+              onChange={handleInputChange} className="block  w-full text-sm text-gray-900 bg-transparent border-2 border-gray-300 rounded-[20px] p-3 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-black-500 focus:outline-none focus:ring-0 focus:border-black-600 peer" placeholder=" " required />
 
-        <label for="appointmentNote" className="peer-focus:font-medium absolute px-2 text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-4 left-3 z-10 origin-[0]  peer-focus:left-3 peer-focus:text-black-600 peer-focus:dark:text-black-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6 "><p className='bg-white border-0 rounded-[8px] peer-focus:bg-transparent'>Add note</p></label>
+        <label for="appointmentNote" className="peer-focus:font-medium absolute px-2 lg:md:text-sm text-xs text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-4 left-3 z-10 origin-[0]  peer-focus:left-3 peer-focus:text-black-600 peer-focus:dark:text-black-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6 "><p className='bg-white border-0 rounded-[8px] peer-focus:bg-transparent'>Add note</p></label>
     </div>
           </form>
           <div className='flex gap-4 mb-3 mt-3 w-full justify-end px-8'>

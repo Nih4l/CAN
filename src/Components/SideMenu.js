@@ -46,9 +46,11 @@ const SideMenu = () => {
   const handleLogOut=() => {
     setLogOut(!logOut);
   }
+  const currentPathname = location.pathname;
+
   useEffect(() => {
     // Set the active page based on the current URL path
-    setActivePage(location.pathname);
+    setActivePage(currentPathname.startsWith('/Appointment') ? '/Appointment' : (currentPathname.startsWith('/Medicine') ? '/Medicine': (currentPathname.startsWith('/HealthCard') ? '/HealthCard':(currentPathname.startsWith('/HealthRecord') ? '/HealthRecord':currentPathname))))
   }, [location]);
 
   useEffect(() => {

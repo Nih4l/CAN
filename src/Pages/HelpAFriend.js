@@ -10,7 +10,7 @@ const HelpAFriend = () => {
                 <div className='bg-[#FEF8FD] w-full flex flex-col items-center gap-2 py-20 md:py-10 h-full overflow-hidden'
                  style={{ backgroundImage: `url(${shareAfriend})`,
                  backgroundRepeat: 'no-repeat',
-                 backgroundSize:'100% 40%',
+                 backgroundSize:'120% 60%',
                 '@media (min-width: 768px)': {
                  backgroundSize: '100% 80%', 
                  },
