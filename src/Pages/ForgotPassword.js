@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
-import Logo from '../Photos/Logo.png'
-import CAN from '../Photos/CAN.png'
+import LogoCAn from '../Photos/LogoCAn.png'
+import CANa from '../Photos/CANa.png'
 import Frame from '../Photos/Frame.png'
 import { AiOutlineMail } from 'react-icons/ai'
 import { Link } from 'react-router-dom'
@@ -31,47 +31,48 @@ const ForgotPassword = () => {
 
   return (
     <>
-      <div className='ml-[80px] mt-2 absolute flex items-center '>
-        <img src={Logo} alt='not found' className='w-[80px] h-[80px]' />
-        <img src={CAN} alt='not found' className='w-[42.88px] h-[16.19px]  ' />
+      <div className='lg:ml-[80px] mt-2 lg:absolute flex items-center justify-center'>
+        <img src={LogoCAn} alt='not found' className='w-[80px] h-[80px]' />
+        <img src={CANa} alt='not found' className='w-[42.88px] h-[16.19px]  ' />
       </div>
 
-      <div className='h-[100vh] flex  items-center justify-center'>
-        <div className='h-[75%] w-[60vh] shadow-xl mx-24 bg-[#D0F5D3] bg-opacity-10 z-10 backdrop-blur-lg rounded-[20px]' style={{
+      <div className='lg:h-screen h-fit flex lg:p-0 px-4 pt-4 items-center  justify-center'>
+        <div className='  shadow-xl   pb-8 lg:px-6 px-2   bg-[#D0F5D3] bg-opacity-10 z-10 backdrop-blur-lg rounded-[20px]' style={{
           boxShadow: '0px 0px 50px rgba(0, 0, 0, 0.1)'
         }}>
 
-          <div className='h-[80%] mt-14 flex flex-col items-center justify-center gap-4'>
+          <div className='mt-14 flex flex-col items-center gap-4'>
             <div>
-              <h1 className='text-[28px] font-semibold text-[#EFC319]'>Forgot Password</h1>
+              <h1 className='lg:text-[28px] font-poppins text-[24px] font-semibold text-[#EFC319]'>Forgot Password</h1>
             </div>
             <div className='text-center'>
-              <p className='text-[16px] text-[#555555] font-semibold'>Please, enter your registered email. You'll receive </p>
-              <p className='text-[16px] text-[#555555] font-semibold'>a link to reset password.</p>
+              <p className='lg:text-[14px] font-poppins text-[#555555] text-[12px] font-semibold'>Please, enter your registered email. You'll receive </p>
+              <p className='lg:text-[14px] font-poppins text-[#555555] text-[12px] font-semibold'>a link to reset password.</p>
             </div>
             <div>
               <img className='w-28 h-28' src={Frame} alt='none' />
             </div>
             <div>
-              <div className='border-2 h-14 rounded-xl w-96 flex items-center '>
-                <input placeholder='Email/phone no.' className='border-none w-full p-4 bg-transparent placeholder:p-2 outline-none'
+              <div className='border-2 lg:h-12 h-12  mt-3 lg:w-[350px] w-[300px]  rounded-[20px] flex items-center gap-4'>
+                
+                <input placeholder='Email/phone no.' className='border-none w-full bg-transparent placeholder: outline-none p-4'
                   value={email}
                   onChange={handleEmailChange} />
-                <div className='text-red-400 text-xs w-[50%]'>{error && <p>{error}</p>}</div>
+                <div className='text-red-400 lg:text-xs text-[10px]  lg:w-[50%] '>{error && <p>{error}</p>}</div>
               </div>
             </div>
             <div>
 
 
               {email && isResetDisabled ? <Link to='/OtpVerify'>
-                <div className='w-52 h-12 cursor-pointer'>
+                <div className='w-52 h-12 cursor-pointer pt-2'>
                   <h2 className='bg-[#EFC319] text-center p-3 rounded-xl text-white font-semibold ' >Reset password</h2>
                 </div>
-              </Link> : <div className='w-52 h-12 cursor-pointer'>
-                  <h2 className='bg-[#EFC319] text-center p-3 rounded-xl text-white font-semibold opacity-50'>Reset password</h2>
-                </div> }
+              </Link> : <div className='w-52 h-12 cursor-pointer pt-2'>
+                <h2 className='bg-[#EFC319] text-center p-3 rounded-xl text-white font-semibold opacity-50'>Reset password</h2>
+              </div>}
 
-              
+
 
             </div>
             <div className='mt-3'>

@@ -64,8 +64,8 @@ const App = () => {
         <Route exact path = 'choosetitle' element={<ChooseTitle />} />
         <Route exact path = 'phonenumber' element={<PhoneNumber />} />
         <Route exact path = 'register' element={<Register />} />
-        <Route exact path = 'registerimage' element={<RegisterImage />} />
-        <Route exact path = 'loginotp' element={<LoginOTP />} />
+        <Route exact path = 'registerimage' element={<RegisterImage  />} />
+        <Route exact path = 'loginotp'  element={<LoginOTP   />} />
         <Route exact path = 'password' element={<Password />} />
         <Route exact path = 'home' element={<Home />} />
         <Route exact path = 'test' element={<Test />} />
@@ -112,6 +112,7 @@ const App = () => {
         <Route exact path= 'BlockedAccounts' element={<BlockedAccounts/>}/>
         <Route exact path= 'Notification' element={<Notification/>}/>
         <Route exact path= 'HealthCard2' element={<HealthCard2/>}/>
+        <Route exact path= 'MeetingActive' element={<MeetingActive/>}/>
 
         
        

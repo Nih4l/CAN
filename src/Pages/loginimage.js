@@ -1,6 +1,6 @@
 import React, { useRef, useState } from 'react';
-import Logo from '../Photos/Logo.png';
-import CAN from '../Photos/CAN.png';
+import LogoCAn from '../Photos/LogoCAn.png';
+import CANa from '../Photos/CANa.png';
 import Video from '../Photos/Video.png';
 import { VscAccount } from 'react-icons/vsc';
 import { IoCloseCircleSharp } from 'react-icons/io5';
@@ -28,20 +28,20 @@ const LoginImage = () => {
 
   return (
     <>
-      <div className='ml-[80px] mt-2 absolute flex items-center '>
-        <img src={Logo} alt='not found' className='w-[80px] h-[80px]' />
-        <img src={CAN} alt='not found' className='w-[42.88px] h-[16.19px]  ' />
+      <div className='lg:ml-[80px] mt-2 lg:absolute flex items-center justify-center'>
+        <img src={LogoCAn} alt='not found' className='w-[80px] h-[80px]' />
+        <img src={CANa} alt='not found' className='w-[42.88px] h-[16.19px]  ' />
       </div>
       <div>
 
 
-        <div className='flex'>
-        <div className='w-[55%] mt-16  flex flex-col items-center justify-center'>
+        <div className='flex lg:flex-row lg:p-0 p-2 items-center justify-center'>
+        <div className='hidden lg:block w-[55%] mt-20  flex flex-col items-center justify-center'>
                         <div className='flex flex-col items-center justify-center gap-2'>
                             {/* <img src={WelcomeScreen} className='' /> */}
-                            <div className='w-[70%] '>
+                            <div className=' '>
                                 {/* <CarouselMain /> */}
-                                <img src={Freeline} alt='none'  />
+                                <img src={Freeline} alt='none' className='h-[350px] w-[450px]'  />
                             </div>
 
                             <div className=' flex flex-col items-center justify-center gap-1 '>
@@ -63,8 +63,8 @@ const LoginImage = () => {
          
 
           {/* right side */}
-          <div className='h-[100vh] flex items-center'>
-            <div className='h-[90%] w-[60vh]  mx-24 bg-[#D0F5D3] bg-opacity-10 z-10 backdrop-blur-lg rounded-[20px]' style={{
+          <div className='h-full  flex items-center mt-4  lg:mt-10 lg:bottom-1'>
+            <div className='lg:h-[600px] lg:w-[420px] w-[330px] h-[550px] lg:mx-24 bg-[#D0F5D3] bg-opacity-10 z-10 backdrop-blur-md rounded-[20px]' style={{
               boxShadow: '0px 0px 50px rgba(0, 0, 0, 0.1)'
             }}>
               <div>
