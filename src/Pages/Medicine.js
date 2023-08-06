@@ -1,16 +1,9 @@
 import React from 'react'
 import { useState } from 'react'
-import SideMenu from '../Components/SideMenu';
-import HomeNav from '../Components/HomeNav';
 import Medicineimg from '../Photos/Medicineimg.png'
 import MedicinePopup from '../Components/MedicinePopup';
 import { Link } from 'react-router-dom';
 import Page from '../Layouts/Pages';
-
-
-
-
-
 const Medicine = () => {
   const [medicine, setMedicine]=useState(false);
   const toggleMedicine= ()=>{

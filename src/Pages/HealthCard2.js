@@ -1,15 +1,42 @@
 import Page from '../Layouts/Pages';
-import React, { useRef, useState } from 'react';
+import React, { useRef, useState, useEffect} from 'react';
 import account from '../Photos/account.jpg';
 import Icon from '../Photos/Icon.png'
 import flight from '../Photos/MoreIcons/flight.png'
 import share from   '../Photos/MoreIcons/share.png'
 import {MdOutlineModeEditOutline} from 'react-icons/md'
 import {BsDownload} from 'react-icons/bs'
+import { useLocation } from 'react-router-dom';
 
 
 
-const HealthCard2 = () => {
+const HealthCard2 = ({healthCardData}) => {
+    const location = useLocation();
+    const queryParams = new URLSearchParams(location.search);
+
+    const name = queryParams.get('name');
+    const dob = queryParams.get('dob');
+    const gender = queryParams.get('gender');
+    const blood_group = queryParams.get('blood_group');
+    const height= queryParams.get('height');
+    const weight = queryParams.get('weight');
+    const cancer_type = queryParams.get('cancer_type');
+    const cancer_stage = queryParams.get('cancer_stage');
+    const current_treatment = queryParams.get('current_treatment');
+    const last_treatment = queryParams.get('last_treatment');
+    const presiding_doctor = queryParams.get('presiding_doctor');
+    const hospital_details_primary= queryParams.get('hospital_details_primary');
+    const hospital_details = queryParams.get('hospital_details');
+    const emergencyContacts = [];
+    for (const key of queryParams.keys()) {
+        if (key.startsWith('emergency_name_')) {
+        const index = key.substring('emergency_name_'.length);
+        const name = queryParams.get(`emergency_name_${index}`);
+        const phone = queryParams.get(`emergency_phone_${index}`);
+        emergencyContacts.push({ name, phone });
+        }
+    }
+    
   return (
     <Page
       pageContent={
@@ -44,7 +71,7 @@ const HealthCard2 = () => {
                                 <img src={account} width={100}/>
                             </div> 
                         </div>
-                        <div className='flex justify-center text-center '><p className='font-[600] text-[18px]'>Ananya Nagpal</p></div>
+                        <div className='flex justify-center text-center '><p className='font-[600] text-[18px]'>{name}</p></div>
                         <div className='flex flex-row gap-4 py-4 px-14 items-center justify-center'>
                         <div className='flex flex-col text-[14px] font-500'><p className='text-[14px] font-[500]'>Fighter</p></div>
                         <div className='color-[#C4C4C4] w-1 flex'> |</div>
@@ -54,15 +81,15 @@ const HealthCard2 = () => {
                     <div className='border-[#C4C4C4] border-[1px] bg-[#FCF5FA] flex rounded-[20px] flex-row  py-6 justify-evenly w-full '>
                 <div className='flex flex-col px-[12px] border-r-2 border-[#C4C4C4]'>
                                 <h2 className='text-[16px] font-[500] text-[#C31A7F]'>Weight</h2>
-                                <p>Chemo </p>
+                                <p>{weight}</p>
                 </div>
                 <div className='flex flex-col px-[12px] border-r-2 border-[#C4C4C4]'>
                                 <h2 className='text-[16px] font-[500] text-[#C31A7F]'>Height</h2>
-                                <p>Chemo  </p>
+                                <p>{height} </p>
                 </div>
                 <div className='flex flex-col px-[12px]'>
                                 <h2 className='text-[16px] font-[500] text-[#C31A7F]'>Blood</h2>
-                                <p>Chemo </p>
+                                <p>{blood_group}</p>
                 </div>
                 </div>
 
@@ -70,34 +97,36 @@ const HealthCard2 = () => {
                     <div className='flex flex-col bg-transparent gap-10 h-full w-full lg:w-1/3 px-3'>
                     <div className='border-[#C4C4C4] border-[1px] bg-[#FCF5FA] flex rounded-[20px] gap-4 flex-col items-start py-6 px-4 justify-evenly w-full h-full'>
                         <div className='flex flex-row justify-around items-start w-full '>
-                            <div className='flex flex-col items-start px-4 border-r-2 border-[#C4C4C4]'>
+                            <div className='flex flex-col items-start px-3 border-r-2 border-[#C4C4C4]'>
                                 <h2 className='text-[16px] font-[500] text-[#C31A7F]'>Cancer</h2>
-                                <p>Gal Bladder</p>
+                                <p>{cancer_type}</p>
                             </div>
                             <div className='flex flex-col px-2'>
                                 <h2 className='text-[16px] font-[500] text-[#C31A7F]'>Stage</h2>
-                                <p>III</p>
+                                <p>{cancer_stage}</p>
                             </div>
                         </div>
                         <hr className='w-full border-[#C4C4C4] my-2' /> 
                         <div className='flex flex-row gap-4 justify-evenly w-full '>
-                        <div className='flex flex-col  px-4 border-r-2 border-[#C4C4C4]'>
-                                <h2 className='text-[16px] font-[500] text-[#C31A7F]'>Current Treatment</h2>
-                                <p>Radiation    </p>
+                        <div className='flex flex-col  px-3 border-r-2 border-[#C4C4C4]'>
+                                <h2 className='text-[16px] flex font-[500] text-[#C31A7F] whitespace-nowrap'>Current Treatment</h2>
+                                <p>{current_treatment}</p>
                             </div>
                             <div className='flex flex-col px-2'>
-                                <h2 className='text-[16px] font-[500] text-[#C31A7F]'>Last Treatment</h2>
-                                <p>Chemo Therapy </p>
+                                <h2 className='text-[16px] font-[500] text-[#C31A7F] whitespace-nowrap'>Last Treatment</h2>
+                                <p>{last_treatment}</p>
                             </div>
 
                         </div>
                     </div>
                     <div className='border-[#C4C4C4] border-[1px] bg-[#FCF5FA] flex rounded-[20px] flex-col py-6 px-4 justify-evenly w-full '>
-                <h2 className='text-[16px] font-[500] text-[#C31A7F]'>Emergency Contact</h2>
-                <div className='flex flex-row justify-between'>
-                                <p>Chemo </p>
-                                <p>231412</p>
-                </div>
+                <h2 className='text-[16px] font-[500] text-[#C31A7F] whitespace-nowrap'>Emergency Contact</h2>
+                {emergencyContacts.map((contact, index) => (
+                  <div key={index} className='flex flex-row justify-between'>
+                    <p>{contact.name}</p>
+                    <p>{contact.phone}</p>
+                  </div>
+                ))}
                 </div>
                 </div>
                    
@@ -105,19 +134,19 @@ const HealthCard2 = () => {
                     <div className='border-[#C4C4C4] border-[1px] bg-[#FCF5FA] flex rounded-[20px] lg:h-fit  gap-4 flex-col items-start py-6 px-4 justify-evenly w-full '>
                         <div className='flex flex-row justify-evenly items-start w-full  '>
                             <div className='flex flex-col items-start px-4 border-r-2 border-[#C4C4C4]'>
-                                <h2 className='text-[16px] font-[500] text-[#C31A7F]'>Presiding Doctor</h2>
-                                <p>Dr Rakesh Kumar   </p>
+                                <h2 className='text-[16px] font-[500] text-[#C31A7F] whitespace-nowrap'>Presiding Doctor</h2>
+                                <p>{presiding_doctor}</p>
                             </div>
                             <div className='flex flex-col px-2'>
-                                <h2 className='text-[16px] font-[500] text-[#C31A7F]'>Hospital Details (primary)</h2>
-                                <p>Chemo Therapy </p>
+                                <h2 className='text-[16px] font-[500] text-[#C31A7F] whitespace-nowrap'>Hospital Details (primary)</h2>
+                                <p>{hospital_details_primary}</p>
                             </div>
                             </div>
                             <hr className='w-full border-[#C4C4C4] my-4' /> 
                             <div className='flex flex-col justify-center items-center w-full '>
                             
-                                <h2 className='text-[16px] font-[500] text-[#C31A7F]'>Hospital Details</h2>
-                                <p>Chemo Therapy </p>
+                                <h2 className='text-[16px] font-[500] text-[#C31A7F] whitespace-nowrap'>Hospital Details</h2>
+                                <p>{hospital_details}</p>
                           
                             </div>
                         </div>
