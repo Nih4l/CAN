@@ -51,6 +51,7 @@ import SetPin from './Components/SetPin'
 import SetPassword from './Components/SetPassword'
 import BlockedAccounts from './Pages/BlockedAccounts'
 import Notification from './Pages/Notification'
+import HealthCard2 from './Pages/HealthCard2'
 
 const App = () => {
   return (
@@ -110,6 +111,7 @@ const App = () => {
         <Route exact path= 'SetPassword' element={<SetPassword/>}/>
         <Route exact path= 'BlockedAccounts' element={<BlockedAccounts/>}/>
         <Route exact path= 'Notification' element={<Notification/>}/>
+        <Route exact path= 'HealthCard2' element={<HealthCard2/>}/>
         <Route exact path= 'MeetingActive' element={<MeetingActive/>}/>
 
         
