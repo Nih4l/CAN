@@ -3,7 +3,7 @@ import HomeNav from "../Components/HomeNav";
 import { FiSearch } from "react-icons/fi";
 import { AiOutlineEye } from "react-icons/ai";
 import { AiOutlineVideoCamera } from "react-icons/ai";
-import { BsThreeDotsVertical } from "react-icons/bs";
+import { IoIosInformationCircleOutline , IoIosInformationCircle } from "react-icons/io";
 import { BsTelephone, BsCheck2All } from "react-icons/bs";
 import { ImAttachment } from "react-icons/im";
 import { AiOutlineSend } from "react-icons/ai";
@@ -28,7 +28,12 @@ const ChatPage = () => {
   const [text, setText] = useState("");
   const [sendImage, setSendImage] = useState(null)
   const [result, setResult] = useState([]);
-  const [imageResult,setImageResult] = useState([])
+  const [imageResult, setImageResult] = useState([])
+  const [Info, setInfo] = useState(true)
+
+  const handleClick = () => {
+    setInfo((prevState) => !prevState);
+  }
 
   const inputTaken = (event) => {
     setText(event.target.value);
@@ -38,7 +43,7 @@ const ChatPage = () => {
     const file = e.target.files[0]
     console.log(file)
     setSendImage(URL.createObjectURL(file))
-    
+
   }
 
   const listOfItems = () => {
@@ -46,7 +51,7 @@ const ChatPage = () => {
       return [...oldItems, text];
     });
     setText("");
-    
+
   };
 
   const listOfImage = () => {
@@ -55,7 +60,7 @@ const ChatPage = () => {
     });
     console.log(setImageResult)
     setSendImage('')
-   
+
   }
 
   const Groups = [
@@ -183,11 +188,11 @@ const ChatPage = () => {
           {/* background */}
           <div className="bg-[#FEF8FD] flex items-center justify-center h-full">
             {/* chat space */}
-            <div className=" h-[550px] w-full flex  justify-center  ">
+            <div className=" h-[600px] w-full flex  justify-center  ">
               <div className="  bg-white  rounded-3xl  shadow-2xl">
                 <div className="flex h-full w-full">
                   {/* left bar */}
-                  <div className="pt-4 px-4   w-[25%] border-r-2">
+                  <div className="pt-4 px-4   w-1/4 border-r-2">
                     <div className="flex  items-center gap-2 mt-3 p-2 shadow-2xl bg-white rounded-3xl">
                       <FiSearch color="black" />
                       <input placeholder="Search" className="outline-none overflow-hidden" />
@@ -255,7 +260,7 @@ const ChatPage = () => {
                     {/* Requests */}
 
                     {chats && (
-                      <div className="flex flex-col mt-2 gap-6 h-[230px]   overflow-hidden overflow-y-scroll " style={{}}>
+                      <div className="flex flex-col mt-2 gap-6 h-[230px]    overflow-y-scroll " style={{}}>
 
                         {AllChats.map((item) => (
                           <div className="flex flex-row items-center gap-5" key={item.id}>
@@ -332,12 +337,12 @@ const ChatPage = () => {
                   </div>
 
                   {/* right side */}
-                  <div className=" w-full    ">
+                  <div className=" w-full ">
 
 
                     {/* main chat */}
-                    <div className=" bg-[#F5F5F5] h-full overflow-hidden rounded-r-3xl  flex flex-col justify-between  ">
-                      <div className="flex bg-white h-[12vh]">
+                    <div className=" bg-[#F5F5F5] h-full relative overflow-hidden rounded-r-3xl  flex flex-col justify-between  ">
+                      <div className="flex bg-white h-[10vh]">
                         <div className=" w-full flex px-6 items-center  ">
                           <img src={account} className="rounded-full w-[6%]" />
                           <h2 className="px-2 font-bold">Sierra's Group</h2>
@@ -346,7 +351,9 @@ const ChatPage = () => {
                         <div className="flex gap-4 items-center mr-6">
                           <AiOutlineVideoCamera />
                           <BsTelephone />
-                          <BsThreeDotsVertical />
+                          <div onClick={handleClick}>
+                            {Info ? <IoIosInformationCircleOutline /> : <IoIosInformationCircle color="#C31A7F" />}
+                          </div>
                         </div>
                       </div>
                       <div className="flex flex-row   w-full mb-7">
@@ -384,19 +391,19 @@ const ChatPage = () => {
                         </div>
                       </div>
 
-                      <div className="absolute right-[12%] bottom-[20%]  h-[55vh] overflow-y-scroll flex flex-col-reverse items-end ">
+                      <div className="absolute right-[5%] bottom-[20%]  h-[45vh] overflow-y-scroll flex flex-col-reverse items-end ">
                         {result.reverse().map((itemValue, index) => {
 
                           return (
                             <div>
-                            <p
-                              className="m-2 bg-[#86C6C5] p-2 w-max rounded-xl text-right text-white"
-                              key={index}
-                            >
-                              {itemValue}
-                            </p>
+                              <p
+                                className="m-2 bg-[#86C6C5] p-2 w-max rounded-xl text-right text-white"
+                                key={index}
+                              >
+                                {itemValue}
+                              </p>
 
-                            {/* <div className="flex justify-center mt-2" >
+                              {/* <div className="flex justify-center mt-2" >
                             <img
                               src={sendImage}
                               alt="Selected"
@@ -404,7 +411,7 @@ const ChatPage = () => {
                               onChange={HandleImageSend} // Adjust the size as per your requirement
                             />
                           </div> */}
-                          </div>
+                            </div>
 
                           )
 
@@ -413,8 +420,8 @@ const ChatPage = () => {
 
 
 
-                          })}
-                          {/* {sendImage && (
+                        })}
+                        {/* {sendImage && (
                           <div className="flex justify-center mt-2">
                             <img
                               src={sendImage}
@@ -425,21 +432,31 @@ const ChatPage = () => {
                           </div>
                         )} */}
 
-                        {imageResult.reverse().map((item, index) =>{
-                          return(
+                        {imageResult.reverse().map((item, index) => {
+                          return (
                             <div className="flex justify-center mt-2" key={index}>
-                            <img
-                              src={item}
-                              alt="Selected"
-                              style={{ maxWidth: "200px" }}
-                               // Adjust the size as per your requirement
-                            />
-                          </div>
+                              <img
+                                src={item}
+                                alt="Selected"
+                                style={{ maxWidth: "200px" }}
+                              // Adjust the size as per your requirement
+                              />
+                            </div>
                           )
                         })}
                       </div>
+                       
                     </div>
+                   
                   </div>
+                  {!Info && (
+                        <div className="bg-white ">
+                        <h1>TITLE</h1>
+                        <p>Some information here...</p>
+
+                        </div>
+                       
+                    )}
                 </div>
               </div>
             </div>
