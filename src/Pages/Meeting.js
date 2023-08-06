@@ -79,8 +79,8 @@ const Meeting = () => {
               <div className="flex bg-white p-2 gap-4 rounded-2xl shadow-lg">
                 <h2
                   className={`px-2 ${selectedOption === "Today"
-                      ? "font-bold text-black"
-                      : "text-[#C4C4C4]"
+                      ? "font-bold text-black  transition duration-300"
+                      : "text-[#C4C4C4] cursor-pointer"
                     }`}
                   onClick={() => handleItemClick("Today")}
                 >
@@ -88,8 +88,8 @@ const Meeting = () => {
                 </h2>
                 <h2
                   className={`px-2 ${selectedOption === "Meeting"
-                      ? "font-bold text-black"
-                      : "text-[#C4C4C4]"
+                      ? "font-bold text-black  transition duration-300"
+                      : "text-[#C4C4C4] cursor-pointer"
                     }`}
                   onClick={() => handleItemClick("Meeting")}
                 >
@@ -97,8 +97,8 @@ const Meeting = () => {
                 </h2>
                 <h2
                   className={`px-2 ${selectedOption === "History"
-                      ? "font-bold text-black"
-                      : "text-[#C4C4C4]"
+                      ? "font-bold text-black  transition duration-300"
+                      : "text-[#C4C4C4] cursor-pointer"
                     }`}
                   onClick={() => handleItemClick("History")}
                 >
@@ -152,7 +152,7 @@ const Meeting = () => {
                   {join && (
                     <div
                       className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50"
-                      style={{ backdropFilter: "blur(10px)" }}
+                      style={{ backdropFilter: "blur(1px)" }}
                     >
                       {joinWith && (
                         <div className="w-[35%] h-[40%] bg-white rounded-2xl">

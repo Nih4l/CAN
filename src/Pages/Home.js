@@ -237,7 +237,7 @@ const Home = () => {
 
                         <div className=' lg:flex'>
                             {/* background */}
-                            <div className='bg-[#FEF8FD] px-2 w-[100%] lg:flex-row lg:flex'>
+                            <div className='bg-[#FEF8FD] lg:px-0 px-2 w-[100%] lg:flex-row lg:flex'>
 
                                 {/* post */}
                                 <div className='flex flex-col lg:px-16 '>
@@ -768,7 +768,7 @@ const Home = () => {
                                     </div>
 
                                 </div>
-                                <div className='lg:flex lg:flex-col lg:gap-4 lg:items-center lg:mr-12 hidden lg:block   '>
+                                <div className='lg:flex lg:flex-col lg:gap-4 lg:items-center lg:pr-12 hidden lg:block   '>
 
                                     {/* right side */}
 
