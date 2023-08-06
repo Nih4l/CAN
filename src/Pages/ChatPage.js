@@ -255,7 +255,7 @@ const ChatPage = () => {
                     {/* Requests */}
 
                     {chats && (
-                      <div className="flex flex-col mt-2 gap-6 h-1/2   overflow-hidden overflow-y-scroll " style={{}}>
+                      <div className="flex flex-col mt-2 gap-6 h-[230px]   overflow-hidden overflow-y-scroll " style={{}}>
 
                         {AllChats.map((item) => (
                           <div className="flex flex-row items-center gap-5" key={item.id}>
@@ -287,7 +287,7 @@ const ChatPage = () => {
 
                     {!chats && (
 
-                      <div className="overflow-y-scroll h-1/2">
+                      <div className="overflow-y-scroll h-[240px]">
                         {AllRequests.map((item) => (
                           <div className="">
 
