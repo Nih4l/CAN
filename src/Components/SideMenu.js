@@ -272,8 +272,19 @@ const SideMenu = () => {
   const [isOpen, setIsOpen] = useState(() => {
     const storedValue = localStorage.getItem('isOpen');
     return storedValue ? JSON.parse(storedValue) : true;
+    console.log(isOpen);
   });
   const [isiconVisible, setIsiconVisible] = useState(true);
+  const toggleNavbar = () => {
+    setIsOpen(!isOpen);
+    setIsiconVisible(!isiconVisible);
+  };
+
+  useEffect(() => {
+    // Store the 'isOpen' state in localStorage whenever it changes
+    localStorage.setItem('isOpen', JSON.stringify(isOpen));
+  }, [isOpen]);
+  
   const [showmore, setShowmore] = useState(false);
   const [uploadPosts, setUploadPosts] = useState(false);
   const [activePage, setActivePage] = useState(null);
@@ -297,10 +308,10 @@ const SideMenu = () => {
     setActivePage(currentPathname.startsWith('/Appointment') ? '/Appointment' : (currentPathname.startsWith('/Medicine') ? '/Medicine': (currentPathname.startsWith('/HealthCard') ? '/HealthCard':(currentPathname.startsWith('/HealthRecord') ? '/HealthRecord':currentPathname))))
   }, [location]);
 
-  useEffect(() => {
-    // Store the 'isOpen' state in localStorage whenever it changes
-    localStorage.setItem('isOpen', JSON.stringify(isOpen));
-  }, [isOpen]);
+  // useEffect(() => {
+  //   // Store the 'isOpen' state in localStorage whenever it changes
+  //   localStorage.setItem('isOpen', JSON.stringify(isOpen));
+  // }, [isOpen]);
 
   const showmoreOutclick = useRef(null);
 
@@ -334,12 +345,7 @@ const SideMenu = () => {
     return () => {
       document.removeEventListener("click", handleClickOutsideshowmore, true);
     };
-  }, []);
-
-  const toggleNavbar = () => {
-    setIsOpen(!isOpen);
-    setIsiconVisible(!isiconVisible);
-  };
+  }, [showmore]);
 
   const sideMenuDivRef = useRef(null);
   const handleClickOutsideSideMenu = (event) => {

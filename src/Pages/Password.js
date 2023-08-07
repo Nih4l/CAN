@@ -9,7 +9,7 @@ import { AiOutlineEyeInvisible } from 'react-icons/ai'
 import { AiOutlineEye } from 'react-icons/ai'
 import Feed from '../Photos/Feed.png'
 import vibird1 from '../Photos/vibird1.gif'
-import axios from 'axios'
+// import axios from 'axios'
 import { baseurl } from '../Api/baseUrl'
 
 
@@ -75,7 +75,7 @@ const LoginOTP = () => {
                                 <img src={Feed} className='h-[350px] w-[350px]' alt='none' />
                             </div>
 
-                            <div className='mt-5 flex flex-col items-center justify-center  '>
+                         <div className='mt-5 flex flex-col items-center justify-center  '>
                                 <h1 className='text-center text-[36px] font-bold font-poppins '>Stay up to date, and inspired</h1>
                                 <p className=' font-semibold text-[18px] font-poppins mt-2'>Read curated articles on the latest research, and success</p>
                                 <p className='font-semibold text-[18px] font-poppins'>stories from our community</p>
