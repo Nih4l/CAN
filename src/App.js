@@ -60,6 +60,7 @@ const App = () => {
       <BrowserRouter>
       <Routes>
         
+        {/* <Route exact path = '/' element = {<BeforeLoginHome /> }/> */}
         <Route exact path = '/' element = {<BeforeLoginHome /> }/>
         <Route exact path = 'login' element={<Login />} />
         <Route exact path = 'choosetitle' element={<ChooseTitle />} />

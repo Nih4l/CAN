@@ -34,7 +34,7 @@ const Navigation = () => {
             {navOptions.map((option) => (
               <div
                 key={option.id}
-                className={`p-2 cursor-pointer ${selectedOption === option.id ? " text-[#EFC319] font-semibold" : ""}`}
+                className={`p-2 cursor-pointer ${selectedOption === option.id ? " text-[#EFC319] font-semibold bg-blue-600" : ""}`}
                 onClick={() => handleOptionClick(option.id)}
               >
                 {option.name}

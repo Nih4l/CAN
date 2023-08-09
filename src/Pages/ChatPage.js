@@ -3,12 +3,12 @@ import HomeNav from "../Components/HomeNav";
 import { FiSearch } from "react-icons/fi";
 import { AiOutlineEye } from "react-icons/ai";
 import { AiOutlineVideoCamera } from "react-icons/ai";
-import { IoIosInformationCircleOutline , IoIosInformationCircle } from "react-icons/io";
-import { BsTelephone, BsCheck2All } from "react-icons/bs";
+import { IoIosInformationCircleOutline, IoIosInformationCircle, } from "react-icons/io";
+import { BsTelephone, BsCheck2All, BsThreeDotsVertical, BsChat } from "react-icons/bs";
 import { ImAttachment } from "react-icons/im";
 import { AiOutlineSend } from "react-icons/ai";
 import { GrMicrophone } from "react-icons/gr";
-
+import commentIcon from '../Photos/commentIcon.png'
 import account from "../Photos/account.jpg";
 import account2 from "../Photos/account2.jpg";
 import SideMenu from "../Components/SideMenu";
@@ -180,15 +180,38 @@ const ChatPage = () => {
 
   ]
 
+  const GroupMembers = [
+    {
+      id: 1,
+      name: 'Ananya Nagpal',
+      image: 'account2.jpg'
+    },
+    {
+      id: 2,
+      name: 'Ananya Nagpal',
+      image: 'account2.jpg'
+    },
+    {
+      id: 3,
+      name: 'Ananya Nagpal',
+      image: 'account2.jpg'
+    },
+    {
+      id: 4,
+      name: 'Ananya Nagpal',
+      image: 'account2.jpg'
+    },
+  ]
+
 
   return (
     <Page
       pageContent={
         <>
           {/* background */}
-          <div className="bg-[#FEF8FD] flex items-center justify-center h-full">
+          <div className="bg-[#FEF8FD] h-full flex items-center  px-16   ">
             {/* chat space */}
-            <div className=" h-[600px] w-full flex  justify-center  ">
+            <div className="  w-full   ">
               <div className="  bg-white  rounded-3xl  shadow-2xl">
                 <div className="flex h-full w-full">
                   {/* left bar */}
@@ -391,7 +414,7 @@ const ChatPage = () => {
                         </div>
                       </div>
 
-                      <div className="absolute right-[5%] bottom-[20%]  h-[45vh] overflow-y-scroll flex flex-col-reverse items-end ">
+                      <div className="absolute right-[5%] bottom-[20%]  h-80 w-full overflow-y-scroll flex flex-col-reverse items-end ">
                         {result.reverse().map((itemValue, index) => {
 
                           return (
@@ -445,18 +468,81 @@ const ChatPage = () => {
                           )
                         })}
                       </div>
-                       
+
                     </div>
-                   
+
                   </div>
                   {!Info && (
-                        <div className="bg-white ">
-                        <h1>TITLE</h1>
-                        <p>Some information here...</p>
+                    <div className="bg-white rounded-3xl w-[450px] overflow-hidden px-4  ">
+                      {/* <BsThreeDotsVertical /> */}
+                      <div>
+                        <div className="flex flex-col items-center gap-2 justify-center pt-7">
+                          <img className="h-14 w-14 object-cover rounded-full " src={account} alt="none" />
+                          <h1 className="text-[14px] font-poppins font-semibold">Shriniwasan’s Group</h1>
+                          <p className="text-[12px] font-poppins ">Group Members 5/7</p>
+                          <div className="flex flex-row gap-3">
+                            <AiOutlineVideoCamera className="cursor-pointer" size={13} />
+                            <BsTelephone className="cursor-pointer" size={13} />
+                          </div>
+                          <p className="text-[10px] font-poppins text-[#7E7E7E]">Group Create by 18/06/2023 </p>
+                          <div className="w-full h-24 flex flex-col gap-3  bg-white rounded-3xl"
+                            style={{ boxShadow: '0px 10px 30px 0px rgba(139, 21, 57, 0.10)' }}>
+                            <div className="flex flex-row px-5 pt-1 justify-between">
+                              <p className="text-[10px] font-semibold font-poppins">Media Shared in the group</p>
+                              <p className="text-[10px] font-poppins underline text-[#4B65C2] cursor-pointer">View All</p>
+                            </div>
+                            <div className="flex flex-row items-center justify-evenly ">
+                              <img className="h-12 w-12 object-cover rounded-full " src={account} alt="none" style={{ boxShadow: '0px 5px 15px 0px rgba(139, 21, 57, 0.50)' }} />
+                              <img className="h-12 w-12 object-cover rounded-full " src={account} alt="none" style={{ boxShadow: '0px 5px 15px 0px rgba(139, 21, 57, 0.50)' }} />
+                              <img className="h-12 w-12 object-cover rounded-full " src={account} alt="none" style={{ boxShadow: '0px 5px 15px 0px rgba(139, 21, 57, 0.50)' }} />
+                            </div>
 
+                          </div>
                         </div>
-                       
-                    )}
+                        <h1 className="text-[12px] font-poppins font-semibold pl-3 pt-2">Group Members</h1>
+                        <div className="pt-2">
+                          <div className="flex flex-row gap-4 items-center ">
+                            <div className="h-10 w-10 rounded-full border-2 border-red-500 flex items-center justify-center">
+                              <img className="h-8 w-8 rounded-full object-cover " src={account} alt='none' />
+                            </div>
+                            <p className="text-[10px] font-poppins font-semibold text-[#7E7E7E]">You</p>
+
+                          </div>
+                          <hr className="mt-2" />
+                        </div>
+                        <div className="h-[220px] overflow-y-scroll">
+                        {GroupMembers.map((item) => (
+                        <div className="" >
+                          <div className="pt-2 flex flex-row justify-between items-center" key={item.id}>
+                            
+                              <div className="flex flex-row gap-4 items-center ">
+                                <div className="h-10 w-10 rounded-full border-2 border-red-500 flex items-center justify-center">
+                                  <img className="h-8 w-8 rounded-full object-cover " src={item.image} alt='none' />
+                                </div>
+                                <p className="text-[10px] font-poppins font-semibold text-[#7E7E7E]">{item.name}</p>
+
+                              </div>
+                              <div className="flex flex-row gap-1">
+                                {/* <img src={commentIcon} className="" alt="chat" /> */}
+                                <BsChat className="cursor-pointer" size={13} />
+                                <AiOutlineVideoCamera className="cursor-pointer" size={13} />
+                                <BsTelephone className="cursor-pointer" size={13} />
+                                <BsThreeDotsVertical className="cursor-pointer" size={13} />
+                              </div>
+
+                            </div>
+                            <hr className="mt-2" />
+                            </div>
+                        ))}
+                        </div>
+                          
+                        
+
+                      </div>
+
+                    </div>
+
+                  )}
                 </div>
               </div>
             </div>
