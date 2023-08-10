@@ -15,11 +15,11 @@ import c5 from '../Photos/c5.png'
 
 // ]
 const slides = [
-  { image: c1, text: 'Image 1' },
-  { image: c2, text: 'Image 2' },
-  { image: c3, text: 'Image 3' },
-  { image: c4, text: 'Image 4' },
-  { image: c5, text: 'Image 5' },
+  { id: 1,image: c1, text: 'Image 1' },
+  { id: 2,image: c2, text: 'Image 2' },
+  { id: 3,image: c3, text: 'Image 3' },
+  { id: 4,image: c4, text: 'Image 4' },
+  { id: 5,image: c5, text: 'Image 5' },
 ];
 
 const CarouselMain = () => {
@@ -34,11 +34,11 @@ const CarouselMain = () => {
 
       <div className='max-w-lg flex relative'>
         <Carousel>
-          {slides.map((slide , index) => (
-            <>
+          {slides.map((slide) => (
+            <div className='' key={slide.id}>
             <img  src={slide.image} />
-            <p className=''></p>
-            </>
+            <p className=''>{slide.text}</p>
+            </div>
           ))}
         </Carousel>
 
