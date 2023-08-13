@@ -36,6 +36,10 @@ import sparrow from '../Photos/sparrow.png'
 import rightBranch from '../Photos/rightBranch.png'
 import leftBranch from '../Photos/leftBranch.png'
 import manyPeople from '../Photos/manyPeople.png'
+import heartLanding from '../Photos/heartLanding.png'
+import capsuleLanding from '../Photos/capsuleLanding.png'
+import supportLanding from '../Photos/supportLanding.png'
+import LandingPageFooter from './LandingPageFooter';
 
 
 
@@ -137,18 +141,8 @@ const BeforeLoginHome = () => {
   return (
     <>
 
-      {/* <div className=' items-center  flex justify-center w-[67vh] md:w-[200vh]'>
-        <div className=' md:w-[88%]  w-[80vh] pl-10 '>
-          <img src={bcancer} alt='not found' className='relative'/>
-        </div>
-        <h2 className='absolute md:text-white md:top-[50%] md:left-[50%] top-[50vh] font-bold text-2xl text-black w-[60vh] md:w-[80vh]'>
-          <p className='w-full'>lorem lorem lorem lorem lorem lorem lorem </p>
-          <p>lorem lorem lorem lorem lorem lorem lorem </p>
-          <p>lorem lorem lorem lorem lorem lorem lorem </p>
-        </h2>
-      </div> */}
       <div className='relative'>
-        <div className='bg-[#52D8E9] flex items-center justify-center  group overflow-hidden  relative  w-full h-[780px]'>
+        <div className='bg-[#52D8E9] flex items-center justify-center  group overflow-hidden  relative  w-full h-[700px]'>
 
           {/* <Navigation /> */}
           <div className=' absolute top-8 '>
@@ -157,14 +151,12 @@ const BeforeLoginHome = () => {
 
           <div className='pb-64 flex flex-col items-center justify-center gap-4 z-10 w-full'>
             <h1 className='text-[36px] font-semibold text-[#084943]'>Join the fight against cancer!</h1>
-            <div className=' flex   items-center justify-center  h-10 w-40 rounded-full  bg-[#084943] '>
 
-              <p className='text-[14px] font-poppins font-semibold text-white'>Join a meeting</p>
 
-            </div>
+            <button className='text-[14px] bg-[#084943] flex   items-center justify-center  rounded-full  h-10 w-40 font-poppins font-semibold text-white transition duration-300 ease-in-out hover:bg-[#084943] transform hover:-translate-y-1 hover:scale-110 '>
+              Join a meeting
+            </button>
           </div>
-
-
           <img
             src={rightSideImage}
             alt="Overlay"
@@ -181,12 +173,12 @@ const BeforeLoginHome = () => {
           <img
             src={leftCloud1}
             alt="Overlay"
-            className="absolute bottom-[20%] left-0  sm:w-[200px] sm:h-full md:w-[200px] md:h-[200px] lg:w-full  opacity-100 group-hover:opacity-40 transform -translate-x-full  group-hover:translate-x-0  transition-all duration-1000 ease-in-out"
+            className="absolute bottom-[25%] left-0  sm:w-[200px] sm:h-full md:w-[200px] md:h-[200px] lg:w-full  opacity-100 group-hover:opacity-40 transform -translate-x-full  group-hover:translate-x-0  transition-all duration-1000 ease-in-out"
           />
           <img
             src={leftCloud2}
             alt="Overlay"
-            className="absolute bottom-[20%] left-0  sm:w-[200px] sm:h-full md:w-[200px] md:h-[200px] lg:w-full  opacity-100 group-hover:opacity-40 transform -translate-x-full  group-hover:translate-x-0  transition-all duration-1000 ease-in-out"
+            className="absolute bottom-[30%] left-0  sm:w-[200px] sm:h-full md:w-[200px] md:h-[200px] lg:w-full  opacity-100 group-hover:opacity-40 transform -translate-x-full  group-hover:translate-x-0  transition-all duration-1000 ease-in-out"
           />
           <img
             src={leftCloud3}
@@ -206,12 +198,12 @@ const BeforeLoginHome = () => {
           <img
             src={leftCloud6}
             alt="Overlay"
-            className="absolute bottom-[40%] left-0  sm:w-[200px] sm:h-full md:w-[200px] md:h-[200px] lg:w-full  opacity-100 group-hover:opacity-40 transform -translate-x-full  group-hover:translate-x-0  transition-all duration-1000 ease-in-out"
+            className="absolute bottom-[30%] left-0  sm:w-[200px] sm:h-full md:w-[200px] md:h-[200px] lg:w-full  opacity-100 group-hover:opacity-40 transform -translate-x-full  group-hover:translate-x-0  transition-all duration-1000 ease-in-out"
           />
           <img
             src={leftCloud7}
             alt="Overlay"
-            className="absolute bottom-[50%] left-0  sm:w-[200px] sm:h-full md:w-[200px] md:h-[200px] lg:w-full  opacity-100 group-hover:opacity-40 transform -translate-x-full  group-hover:translate-x-0  transition-all duration-1000 ease-in-out"
+            className="absolute bottom-[40%] left-0  sm:w-[200px] sm:h-full md:w-[200px] md:h-[200px] lg:w-full  opacity-100 group-hover:opacity-40 transform -translate-x-full  group-hover:translate-x-0  transition-all duration-1000 ease-in-out"
           />
 
           {/* right side cloud images */}
@@ -246,13 +238,12 @@ const BeforeLoginHome = () => {
             alt="Overlay"
             className="absolute bottom-[40%] right-0  sm:w-[200px] sm:h-full md:w-[200px] md:h-[200px] lg:w-full  opacity-100 group-hover:opacity-40 transform translate-x-full  group-hover:translate-x-0  transition-all duration-1000 ease-in-out"
           />
-
-
-
         </div>
-        <img className='absolute top-20  w-full ' src={LandingPage1} alt='none' />
 
+        {/* image with beach */}
+        <img className='absolute top-0  w-full ' src={LandingPage1} alt='none' />
       </div>
+
       <div className=' pt-44 flex items-center justify-center '>
         <div className='w-[500px] flex flex-col items-center justify-center '>
           <h1 className='text-[40px] font-bold text-[#084943]'>What is Support Therapy?</h1>
@@ -264,10 +255,12 @@ const BeforeLoginHome = () => {
         <img className='absolute right-36' src={sparrow} alt='none' />
         <img className='absolute top-56 right-0' src={leftBranch} alt='none' />
         <img className='absolute  left-0' src={rightBranch} alt='none' />
-
       </div>
+
+      {/* carousel with animation */}
+
       <div className='w-full flex items-center justify-center'>
-        <div className='w-[450px]    pt-10'>
+        <div className='w-full     pt-10'>
           <Slider {...settings} className=' '>
             {data.map((item) => (
               <div
@@ -279,23 +272,25 @@ const BeforeLoginHome = () => {
                 {/* Background Image */}
                 <div className='flex items-center justify-center'>
                   <img
-                    className='carousel-image w-[450px]  object-cover relative '
+                    className='carousel-image w-[400px]  object-cover relative '
                     src={item.imageUrl}
                     alt={item.title}
                   />
-                  <img className='absolute w-1/2 z-10 top-20 ' src={item.slideImage} alt='none' />
-                  <div className={`absolute  top-0 left-0 w-full  group-hover:opacity-100 ${isHovered === item.id ? 'opacity-100' : 'opacity-0'} transition-opacity duration-300`}>
-                    <img className='w-[450px]   relative ' src={item.imageUrl1} alt='none' />
+                  <img className='absolute w-[200px] z-10 top-20 ' src={item.slideImage} alt='none' />
+                  <div className={`absolute  top-0 left-[37%] w-full  group-hover:opacity-100 ${isHovered === item.id ? 'opacity-100' : 'opacity-0'} transition-opacity duration-300`}>
+                    <img className=' w-[400px]  relative ' src={item.imageUrl1} alt='none' />
                     <img className={`absolute  bottom-20 -left-28 w-[100px] transition-all duration-700 ease-in-out ${isHovered === item.id ? 'opacity-100 transform translate-x-full rotate-12' : ''} `} src={item.overlayImage} alt='none' />
-                    <img className={`absolute  bottom-20 -right-28 w-[100px] transition-all duration-700 ease-in-out ${isHovered === item.id ? 'opacity-100 transform -translate-x-full -rotate-12' : ''} `} src={item.overlayImage1} alt='none' />
+                    <img className={`absolute  bottom-20 -left-[-27%] w-[100px] transition-all duration-700 ease-in-out ${isHovered === item.id ? 'opacity-100 transform -translate-x-full -rotate-12' : ''} `} src={item.overlayImage1} alt='none' />
                     <img className={`absolute -top-28 left-28 w-[30px] transition-all duration-700 ease-in-out ${isHovered === item.id ? 'opacity-100 transform translate-y-full ' : ''} `} src={item.overlayImage2} alt='none' />
                     <img className={`absolute -top-28 left-44 w-[30px] transition-all duration-700 ease-in-out ${isHovered === item.id ? 'opacity-100 transform translate-y-full ' : ''} `} src={item.overlayImage3} alt='none' />
                   </div>
                 </div>
 
-                <div className='flex flex-col items-center justify-center pt-10'>
-                  <h2 className='text-[26px] text-[#084943] font-bold'>{item.title}</h2>
-                  <p className='text-[14px] text-center font-semibold'>{item.description}</p>
+                <div className='flex items-center justify-center'>
+                  <div className='flex flex-col items-center  w-[60%] justify-center pt-10'>
+                    <h2 className='text-[36px] text-[#084943] font-bold'>{item.title}</h2>
+                    <p className='text-[20px] text-center font-roboto '>{item.description}</p>
+                  </div>
                 </div>
               </div>
             ))}
@@ -303,7 +298,9 @@ const BeforeLoginHome = () => {
         </div>
       </div>
 
-      <div className='flex items-center justify-center relative  pt-40'>
+      {/* content */}
+
+      <div className='flex items-center justify-center relative  mt-40'>
         <div className='flex flex-col w-[65%] items-center justify-center gap-4'>
           <h1 className='text-[40px] font-roboto font-extrabold text-[#084943]'>Our Vision</h1>
           <p className='text-center text-[24px] font-roboto '>Our purpose is to transform the lives of cancer patients with unwavering support and compassion. We create a safe and nurturing environment where patients find solace and encouragement. By lending a listening ear, offering comfort, and being a reliable presence, we instill hope and resilience. Additionally, we raise awareness about cancer prevention, collaborate with medical professionals, and organize support initiatives, aiming to improve well-being and quality of life. Together, we strive to conquer cancer and build a future filled with healing and empowerment.
@@ -312,14 +309,64 @@ const BeforeLoginHome = () => {
         <img className='absolute right-0' src={leftBranch} alt='none' />
       </div>
 
+      {/* why can button */}
+
       <div className='flex items-center justify-center pt-10'>
-        <button className='h-10 w-36 rounded-[10px] bg-[#C4DDDB] text-white text-[16px] duration-300 ease-out '>Why CAN?</button>
+        <button className='h-10 w-36 rounded-[10px] bg-[#88C2C8] transition duration-300 ease-in-out hover:bg-[#88C2C8] transform hover:-translate-y-1 hover:scale-110 text-white  '>Why CAN?</button>
       </div>
+
+      {/* image below why can button */}
 
       <div className='flex items-center justify-center pt-16'>
         <img className='object-cover w-1/2' src={manyPeople} alt='none' />
       </div>
 
+      {/* three content below image  */}
+
+      <div className='pt-16 px-10'>
+        <div className='w-full flex flex-row items-center justify-between'>
+          <div className='w-[350px] flex flex-col items-center justify-center'>
+            {/* <img className='' src={heartLanding} alt='none' /> */}
+            <h1 className='text-[#9D1F60] text-[24px] font-roboto font-semibold'>Health Articles</h1>
+            <p className='text-center text-[17px] font-thin'>Lorem ipsum dolor sit amet consectetur. Vestibulum et neque tincidunt purus tincidunt duis. Feugiat vulputate sed morbi morbi neque nulla malesuada risus. Egestas venenatis nunc egestas lacinia id. At quam amet non ullamcorper.</p>
+          </div>
+
+          <div className='w-[350px] flex flex-col items-center justify-center'>
+            {/* <img src={capsuleLanding} alt='none' /> */}
+            <h1 className='text-[#9D1F60] text-[24px] font-roboto font-semibold'>Medicine Reminders</h1>
+            <p className='text-center  text-[17px] font-thin'>Lorem ipsum dolor sit amet consectetur. Vestibulum et neque tincidunt purus tincidunt duis. Feugiat vulputate sed morbi morbi neque nulla malesuada risus. Egestas venenatis nunc egestas lacinia id. At quam amet non ullamcorper.</p>
+          </div>
+
+          <div className='w-[350px] flex flex-col items-center justify-center'>
+            {/* <img className='w-[150px]' src={supportLanding} alt='none' /> */}
+            <h1 className='text-[#9D1F60] text-[24px] font-roboto font-semibold'>Support Group Meetings</h1>
+            <p className='text-center  text-[17px] font-thin'>Lorem ipsum dolor sit amet consectetur. Vestibulum et neque tincidunt purus tincidunt duis. Feugiat vulputate sed morbi morbi neque nulla malesuada risus. Egestas venenatis nunc egestas lacinia id. At quam amet non ullamcorper.</p>
+          </div>
+
+        </div>
+      </div>
+
+      {/* lets fight cancer with button */}
+      <div className='pt-10 relative'>
+        <div className='flex flex-col items-center justify-center gap-4'>
+          <h1 className='text-[30px] font-bold font-roboto text-[#9D1F60]'>Let’s fight cancer together!</h1>
+          <button className='h-10 w-56 rounded-2xl flex items-center justify-center text-white bg-[#F2CF47] transition duration-300 ease-in-out hover:bg-[#F2CF47] transform hover:-translate-y-1 hover:scale-110'>
+            Start Your Journey
+          </button>
+        </div>
+        <img className='absolute right-36' src={sparrow} alt='none' />
+        <img className='absolute  left-0' src={rightBranch} alt='none' />
+      </div>
+
+      {/* image below the button  */}
+      <div className='flex items-center justify-center pt-16'>
+        <img src={manyPeople} alt='none' />
+      </div>
+
+      {/* complete footer */}
+      <div className='pt-10'>
+        <LandingPageFooter />
+      </div>
 
     </>
   )

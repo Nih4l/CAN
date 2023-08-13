@@ -1,28 +1,20 @@
 /* SliderCustomStyles.css */
 
 /* Custom styles for the dots */
-.slick-dots {
-    bottom: -100px; /* Adjust the vertical position as needed */
-  }
+
   
-  .slick-dots li {
-    margin: 0 10px; /* Adjust the horizontal spacing between dots */
-    display: inline-block;
-    list-style: none;
-  }
-  
-  .slick-dots li button {
-    width: 12px; /* Adjust the width of the dots */
-    height: 12px; /* Adjust the height of the dots */
-    border: none;
-    border-radius: 50%;
-    background-color: #ccc; /* Default dot color */
-    opacity: 0.7; /* Default dot opacity */
-    transition: background-color 0.3s, opacity 0.3s;
-  }
-  
-  .slick-dots li.slick-active button {
-    background-color: #084943; /* Active dot color */
-    opacity: 1; /* Active dot opacity */
-  }
-  
+  button.slick-arrow:nth-child(3) {
+    display: none !important;
+    }
+
+    /* ul li button {
+      display: none !important;
+      } */
+
+      .slick-dots li button::before {
+        font-size: 15px !important;
+        color: #084943 !important;
+        margin-top: 50px;
+        }
+
+      
