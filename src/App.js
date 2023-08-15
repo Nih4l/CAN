@@ -52,6 +52,8 @@ import SetPassword from './Components/SetPassword'
 import BlockedAccounts from './Pages/BlockedAccounts'
 import Notification from './Pages/Notification'
 import HealthCard2 from './Pages/HealthCard2'
+import KnowMore from './Pages/KnowMore'
+import WhyCan from './Pages/WhyCan'
 
 const App = () => {
   
@@ -62,6 +64,8 @@ const App = () => {
         
         {/* <Route exact path = '/' element = {<BeforeLoginHome /> }/> */}
         <Route exact path = '/' element = {<BeforeLoginHome /> }/>
+        <Route exact path = '/KnowMore' element = {<KnowMore /> }/>
+        <Route exact path = '/Whycan' element = {<WhyCan /> }/>
         <Route exact path = 'login' element={<Login />} />
         <Route exact path = 'choosetitle' element={<ChooseTitle />} />
         <Route exact path = 'phonenumber' element={<PhoneNumber />} />
@@ -97,13 +101,13 @@ const App = () => {
         <Route exact path = 'ResetPassword' element={<ResetPassword />} />
         <Route exact path = 'ResetPasswordSuccessfully' element={<ResetPasswordSuccessfully />} />
         <Route exact path="Subscription_Models" element={<SubscriptionModels/>} />
-        <Route exact path="Subscription_Payment_Method" element={<Subscription_Payment_Method />}></Route>
+        <Route exact path="Subscription_Payment_Method" element={<Subscription_Payment_Method />} />
         <Route exact path= 'MeetingActive' element={<MeetingActive/>}></Route>
         <Route exact path= 'HelpAFriend' element={<HelpAFriend/>}></Route>
         <Route exact path= 'HelpFeedback' element={<HelpFeedback/>}></Route>
         <Route exact path='Settings' element={<Settings/>}></Route>
         <Route exact path='ProfileLock' element={<ProfileLock/>}></Route>
-      
+
         <Route exact path = 'AddProfile' element={<AddProfile />} />
         <Route exact path = 'loginchoosetitle' element={<LoginChooseTitle />} />
         <Route exact path = 'logindetails' element={<LoginDetails />} />
@@ -115,10 +119,6 @@ const App = () => {
         <Route exact path= 'Notification' element={<Notification/>}/>
         <Route exact path= 'HealthCard2' element={<HealthCard2/>}/>
         <Route exact path= 'MeetingActive' element={<MeetingActive/>}/>
-
-        
-       
-        
       </Routes>
       </BrowserRouter>
     </>

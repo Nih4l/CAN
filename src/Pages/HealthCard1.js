@@ -3,7 +3,10 @@ import { CgAdd } from 'react-icons/cg';
 import { MdOutlineCloudUpload } from 'react-icons/md';
 import Page from '../Layouts/Pages';
 import { Link, useNavigate } from 'react-router-dom';
+
+
 const HealthCard1 = () => {
+  
   const hiddenChooseImage = useRef(null);
   const [selectedImage, setSelectedImage] = useState(null);
   const [healthCardData, setHealthCardData] = useState([]);

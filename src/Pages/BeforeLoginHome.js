@@ -40,6 +40,7 @@ import heartLanding from '../Photos/heartLanding.png'
 import capsuleLanding from '../Photos/capsuleLanding.png'
 import supportLanding from '../Photos/supportLanding.png'
 import LandingPageFooter from './LandingPageFooter';
+import { Link } from 'react-router-dom';
 
 
 
@@ -145,9 +146,9 @@ const BeforeLoginHome = () => {
         <div className='bg-[#52D8E9] flex items-center justify-center  group overflow-hidden  relative  w-full h-[700px]'>
 
           {/* <Navigation /> */}
-          <div className=' absolute top-8 '>
+          
             <NewNavigation />
-          </div>
+          
 
           <div className='pb-64 flex flex-col items-center justify-center gap-4 z-10 w-full'>
             <h1 className='text-[36px] font-semibold text-[#084943]'>Join the fight against cancer!</h1>
@@ -312,7 +313,9 @@ const BeforeLoginHome = () => {
       {/* why can button */}
 
       <div className='flex items-center justify-center pt-10'>
+      <Link to='/Whycan'>
         <button className='h-10 w-36 rounded-[10px] bg-[#88C2C8] transition duration-300 ease-in-out hover:bg-[#88C2C8] transform hover:-translate-y-1 hover:scale-110 text-white  '>Why CAN?</button>
+        </Link>
       </div>
 
       {/* image below why can button */}
@@ -350,7 +353,7 @@ const BeforeLoginHome = () => {
       <div className='pt-10 relative'>
         <div className='flex flex-col items-center justify-center gap-4'>
           <h1 className='text-[30px] font-bold font-roboto text-[#9D1F60]'>Let’s fight cancer together!</h1>
-          <button className='h-10 w-56 rounded-2xl flex items-center justify-center text-white bg-[#F2CF47] transition duration-300 ease-in-out hover:bg-[#F2CF47] transform hover:-translate-y-1 hover:scale-110'>
+          <button className='h-10 w-56 rounded-2xl flex items-center justify-center text-white bg-[#F2CF47] transition duration-300 ease-in-out hover:bg-[#9D1F60] transform hover:-translate-y-1 hover:scale-110'>
             Start Your Journey
           </button>
         </div>
