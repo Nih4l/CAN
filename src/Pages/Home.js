@@ -547,7 +547,7 @@ const Home = () => {
 
                                                             <div className='lg:w-[70%] lg:h-[60%]  bg-[#FDF4F9] rounded-3xl flex flex-col lg:flex lg:flex-row overflow-hidden'>
 
-                                                            
+
 
                                                                 {/* Left side (Photo) */}
                                                                 <div className='lg:w-[60%] '>
@@ -557,71 +557,71 @@ const Home = () => {
                                                                 {/* Right side (Details) */}
                                                                 <div className='lg:w-[40%] flex flex-col justify-between gap-4 p-4 relative'>
                                                                     <div>
-                                                                    <div className=' flex h-max items-center gap-2'>
+                                                                        <div className=' flex h-max items-center gap-2'>
 
-                                                                        <div className='rounded-full overflow-hidden  h-max w-[20%]'>
-                                                                            <img src={account} alt='none' className='' />
-                                                                        </div>
+                                                                            <div className='rounded-full overflow-hidden  h-max w-[20%]'>
+                                                                                <img src={account} alt='none' className='' />
+                                                                            </div>
 
-                                                                        <div className='flex flex-col  w-full'>
+                                                                            <div className='flex flex-col  w-full'>
 
-                                                                            <div className='flex flex-row items-center justify-between w-full'>
+                                                                                <div className='flex flex-row items-center justify-between w-full'>
 
-                                                                                <div className='flex flex-row gap-2 items-center'>
-                                                                                    <h1 className='font-semibold'>Sierra Ferguson</h1>
-                                                                                    <p className='text-xs text-[#7E7E7E]'>15 hrs ago</p>
+                                                                                    <div className='flex flex-row gap-2 items-center'>
+                                                                                        <h1 className='font-semibold'>Sierra Ferguson</h1>
+                                                                                        <p className='text-xs text-[#7E7E7E]'>15 hrs ago</p>
+                                                                                    </div>
+
+                                                                                    <div className='cursor-pointer absolute right-8 top- lg:right- lg:' onClick={toggleContent}>
+                                                                                        <IoMdClose className='lg:text-[#000] ' />
+                                                                                    </div>
+
                                                                                 </div>
 
-                                                                                <div className='cursor-pointer absolute right-8 top- lg:right- lg:' onClick={toggleContent}>
-                                                                                    <IoMdClose className='lg:text-[#000] ' />
+                                                                                <div className='flex gap-2 items-center '>
+                                                                                    <h1 className='text-xs p-2 px-4 bg-[#efc4194c] rounded-2xl'>Blogger</h1>
+                                                                                    <h1 className='text-xs font-semibold text-[#C31A7F]'>Cancer Fighter</h1>
                                                                                 </div>
 
                                                                             </div>
 
-                                                                            <div className='flex gap-2 items-center '>
-                                                                                <h1 className='text-xs p-2 px-4 bg-[#efc4194c] rounded-2xl'>Blogger</h1>
-                                                                                <h1 className='text-xs font-semibold text-[#C31A7F]'>Cancer Fighter</h1>
+
+                                                                        </div>
+
+                                                                        {/* heading */}
+                                                                        <div className='font-semibold'>
+                                                                            <h1>Cancer Survivor Stories: Bethany</h1>
+                                                                        </div>
+
+                                                                        {/* content */}
+                                                                        <div className='text-[80%]'>
+                                                                            Bethany was running in a half marathon when she began to feel ill. She thought that her celiac disease may have flared up due to something she had eaten, but when she didn’t get better, she decided to see a doctor. What followed was a series of misdiagnoses celiac disease may have flared up due to something she had eaten, but when she didn’t get better, she decided to see a doctor.
+                                                                        </div>
+
+                                                                        {/* comments */}
+                                                                        <div className='mt-4 flex items-center gap-2'>
+                                                                            <div className='w-[10%] rounded-full overflow-hidden'>
+                                                                                <img src={account} alt='none' />
                                                                             </div>
 
-                                                                        </div>
-
-
-                                                                    </div>
-
-                                                                    {/* heading */}
-                                                                    <div className='font-semibold'>
-                                                                        <h1>Cancer Survivor Stories: Bethany</h1>
-                                                                    </div>
-
-                                                                    {/* content */}
-                                                                    <div className='text-[80%]'>
-                                                                        Bethany was running in a half marathon when she began to feel ill. She thought that her celiac disease may have flared up due to something she had eaten, but when she didn’t get better, she decided to see a doctor. What followed was a series of misdiagnoses celiac disease may have flared up due to something she had eaten, but when she didn’t get better, she decided to see a doctor.
-                                                                    </div>
-
-                                                                    {/* comments */}
-                                                                    <div className='mt-4 flex items-center gap-2'>
-                                                                        <div className='w-[10%] rounded-full overflow-hidden'>
-                                                                            <img src={account} alt='none' />
-                                                                        </div>
-
-                                                                        <div className='w-full'>
-                                                                            <div className='flex justify-between items-center'>
-                                                                                <div className='flex items-center gap-3'>
-                                                                                    <h1 className='font-semibold'>Sierra Ferguson</h1>
-                                                                                    <p className='text-xs text-[#C31A7F]'>Cancer Fighter</p>
-                                                                                    <p className='text-xs items-center'><AiOutlineHeart /></p>
+                                                                            <div className='w-full'>
+                                                                                <div className='flex justify-between items-center'>
+                                                                                    <div className='flex items-center gap-3'>
+                                                                                        <h1 className='font-semibold'>Sierra Ferguson</h1>
+                                                                                        <p className='text-xs text-[#C31A7F]'>Cancer Fighter</p>
+                                                                                        <p className='text-xs items-center'><AiOutlineHeart /></p>
+                                                                                    </div>
+                                                                                    <div className='text-xs text-[#7E7E7E]'>
+                                                                                        15 hrs ago
+                                                                                    </div>
                                                                                 </div>
-                                                                                <div className='text-xs text-[#7E7E7E]'>
-                                                                                    15 hrs ago
+                                                                                <div className='text-sm'>
+                                                                                    better luck next time
                                                                                 </div>
                                                                             </div>
-                                                                            <div className='text-sm'>
-                                                                                better luck next time
-                                                                            </div>
-                                                                        </div>
 
+                                                                        </div>
                                                                     </div>
-                                                                </div>
                                                                     {/* input section */}
                                                                     <div className=' bottom-4'>
                                                                         <div className='flex gap-3 w-full bg-transparent'>
@@ -891,24 +891,24 @@ const Home = () => {
 
                         {/* floating chat */}
                         <FloatingChat />
-                        
-                                                    {/* emoji  */}
-                                                    {showEmoji && (
-                                                        <div className="absolute top-52   left-3  lg:top-56 lg:left-96" ref={pickerRef}>
-                                                            <Picker
-                                                                data={data}
-                                                                emojiSize={26}
-                                                                emojiButtonSize={34}
-                                                                onEmojiSelect={addEmoji}
-                                                                maxFrequentRows={0}
-                                                                theme='light'
-                                                                category='apple'
-                                                                autoFocus={true}
-                                                                onFocus={handlePickerFocus}
-                                                                icons='solid'
-                                                            />
-                                                        </div>
-                                                    )}
+
+                        {/* emoji  */}
+                        {showEmoji && (
+                            <div className="absolute top-52   left-3  lg:top-56 lg:left-96" ref={pickerRef}>
+                                <Picker
+                                    data={data}
+                                    emojiSize={26}
+                                    emojiButtonSize={34}
+                                    onEmojiSelect={addEmoji}
+                                    maxFrequentRows={0}
+                                    theme='light'
+                                    category='apple'
+                                    autoFocus={true}
+                                    onFocus={handlePickerFocus}
+                                    icons='solid'
+                                />
+                            </div>
+                        )}
                     </div>
 
                 </>)} />
